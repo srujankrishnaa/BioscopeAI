@@ -143,7 +143,7 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
       isActive = false;
       clearInterval(progressInterval);
     };
-  }, [cityName, regions, showFakeLoading]); // Removed regions and showFakeLoading from dependencies
+  }, [cityName, regions, showFakeLoading]); // Only depend on cityName to prevent restarts
 
   const handleImageLoad = (regionId: string) => {
     if (!showFakeLoading) {
