@@ -104,11 +104,38 @@ outputs/
 */outputs/
 results/
 */results/
-*.png
-*.jpg
-*.jpeg
-*.tiff
-*.tif
+
+# Image files (exclude from datasets and outputs, but allow in public folders)
+dataset/*.png
+dataset/*.jpg
+dataset/*.jpeg
+dataset/*.tiff
+dataset/*.tif
+*/dataset/*.png
+*/dataset/*.jpg
+*/dataset/*.jpeg
+*/dataset/*.tiff
+*/dataset/*.tif
+outputs/*.png
+outputs/*.jpg
+outputs/*.jpeg
+outputs/*.tiff
+outputs/*.tif
+*/outputs/*.png
+*/outputs/*.jpg
+*/outputs/*.jpeg
+*/outputs/*.tiff
+*/outputs/*.tif
+results/*.png
+results/*.jpg
+results/*.jpeg
+results/*.tiff
+results/*.tif
+*/results/*.png
+*/results/*.jpg
+*/results/*.jpeg
+*/results/*.tiff
+*/results/*.tif
 
 # Google Earth Engine credentials
 service-account-key.json
