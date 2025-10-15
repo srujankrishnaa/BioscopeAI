@@ -98,7 +98,13 @@ else:
 @app.get("/")
 async def root():
     """Root endpoint."""
-    return {"message": "Biomass Prediction API", "version": "1.0.1", "status": "Railway deployment active"}
+    return {
+        "message": "Biomass Prediction API", 
+        "version": "1.0.2", 
+        "status": "Railway deployment with fallback endpoints",
+        "endpoints": ["/api/get-city-regions", "/api/analyze-region"],
+        "timestamp": "2025-10-15T17:30:00Z"
+    }
 
 @app.get("/health")
 async def health_check():

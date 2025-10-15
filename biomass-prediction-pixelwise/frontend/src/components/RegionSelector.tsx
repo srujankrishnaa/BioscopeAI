@@ -49,7 +49,6 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
     if (!showFakeLoading) return;
 
     console.log('🚀 Starting fake loading for:', cityName);
-    console.log('📊 showFakeLoading state:', showFakeLoading);
 
     // Variable timing for each region - realistic satellite data processing times
     const regionDurations = [
@@ -62,14 +61,13 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
 
     const updateInterval = 100; // Update every 100ms for smooth animation
     const startTime = Date.now();
-
-    // Reset progress states
-    setLoadingProgress(0);
-    setCurrentLoadingRegion(0);
+    let isActive = true; // Flag to prevent state updates after cleanup
 
     console.log('⏰ Progress interval starting...');
 
     const progressInterval = setInterval(() => {
+      if (!isActive) return; // Prevent updates if component unmounted or effect cleaned up
+
       const totalElapsed = Date.now() - startTime;
 
       // Calculate cumulative durations to find current region and progress
@@ -88,7 +86,9 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
       }
 
       // Update current region if it changed
-      setCurrentLoadingRegion(Math.min(currentRegionIndex, regionDurations.length - 1));
+      if (isActive) {
+        setCurrentLoadingRegion(Math.min(currentRegionIndex, regionDurations.length - 1));
+      }
 
       // Calculate progress based on total elapsed time
       if (currentRegionIndex >= regionDurations.length) {
@@ -113,27 +113,37 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
 
       // Ensure progress doesn't exceed 100%
       progress = Math.min(progress, 100);
-      setLoadingProgress(progress);
+      
+      if (isActive) {
+        setLoadingProgress(progress);
+      }
 
       // Complete loading when we reach 100%
-      if (progress >= 100) {
+      if (progress >= 100 && isActive) {
         clearInterval(progressInterval);
+        isActive = false;
 
         // Small delay before showing regions for better UX
         setTimeout(() => {
-          setShowFakeLoading(false);
-          // Mark all images as loaded after fake loading completes
-          const loadedState: { [key: string]: boolean } = {};
-          regions.forEach(region => {
-            loadedState[region.id] = true;
-          });
-          setPreviewsLoaded(loadedState);
+          if (isActive === false) { // Double check we haven't been cleaned up
+            setShowFakeLoading(false);
+            // Mark all images as loaded after fake loading completes
+            const loadedState: { [key: string]: boolean } = {};
+            regions.forEach(region => {
+              loadedState[region.id] = true;
+            });
+            setPreviewsLoaded(loadedState);
+          }
         }, 500);
       }
     }, updateInterval);
 
-    return () => clearInterval(progressInterval);
-  }, [cityName, regions, showFakeLoading]);
+    return () => {
+      console.log('🧹 Cleaning up progress interval');
+      isActive = false;
+      clearInterval(progressInterval);
+    };
+  }, [cityName, regions, showFakeLoading]); // Removed regions and showFakeLoading from dependencies
 
   const handleImageLoad = (regionId: string) => {
     if (!showFakeLoading) {
