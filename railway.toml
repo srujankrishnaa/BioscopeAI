@@ -2,8 +2,11 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "cd biomass-prediction-pixelwise/backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+startCommand = "cd biomass-prediction-pixelwise/backend && python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT"
 healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
 
 [variables]
 PYTHONPATH = "/app/biomass-prediction-pixelwise/backend"
+PYTHONUNBUFFERED = "1"
