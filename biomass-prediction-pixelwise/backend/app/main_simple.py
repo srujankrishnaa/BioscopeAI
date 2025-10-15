@@ -96,6 +96,82 @@ async def system_status():
         }
     }
 
+@app.post("/api/get-city-regions")
+async def get_city_regions(request: PredictionRequest):
+    """Get available regions for a city (mock version)."""
+    try:
+        city_name = request.city.lower()
+        
+        # Mock regions for any city
+        regions = [
+            {
+                "id": f"{city_name}_center",
+                "name": "City Center",
+                "description": "Downtown area with mixed commercial and residential zones",
+                "bbox": [77.5946, 12.9716, 77.6146, 12.9916],
+                "coordinates": {
+                    "center": [77.6046, 12.9816],
+                    "bounds": [[77.5946, 12.9716], [77.6146, 12.9916]]
+                },
+                "previewImage": f"/api/mock-preview/{city_name}_center.jpg"
+            },
+            {
+                "id": f"{city_name}_north",
+                "name": "North District",
+                "description": "Residential areas with parks and green spaces",
+                "bbox": [77.5946, 12.9916, 77.6146, 13.0116],
+                "coordinates": {
+                    "center": [77.6046, 13.0016],
+                    "bounds": [[77.5946, 12.9916], [77.6146, 13.0116]]
+                },
+                "previewImage": f"/api/mock-preview/{city_name}_north.jpg"
+            },
+            {
+                "id": f"{city_name}_south",
+                "name": "South District", 
+                "description": "Industrial and emerging residential areas",
+                "bbox": [77.5946, 12.9516, 77.6146, 12.9716],
+                "coordinates": {
+                    "center": [77.6046, 12.9616],
+                    "bounds": [[77.5946, 12.9516], [77.6146, 12.9716]]
+                },
+                "previewImage": f"/api/mock-preview/{city_name}_south.jpg"
+            },
+            {
+                "id": f"{city_name}_east",
+                "name": "East District",
+                "description": "Tech corridors and modern developments",
+                "bbox": [77.6146, 12.9716, 77.6346, 12.9916],
+                "coordinates": {
+                    "center": [77.6246, 12.9816],
+                    "bounds": [[77.6146, 12.9716], [77.6346, 12.9916]]
+                },
+                "previewImage": f"/api/mock-preview/{city_name}_east.jpg"
+            },
+            {
+                "id": f"{city_name}_west",
+                "name": "West District",
+                "description": "Established neighborhoods with mature vegetation",
+                "bbox": [77.5746, 12.9716, 77.5946, 12.9916],
+                "coordinates": {
+                    "center": [77.5846, 12.9816],
+                    "bounds": [[77.5746, 12.9716], [77.5946, 12.9916]]
+                },
+                "previewImage": f"/api/mock-preview/{city_name}_west.jpg"
+            }
+        ]
+        
+        return {
+            "status": "success",
+            "city": request.city.title(),
+            "regions": regions,
+            "total_regions": len(regions)
+        }
+        
+    except Exception as e:
+        logger.error(f"Failed to get regions for {request.city}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to get city regions: {str(e)}")
+
 @app.post("/api/predict")
 async def predict_biomass(request: PredictionRequest):
     """Predict biomass for a city (simplified mock version)."""
