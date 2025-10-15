@@ -51,14 +51,13 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
     console.log('🚀 Starting fake loading for:', cityName);
     console.log('📊 showFakeLoading state:', showFakeLoading);
 
-    // Variable timing for each region to make it feel more realistic
-    // TESTING: Longer durations to make sure it's visible
+    // Variable timing for each region - realistic satellite data processing times
     const regionDurations = [
-      { name: 'Center', duration: 3000, progressEnd: 20 },   // 3 seconds -> 20%
-      { name: 'North', duration: 4000, progressEnd: 40 },    // 4 seconds -> 40%
-      { name: 'East', duration: 3500, progressEnd: 60 },     // 3.5 seconds -> 60%
-      { name: 'West', duration: 3000, progressEnd: 80 },     // 3 seconds -> 80%
-      { name: 'South', duration: 3500, progressEnd: 100 }    // 3.5 seconds -> 100%
+      { name: 'Center', duration: 20000, progressEnd: 20 },   // 20 seconds -> 20%
+      { name: 'North', duration: 25000, progressEnd: 40 },    // 25 seconds -> 40%
+      { name: 'South', duration: 20000, progressEnd: 60 },    // 20 seconds -> 60%
+      { name: 'East', duration: 25000, progressEnd: 80 },     // 25 seconds -> 80%
+      { name: 'West', duration: 30000, progressEnd: 100 }     // 30 seconds -> 100%
     ];
 
     const updateInterval = 100; // Update every 100ms for smooth animation
@@ -169,7 +168,7 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
     <div className="max-w-7xl mx-auto">
       {showFakeLoading ? (
         /* Fake Loading Screen */
-        <div className="text-center bg-red-500/10 border-2 border-red-500 p-5">
+        <div className="text-center">
           <div className="inline-block bg-neon-100/20 backdrop-blur-md border border-neon-100/30 rounded-full px-8 py-3 mb-8">
             <span className="text-neon-100 font-bold text-sm md:text-base uppercase tracking-wider">
               🛰️ Downloading Satellite Data
