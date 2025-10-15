@@ -99,13 +99,23 @@ temp/
 *.tmp
 *.temp
 
-# Output files
-outputs/
-*/outputs/
+# Output files - SELECTIVE EXCLUSION (allow cached images for deployment)
 results/
 */results/
 
-# Image files (exclude from datasets and outputs, but allow in public folders)
+# Exclude specific outputs but ALLOW cached region images for deployment
+outputs/reports/
+outputs/satellite_images/
+*/outputs/reports/
+*/outputs/satellite_images/
+
+# IMPORTANT: Allow these cached files for deployment (override exclusions above)
+!biomass-prediction-pixelwise/backend/outputs/region_cache/
+!biomass-prediction-pixelwise/backend/outputs/heatmaps/
+!biomass-prediction-pixelwise/backend/outputs/region_previews/
+!biomass-prediction-pixelwise/backend/cache/
+
+# Image files (exclude from datasets only)
 dataset/*.png
 dataset/*.jpg
 dataset/*.jpeg
@@ -116,16 +126,7 @@ dataset/*.tif
 */dataset/*.jpeg
 */dataset/*.tiff
 */dataset/*.tif
-outputs/*.png
-outputs/*.jpg
-outputs/*.jpeg
-outputs/*.tiff
-outputs/*.tif
-*/outputs/*.png
-*/outputs/*.jpg
-*/outputs/*.jpeg
-*/outputs/*.tiff
-*/outputs/*.tif
+
 results/*.png
 results/*.jpg
 results/*.jpeg

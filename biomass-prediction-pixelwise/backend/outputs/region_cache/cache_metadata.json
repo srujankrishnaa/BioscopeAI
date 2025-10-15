@@ -1,0 +1,7256 @@
+{
+  "Mumbai": {
+    "city_name": "Mumbai",
+    "city_bbox": [
+      72.776333,
+      18.8939566,
+      72.9817485,
+      19.2694771
+    ],
+    "regions": {
+      "center": {
+        "name": "Mumbai Center",
+        "description": "Central business district and urban core of Mumbai",
+        "bbox": [
+          72.83795765,
+          19.0441648,
+          72.92012385,
+          19.119268899999998
+        ],
+        "coordinates": {
+          "center": [
+            19.08171685,
+            72.87904075
+          ],
+          "bounds": [
+            [
+              19.0441648,
+              72.83795765
+            ],
+            [
+              19.119268899999998,
+              72.92012385
+            ]
+          ]
+        },
+        "image_path": "Mumbai\\Mumbai_Center_satellite.png",
+        "generated_at": "2025-10-13 22:46:35"
+      },
+      "north": {
+        "name": "Mumbai North",
+        "description": "Northern region of Mumbai with suburban and residential areas",
+        "bbox": [
+          72.83795765,
+          19.138044925,
+          72.92012385,
+          19.213149025
+        ],
+        "coordinates": {
+          "center": [
+            19.175596974999998,
+            72.87904075
+          ],
+          "bounds": [
+            [
+              19.138044925,
+              72.83795765
+            ],
+            [
+              19.213149025,
+              72.92012385
+            ]
+          ]
+        },
+        "image_path": "Mumbai\\Mumbai_North_satellite.png",
+        "generated_at": "2025-10-13 22:48:34"
+      },
+      "south": {
+        "name": "Mumbai South",
+        "description": "Southern region of Mumbai including industrial and residential zones",
+        "bbox": [
+          72.83795765,
+          18.950284675,
+          72.92012385,
+          19.025388775
+        ],
+        "coordinates": {
+          "center": [
+            18.987836725,
+            72.87904075
+          ],
+          "bounds": [
+            [
+              18.950284675,
+              72.83795765
+            ],
+            [
+              19.025388775,
+              72.92012385
+            ]
+          ]
+        },
+        "image_path": "Mumbai\\Mumbai_South_satellite.png",
+        "generated_at": "2025-10-13 22:50:02"
+      },
+      "east": {
+        "name": "Mumbai East",
+        "description": "Eastern region of Mumbai with mixed urban development",
+        "bbox": [
+          72.93039462499999,
+          19.057066989999996,
+          72.971477725,
+          19.106366710000003
+        ],
+        "coordinates": {
+          "center": [
+            19.08171685,
+            72.950936175
+          ],
+          "bounds": [
+            [
+              19.057066989999996,
+              72.93039462499999
+            ],
+            [
+              19.106366710000003,
+              72.971477725
+            ]
+          ]
+        },
+        "image_path": "Mumbai\\Mumbai_East_satellite.png",
+        "generated_at": "2025-10-13 22:52:09"
+      },
+      "west": {
+        "name": "Mumbai West",
+        "description": "Western region of Mumbai featuring diverse urban landscapes",
+        "bbox": [
+          72.786603775,
+          19.057066989999996,
+          72.82768687500001,
+          19.106366710000003
+        ],
+        "coordinates": {
+          "center": [
+            19.08171685,
+            72.80714532500001
+          ],
+          "bounds": [
+            [
+              19.057066989999996,
+              72.786603775
+            ],
+            [
+              19.106366710000003,
+              72.82768687500001
+            ]
+          ]
+        },
+        "image_path": "Mumbai\\Mumbai_West_satellite.png",
+        "generated_at": "2025-10-13 22:54:42"
+      }
+    },
+    "generated_at": "2025-10-13 22:44:44",
+    "total_regions": 5
+  },
+  "Delhi": {
+    "city_name": "Delhi",
+    "city_bbox": [
+      76.8388351,
+      28.4046285,
+      77.3452524,
+      28.8834464
+    ],
+    "regions": {
+      "center": {
+        "name": "Delhi Center",
+        "description": "Central business district and urban core of Delhi",
+        "bbox": [
+          77.02874158750001,
+          28.5841852125,
+          77.1553459125,
+          28.7038896875
+        ],
+        "coordinates": {
+          "center": [
+            28.64403745,
+            77.09204375
+          ],
+          "bounds": [
+            [
+              28.5841852125,
+              77.02874158750001
+            ],
+            [
+              28.7038896875,
+              77.1553459125
+            ]
+          ]
+        },
+        "image_path": "Delhi\\Delhi_Center_satellite.png",
+        "generated_at": "2025-10-13 22:57:19"
+      },
+      "north": {
+        "name": "Delhi North",
+        "description": "Northern region of Delhi with suburban and residential areas",
+        "bbox": [
+          77.02874158750001,
+          28.727830582499998,
+          77.1553459125,
+          28.847535057499996
+        ],
+        "coordinates": {
+          "center": [
+            28.787682819999997,
+            77.09204375
+          ],
+          "bounds": [
+            [
+              28.727830582499998,
+              77.02874158750001
+            ],
+            [
+              28.847535057499996,
+              77.1553459125
+            ]
+          ]
+        },
+        "image_path": "Delhi\\Delhi_North_satellite.png",
+        "generated_at": "2025-10-13 22:58:42"
+      },
+      "south": {
+        "name": "Delhi South",
+        "description": "Southern region of Delhi including industrial and residential zones",
+        "bbox": [
+          77.02874158750001,
+          28.4405398425,
+          77.1553459125,
+          28.5602443175
+        ],
+        "coordinates": {
+          "center": [
+            28.50039208,
+            77.09204375
+          ],
+          "bounds": [
+            [
+              28.4405398425,
+              77.02874158750001
+            ],
+            [
+              28.5602443175,
+              77.1553459125
+            ]
+          ]
+        },
+        "image_path": "Delhi\\Delhi_South_satellite.png",
+        "generated_at": "2025-10-13 23:01:29"
+      },
+      "east": {
+        "name": "Delhi East",
+        "description": "Eastern region of Delhi with mixed urban development",
+        "bbox": [
+          77.1806667775,
+          28.5841852125,
+          77.3072711025,
+          28.7038896875
+        ],
+        "coordinates": {
+          "center": [
+            28.64403745,
+            77.24396894
+          ],
+          "bounds": [
+            [
+              28.5841852125,
+              77.1806667775
+            ],
+            [
+              28.7038896875,
+              77.3072711025
+            ]
+          ]
+        },
+        "image_path": "Delhi\\Delhi_East_satellite.png",
+        "generated_at": "2025-10-13 23:04:08"
+      },
+      "west": {
+        "name": "Delhi West",
+        "description": "Western region of Delhi featuring diverse urban landscapes",
+        "bbox": [
+          76.87681639750001,
+          28.5841852125,
+          77.00342072250001,
+          28.7038896875
+        ],
+        "coordinates": {
+          "center": [
+            28.64403745,
+            76.94011856
+          ],
+          "bounds": [
+            [
+              28.5841852125,
+              76.87681639750001
+            ],
+            [
+              28.7038896875,
+              77.00342072250001
+            ]
+          ]
+        },
+        "image_path": "Delhi\\Delhi_West_satellite.png",
+        "generated_at": "2025-10-13 23:05:46"
+      }
+    },
+    "generated_at": "2025-10-13 22:54:55",
+    "total_regions": 5
+  },
+  "Bangalore": {
+    "city_name": "Bangalore",
+    "city_bbox": [
+      77.4600507,
+      12.8336251,
+      77.7843613,
+      13.1426598
+    ],
+    "regions": {
+      "center": {
+        "name": "Bangalore Center",
+        "description": "Central business district and urban core of Bangalore",
+        "bbox": [
+          77.581667175,
+          12.949513112500002,
+          77.662744825,
+          13.026771787500001
+        ],
+        "coordinates": {
+          "center": [
+            12.988142450000002,
+            77.622206
+          ],
+          "bounds": [
+            [
+              12.949513112500002,
+              77.581667175
+            ],
+            [
+              13.026771787500001,
+              77.662744825
+            ]
+          ]
+        },
+        "image_path": "Bangalore\\Bangalore_Center_satellite.png",
+        "generated_at": "2025-10-13 23:08:42"
+      },
+      "north": {
+        "name": "Bangalore North",
+        "description": "Northern region of Bangalore with suburban and residential areas",
+        "bbox": [
+          77.581667175,
+          13.0422235225,
+          77.662744825,
+          13.1194821975
+        ],
+        "coordinates": {
+          "center": [
+            13.08085286,
+            77.622206
+          ],
+          "bounds": [
+            [
+              13.0422235225,
+              77.581667175
+            ],
+            [
+              13.1194821975,
+              77.662744825
+            ]
+          ]
+        },
+        "image_path": "Bangalore\\Bangalore_North_satellite.png",
+        "generated_at": "2025-10-13 23:11:06"
+      },
+      "south": {
+        "name": "Bangalore South",
+        "description": "Southern region of Bangalore including industrial and residential zones",
+        "bbox": [
+          77.581667175,
+          12.856802702500003,
+          77.662744825,
+          12.934061377500003
+        ],
+        "coordinates": {
+          "center": [
+            12.895432040000003,
+            77.622206
+          ],
+          "bounds": [
+            [
+              12.856802702500003,
+              77.581667175
+            ],
+            [
+              12.934061377500003,
+              77.662744825
+            ]
+          ]
+        },
+        "image_path": "Bangalore\\Bangalore_South_satellite.png",
+        "generated_at": "2025-10-13 23:13:05"
+      },
+      "east": {
+        "name": "Bangalore East",
+        "description": "Eastern region of Bangalore with mixed urban development",
+        "bbox": [
+          77.678960355,
+          12.949513112500002,
+          77.760038005,
+          13.026771787500001
+        ],
+        "coordinates": {
+          "center": [
+            12.988142450000002,
+            77.71949918
+          ],
+          "bounds": [
+            [
+              12.949513112500002,
+              77.678960355
+            ],
+            [
+              13.026771787500001,
+              77.760038005
+            ]
+          ]
+        },
+        "image_path": "Bangalore\\Bangalore_East_satellite.png",
+        "generated_at": "2025-10-13 23:15:41"
+      },
+      "west": {
+        "name": "Bangalore West",
+        "description": "Western region of Bangalore featuring diverse urban landscapes",
+        "bbox": [
+          77.48437399500001,
+          12.949513112500002,
+          77.56545164500001,
+          13.026771787500001
+        ],
+        "coordinates": {
+          "center": [
+            12.988142450000002,
+            77.52491282000001
+          ],
+          "bounds": [
+            [
+              12.949513112500002,
+              77.48437399500001
+            ],
+            [
+              13.026771787500001,
+              77.56545164500001
+            ]
+          ]
+        },
+        "image_path": "Bangalore\\Bangalore_West_satellite.png",
+        "generated_at": "2025-10-13 23:17:36"
+      }
+    },
+    "generated_at": "2025-10-13 23:05:59",
+    "total_regions": 5
+  },
+  "Hyderabad": {
+    "city_name": "Hyderabad",
+    "city_bbox": [
+      78.2387067,
+      17.2916377,
+      78.6223912,
+      17.5608321
+    ],
+    "regions": {
+      "center": {
+        "name": "Hyderabad Center",
+        "description": "Central business district and urban core of Hyderabad",
+        "bbox": [
+          78.3921805,
+          17.372396019999996,
+          78.46891740000001,
+          17.480073779999998
+        ],
+        "coordinates": {
+          "center": [
+            17.426234899999997,
+            78.43054895
+          ],
+          "bounds": [
+            [
+              17.372396019999996,
+              78.3921805
+            ],
+            [
+              17.480073779999998,
+              78.46891740000001
+            ]
+          ]
+        },
+        "image_path": "Hyderabad\\Hyderabad_Center_satellite.png",
+        "generated_at": "2025-10-13 23:18:56"
+      },
+      "north": {
+        "name": "Hyderabad North",
+        "description": "Northern region of Hyderabad with suburban and residential areas",
+        "bbox": [
+          78.3921805,
+          17.493533499999998,
+          78.46891740000001,
+          17.54737238
+        ],
+        "coordinates": {
+          "center": [
+            17.54737238,
+            78.43054895
+          ],
+          "bounds": [
+            [
+              17.493533499999998,
+              78.3921805
+            ],
+            [
+              17.60121126,
+              78.46891740000001
+            ]
+          ]
+        },
+        "image_path": "Hyderabad\\Hyderabad_North_satellite.png",
+        "generated_at": "2025-10-13 23:19:51"
+      },
+      "south": {
+        "name": "Hyderabad South",
+        "description": "Southern region of Hyderabad including industrial and residential zones",
+        "bbox": [
+          78.3921805,
+          17.30509742,
+          78.46891740000001,
+          17.358936299999996
+        ],
+        "coordinates": {
+          "center": [
+            17.305097419999996,
+            78.43054895
+          ],
+          "bounds": [
+            [
+              17.251258539999995,
+              78.3921805
+            ],
+            [
+              17.358936299999996,
+              78.46891740000001
+            ]
+          ]
+        },
+        "image_path": "Hyderabad\\Hyderabad_South_satellite.png",
+        "generated_at": "2025-10-13 23:20:43"
+      },
+      "east": {
+        "name": "Hyderabad East",
+        "description": "Eastern region of Hyderabad with mixed urban development",
+        "bbox": [
+          78.48810162500001,
+          17.372396019999996,
+          78.56483852500001,
+          17.480073779999998
+        ],
+        "coordinates": {
+          "center": [
+            17.426234899999997,
+            78.52647007500002
+          ],
+          "bounds": [
+            [
+              17.372396019999996,
+              78.48810162500001
+            ],
+            [
+              17.480073779999998,
+              78.56483852500001
+            ]
+          ]
+        },
+        "image_path": "Hyderabad\\Hyderabad_East_satellite.png",
+        "generated_at": "2025-10-13 23:22:42"
+      },
+      "west": {
+        "name": "Hyderabad West",
+        "description": "Western region of Hyderabad featuring diverse urban landscapes",
+        "bbox": [
+          78.29625937499999,
+          17.372396019999996,
+          78.37299627499999,
+          17.480073779999998
+        ],
+        "coordinates": {
+          "center": [
+            17.426234899999997,
+            78.33462782499998
+          ],
+          "bounds": [
+            [
+              17.372396019999996,
+              78.29625937499999
+            ],
+            [
+              17.480073779999998,
+              78.37299627499999
+            ]
+          ]
+        },
+        "image_path": "Hyderabad\\Hyderabad_West_satellite.png",
+        "generated_at": "2025-10-13 23:24:27"
+      }
+    },
+    "generated_at": "2025-10-13 23:17:48",
+    "total_regions": 5
+  },
+  "Kolkata": {
+    "city_name": "Kolkata",
+    "city_bbox": [
+      88.233628,
+      22.4520292,
+      88.4610776,
+      22.6188255
+    ],
+    "regions": {
+      "center": {
+        "name": "Kolkata Center",
+        "description": "Central business district and urban core of Kolkata",
+        "bbox": [
+          88.3189216,
+          22.51042735,
+          88.375784,
+          22.560427349999998
+        ],
+        "coordinates": {
+          "center": [
+            22.53542735,
+            88.3473528
+          ],
+          "bounds": [
+            [
+              22.51042735,
+              88.3189216
+            ],
+            [
+              22.560427349999998,
+              88.375784
+            ]
+          ]
+        },
+        "image_path": "Kolkata\\Kolkata_Center_satellite.png",
+        "generated_at": "2025-10-13 23:35:25"
+      },
+      "north": {
+        "name": "Kolkata North",
+        "description": "Northern region of Kolkata with suburban and residential areas",
+        "bbox": [
+          88.3189216,
+          22.568767164999997,
+          88.375784,
+          22.610485685
+        ],
+        "coordinates": {
+          "center": [
+            22.593767164999996,
+            88.3473528
+          ],
+          "bounds": [
+            [
+              22.568767164999997,
+              88.3189216
+            ],
+            [
+              22.618767164999998,
+              88.375784
+            ]
+          ]
+        },
+        "image_path": "Kolkata\\Kolkata_North_satellite.png",
+        "generated_at": "2025-10-13 23:36:42"
+      },
+      "south": {
+        "name": "Kolkata South",
+        "description": "Southern region of Kolkata including industrial and residential zones",
+        "bbox": [
+          88.3189216,
+          22.460369014999998,
+          88.375784,
+          22.502087535
+        ],
+        "coordinates": {
+          "center": [
+            22.477087535000003,
+            88.3473528
+          ],
+          "bounds": [
+            [
+              22.452087535,
+              88.3189216
+            ],
+            [
+              22.502087535,
+              88.375784
+            ]
+          ]
+        },
+        "image_path": "Kolkata\\Kolkata_South_satellite.png",
+        "generated_at": "2025-10-13 23:38:09"
+      },
+      "east": {
+        "name": "Kolkata East",
+        "description": "Eastern region of Kolkata with mixed urban development",
+        "bbox": [
+          88.38715648,
+          22.51042735,
+          88.44401888,
+          22.560427349999998
+        ],
+        "coordinates": {
+          "center": [
+            22.53542735,
+            88.41558768
+          ],
+          "bounds": [
+            [
+              22.51042735,
+              88.38715648
+            ],
+            [
+              22.560427349999998,
+              88.44401888
+            ]
+          ]
+        },
+        "image_path": "Kolkata\\Kolkata_East_satellite.png",
+        "generated_at": "2025-10-13 23:39:51"
+      },
+      "west": {
+        "name": "Kolkata West",
+        "description": "Western region of Kolkata featuring diverse urban landscapes",
+        "bbox": [
+          88.25068671999999,
+          22.51042735,
+          88.30754911999999,
+          22.560427349999998
+        ],
+        "coordinates": {
+          "center": [
+            22.53542735,
+            88.27911791999999
+          ],
+          "bounds": [
+            [
+              22.51042735,
+              88.25068671999999
+            ],
+            [
+              22.560427349999998,
+              88.30754911999999
+            ]
+          ]
+        },
+        "image_path": "Kolkata\\Kolkata_West_satellite.png",
+        "generated_at": "2025-10-13 23:41:28"
+      }
+    },
+    "generated_at": "2025-10-13 23:33:36",
+    "total_regions": 5
+  },
+  "Pune": {
+    "city_name": "Pune",
+    "city_bbox": [
+      73.7498473,
+      18.429497,
+      74.020214,
+      18.6208699
+    ],
+    "regions": {
+      "center": {
+        "name": "Pune Center",
+        "description": "Central business district and urban core of Pune",
+        "bbox": [
+          73.85799398,
+          18.48690887,
+          73.91206732,
+          18.56345803
+        ],
+        "coordinates": {
+          "center": [
+            18.52518345,
+            73.88503065
+          ],
+          "bounds": [
+            [
+              18.48690887,
+              73.85799398
+            ],
+            [
+              18.56345803,
+              73.91206732
+            ]
+          ]
+        },
+        "image_path": "Pune\\Pune_Center_satellite.png",
+        "generated_at": "2025-10-13 23:43:25"
+      },
+      "north": {
+        "name": "Pune North",
+        "description": "Northern region of Pune with suburban and residential areas",
+        "bbox": [
+          73.85799398,
+          18.573026675,
+          73.91206732,
+          18.611301255
+        ],
+        "coordinates": {
+          "center": [
+            18.611301255,
+            73.88503065
+          ],
+          "bounds": [
+            [
+              18.573026675,
+              73.85799398
+            ],
+            [
+              18.649575835,
+              73.91206732
+            ]
+          ]
+        },
+        "image_path": "Pune\\Pune_North_satellite.png",
+        "generated_at": "2025-10-13 23:44:40"
+      },
+      "south": {
+        "name": "Pune South",
+        "description": "Southern region of Pune including industrial and residential zones",
+        "bbox": [
+          73.85799398,
+          18.439065645,
+          73.91206732,
+          18.477340225
+        ],
+        "coordinates": {
+          "center": [
+            18.439065645,
+            73.88503065
+          ],
+          "bounds": [
+            [
+              18.400791065,
+              73.85799398
+            ],
+            [
+              18.477340225,
+              73.91206732
+            ]
+          ]
+        },
+        "image_path": "Pune\\Pune_South_satellite.png",
+        "generated_at": "2025-10-13 23:46:19"
+      },
+      "east": {
+        "name": "Pune East",
+        "description": "Eastern region of Pune with mixed urban development",
+        "bbox": [
+          73.925585655,
+          18.48690887,
+          73.97965899500001,
+          18.56345803
+        ],
+        "coordinates": {
+          "center": [
+            18.52518345,
+            73.95262232500001
+          ],
+          "bounds": [
+            [
+              18.48690887,
+              73.925585655
+            ],
+            [
+              18.56345803,
+              73.97965899500001
+            ]
+          ]
+        },
+        "image_path": "Pune\\Pune_East_satellite.png",
+        "generated_at": "2025-10-13 23:47:38"
+      },
+      "west": {
+        "name": "Pune West",
+        "description": "Western region of Pune featuring diverse urban landscapes",
+        "bbox": [
+          73.790402305,
+          18.48690887,
+          73.844475645,
+          18.56345803
+        ],
+        "coordinates": {
+          "center": [
+            18.52518345,
+            73.817438975
+          ],
+          "bounds": [
+            [
+              18.48690887,
+              73.790402305
+            ],
+            [
+              18.56345803,
+              73.844475645
+            ]
+          ]
+        },
+        "image_path": "Pune\\Pune_West_satellite.png",
+        "generated_at": "2025-10-13 23:49:16"
+      }
+    },
+    "generated_at": "2025-10-13 23:41:41",
+    "total_regions": 5
+  },
+  "Ahmedabad": {
+    "city_name": "Ahmedabad",
+    "city_bbox": [
+      72.4200568,
+      22.8615374,
+      72.7400568,
+      23.1815374
+    ],
+    "regions": {
+      "center": {
+        "name": "Ahmedabad Center",
+        "description": "Central business district and urban core of Ahmedabad",
+        "bbox": [
+          72.54005679999999,
+          22.9815374,
+          72.6200568,
+          23.0615374
+        ],
+        "coordinates": {
+          "center": [
+            23.0215374,
+            72.5800568
+          ],
+          "bounds": [
+            [
+              22.9815374,
+              72.54005679999999
+            ],
+            [
+              23.0615374,
+              72.6200568
+            ]
+          ]
+        },
+        "image_path": "Ahmedabad\\Ahmedabad_Center_satellite.png",
+        "generated_at": "2025-10-13 23:50:56"
+      },
+      "north": {
+        "name": "Ahmedabad North",
+        "description": "Northern region of Ahmedabad with suburban and residential areas",
+        "bbox": [
+          72.54005679999999,
+          23.077537399999997,
+          72.6200568,
+          23.157537399999995
+        ],
+        "coordinates": {
+          "center": [
+            23.117537399999996,
+            72.5800568
+          ],
+          "bounds": [
+            [
+              23.077537399999997,
+              72.54005679999999
+            ],
+            [
+              23.157537399999995,
+              72.6200568
+            ]
+          ]
+        },
+        "image_path": "Ahmedabad\\Ahmedabad_North_satellite.png",
+        "generated_at": "2025-10-13 23:52:32"
+      },
+      "south": {
+        "name": "Ahmedabad South",
+        "description": "Southern region of Ahmedabad including industrial and residential zones",
+        "bbox": [
+          72.54005679999999,
+          22.885537400000004,
+          72.6200568,
+          22.965537400000002
+        ],
+        "coordinates": {
+          "center": [
+            22.925537400000003,
+            72.5800568
+          ],
+          "bounds": [
+            [
+              22.885537400000004,
+              72.54005679999999
+            ],
+            [
+              22.965537400000002,
+              72.6200568
+            ]
+          ]
+        },
+        "image_path": "Ahmedabad\\Ahmedabad_South_satellite.png",
+        "generated_at": "2025-10-13 23:53:24"
+      },
+      "east": {
+        "name": "Ahmedabad East",
+        "description": "Eastern region of Ahmedabad with mixed urban development",
+        "bbox": [
+          72.6360568,
+          22.9815374,
+          72.7160568,
+          23.0615374
+        ],
+        "coordinates": {
+          "center": [
+            23.0215374,
+            72.67605680000001
+          ],
+          "bounds": [
+            [
+              22.9815374,
+              72.6360568
+            ],
+            [
+              23.0615374,
+              72.7160568
+            ]
+          ]
+        },
+        "image_path": "Ahmedabad\\Ahmedabad_East_satellite.png",
+        "generated_at": "2025-10-13 23:55:21"
+      },
+      "west": {
+        "name": "Ahmedabad West",
+        "description": "Western region of Ahmedabad featuring diverse urban landscapes",
+        "bbox": [
+          72.44405679999998,
+          22.9815374,
+          72.52405679999998,
+          23.0615374
+        ],
+        "coordinates": {
+          "center": [
+            23.0215374,
+            72.48405679999998
+          ],
+          "bounds": [
+            [
+              22.9815374,
+              72.44405679999998
+            ],
+            [
+              23.0615374,
+              72.52405679999998
+            ]
+          ]
+        },
+        "image_path": "Ahmedabad\\Ahmedabad_West_satellite.png",
+        "generated_at": "2025-10-13 23:57:40"
+      }
+    },
+    "generated_at": "2025-10-13 23:49:29",
+    "total_regions": 5
+  },
+  "Jaipur": {
+    "city_name": "Jaipur",
+    "city_bbox": [
+      75.6589817,
+      26.7554576,
+      75.9789817,
+      27.0754576
+    ],
+    "regions": {
+      "center": {
+        "name": "Jaipur Center",
+        "description": "Central business district and urban core of Jaipur",
+        "bbox": [
+          75.77898169999999,
+          26.8754576,
+          75.8589817,
+          26.9554576
+        ],
+        "coordinates": {
+          "center": [
+            26.9154576,
+            75.8189817
+          ],
+          "bounds": [
+            [
+              26.8754576,
+              75.77898169999999
+            ],
+            [
+              26.9554576,
+              75.8589817
+            ]
+          ]
+        },
+        "image_path": "Jaipur\\Jaipur_Center_satellite.png",
+        "generated_at": "2025-10-13 23:59:19"
+      },
+      "north": {
+        "name": "Jaipur North",
+        "description": "Northern region of Jaipur with suburban and residential areas",
+        "bbox": [
+          75.77898169999999,
+          26.9714576,
+          75.8589817,
+          27.0514576
+        ],
+        "coordinates": {
+          "center": [
+            27.0114576,
+            75.8189817
+          ],
+          "bounds": [
+            [
+              26.9714576,
+              75.77898169999999
+            ],
+            [
+              27.0514576,
+              75.8589817
+            ]
+          ]
+        },
+        "image_path": "Jaipur\\Jaipur_North_satellite.png",
+        "generated_at": "2025-10-14 00:00:01"
+      },
+      "south": {
+        "name": "Jaipur South",
+        "description": "Southern region of Jaipur including industrial and residential zones",
+        "bbox": [
+          75.77898169999999,
+          26.7794576,
+          75.8589817,
+          26.8594576
+        ],
+        "coordinates": {
+          "center": [
+            26.8194576,
+            75.8189817
+          ],
+          "bounds": [
+            [
+              26.7794576,
+              75.77898169999999
+            ],
+            [
+              26.8594576,
+              75.8589817
+            ]
+          ]
+        },
+        "image_path": "Jaipur\\Jaipur_South_satellite.png",
+        "generated_at": "2025-10-14 00:01:24"
+      },
+      "east": {
+        "name": "Jaipur East",
+        "description": "Eastern region of Jaipur with mixed urban development",
+        "bbox": [
+          75.8749817,
+          26.8754576,
+          75.9549817,
+          26.9554576
+        ],
+        "coordinates": {
+          "center": [
+            26.9154576,
+            75.91498170000001
+          ],
+          "bounds": [
+            [
+              26.8754576,
+              75.8749817
+            ],
+            [
+              26.9554576,
+              75.9549817
+            ]
+          ]
+        },
+        "image_path": "Jaipur\\Jaipur_East_satellite.png",
+        "generated_at": "2025-10-14 00:03:10"
+      },
+      "west": {
+        "name": "Jaipur West",
+        "description": "Western region of Jaipur featuring diverse urban landscapes",
+        "bbox": [
+          75.68298169999998,
+          26.8754576,
+          75.76298169999998,
+          26.9554576
+        ],
+        "coordinates": {
+          "center": [
+            26.9154576,
+            75.72298169999998
+          ],
+          "bounds": [
+            [
+              26.8754576,
+              75.68298169999998
+            ],
+            [
+              26.9554576,
+              75.76298169999998
+            ]
+          ]
+        },
+        "image_path": "Jaipur\\Jaipur_West_satellite.png",
+        "generated_at": "2025-10-14 00:04:38"
+      }
+    },
+    "generated_at": "2025-10-13 23:57:53",
+    "total_regions": 5
+  },
+  "Lucknow": {
+    "city_name": "Lucknow",
+    "city_bbox": [
+      80.7746001,
+      26.6781,
+      81.0946001,
+      26.9981
+    ],
+    "regions": {
+      "center": {
+        "name": "Lucknow Center",
+        "description": "Central business district and urban core of Lucknow",
+        "bbox": [
+          80.89460009999999,
+          26.7981,
+          80.9746001,
+          26.8781
+        ],
+        "coordinates": {
+          "center": [
+            26.8381,
+            80.9346001
+          ],
+          "bounds": [
+            [
+              26.7981,
+              80.89460009999999
+            ],
+            [
+              26.8781,
+              80.9746001
+            ]
+          ]
+        },
+        "image_path": "Lucknow\\Lucknow_Center_satellite.png",
+        "generated_at": "2025-10-14 00:06:54"
+      },
+      "north": {
+        "name": "Lucknow North",
+        "description": "Northern region of Lucknow with suburban and residential areas",
+        "bbox": [
+          80.89460009999999,
+          26.8941,
+          80.9746001,
+          26.9741
+        ],
+        "coordinates": {
+          "center": [
+            26.9341,
+            80.9346001
+          ],
+          "bounds": [
+            [
+              26.8941,
+              80.89460009999999
+            ],
+            [
+              26.9741,
+              80.9746001
+            ]
+          ]
+        },
+        "image_path": "Lucknow\\Lucknow_North_satellite.png",
+        "generated_at": "2025-10-14 00:08:18"
+      },
+      "south": {
+        "name": "Lucknow South",
+        "description": "Southern region of Lucknow including industrial and residential zones",
+        "bbox": [
+          80.89460009999999,
+          26.7021,
+          80.9746001,
+          26.7821
+        ],
+        "coordinates": {
+          "center": [
+            26.7421,
+            80.9346001
+          ],
+          "bounds": [
+            [
+              26.7021,
+              80.89460009999999
+            ],
+            [
+              26.7821,
+              80.9746001
+            ]
+          ]
+        },
+        "image_path": "Lucknow\\Lucknow_South_satellite.png",
+        "generated_at": "2025-10-14 00:09:25"
+      },
+      "east": {
+        "name": "Lucknow East",
+        "description": "Eastern region of Lucknow with mixed urban development",
+        "bbox": [
+          80.99060010000001,
+          26.7981,
+          81.07060010000001,
+          26.8781
+        ],
+        "coordinates": {
+          "center": [
+            26.8381,
+            81.03060010000002
+          ],
+          "bounds": [
+            [
+              26.7981,
+              80.99060010000001
+            ],
+            [
+              26.8781,
+              81.07060010000001
+            ]
+          ]
+        },
+        "image_path": "Lucknow\\Lucknow_East_satellite.png",
+        "generated_at": "2025-10-14 00:10:57"
+      },
+      "west": {
+        "name": "Lucknow West",
+        "description": "Western region of Lucknow featuring diverse urban landscapes",
+        "bbox": [
+          80.79860009999999,
+          26.7981,
+          80.87860009999999,
+          26.8781
+        ],
+        "coordinates": {
+          "center": [
+            26.8381,
+            80.83860009999998
+          ],
+          "bounds": [
+            [
+              26.7981,
+              80.79860009999999
+            ],
+            [
+              26.8781,
+              80.87860009999999
+            ]
+          ]
+        },
+        "image_path": "Lucknow\\Lucknow_West_satellite.png",
+        "generated_at": "2025-10-14 00:12:30"
+      }
+    },
+    "generated_at": "2025-10-14 00:04:51",
+    "total_regions": 5
+  },
+  "Kanpur": {
+    "city_name": "Kanpur",
+    "city_bbox": [
+      80.1195895,
+      26.1738369,
+      80.5914346,
+      26.6401262
+    ],
+    "regions": {
+      "center": {
+        "name": "Kanpur Center",
+        "description": "Central business district and urban core of Kanpur",
+        "bbox": [
+          80.2965314125,
+          26.3486953875,
+          80.4144926875,
+          26.4652677125
+        ],
+        "coordinates": {
+          "center": [
+            26.40698155,
+            80.35551205
+          ],
+          "bounds": [
+            [
+              26.3486953875,
+              80.2965314125
+            ],
+            [
+              26.4652677125,
+              80.4144926875
+            ]
+          ]
+        },
+        "image_path": "Kanpur\\Kanpur_Center_satellite.png",
+        "generated_at": "2025-10-14 00:14:11"
+      },
+      "north": {
+        "name": "Kanpur North",
+        "description": "Northern region of Kanpur with suburban and residential areas",
+        "bbox": [
+          80.2965314125,
+          26.4885821775,
+          80.4144926875,
+          26.6051545025
+        ],
+        "coordinates": {
+          "center": [
+            26.54686834,
+            80.35551205
+          ],
+          "bounds": [
+            [
+              26.4885821775,
+              80.2965314125
+            ],
+            [
+              26.6051545025,
+              80.4144926875
+            ]
+          ]
+        },
+        "image_path": "Kanpur\\Kanpur_North_satellite.png",
+        "generated_at": "2025-10-14 00:15:42"
+      },
+      "south": {
+        "name": "Kanpur South",
+        "description": "Southern region of Kanpur including industrial and residential zones",
+        "bbox": [
+          80.2965314125,
+          26.208808597500003,
+          80.4144926875,
+          26.325380922500003
+        ],
+        "coordinates": {
+          "center": [
+            26.267094760000003,
+            80.35551205
+          ],
+          "bounds": [
+            [
+              26.208808597500003,
+              80.2965314125
+            ],
+            [
+              26.325380922500003,
+              80.4144926875
+            ]
+          ]
+        },
+        "image_path": "Kanpur\\Kanpur_South_satellite.png",
+        "generated_at": "2025-10-14 00:16:17"
+      },
+      "east": {
+        "name": "Kanpur East",
+        "description": "Eastern region of Kanpur with mixed urban development",
+        "bbox": [
+          80.4380849425,
+          26.3486953875,
+          80.5560462175,
+          26.4652677125
+        ],
+        "coordinates": {
+          "center": [
+            26.40698155,
+            80.49706558
+          ],
+          "bounds": [
+            [
+              26.3486953875,
+              80.4380849425
+            ],
+            [
+              26.4652677125,
+              80.5560462175
+            ]
+          ]
+        },
+        "image_path": "Kanpur\\Kanpur_East_satellite.png",
+        "generated_at": "2025-10-14 00:17:14"
+      },
+      "west": {
+        "name": "Kanpur West",
+        "description": "Western region of Kanpur featuring diverse urban landscapes",
+        "bbox": [
+          80.1549778825,
+          26.3486953875,
+          80.2729391575,
+          26.4652677125
+        ],
+        "coordinates": {
+          "center": [
+            26.40698155,
+            80.21395852
+          ],
+          "bounds": [
+            [
+              26.3486953875,
+              80.1549778825
+            ],
+            [
+              26.4652677125,
+              80.2729391575
+            ]
+          ]
+        },
+        "image_path": "Kanpur\\Kanpur_West_satellite.png",
+        "generated_at": "2025-10-14 00:18:17"
+      }
+    },
+    "generated_at": "2025-10-14 00:12:43",
+    "total_regions": 5
+  },
+  "Nagpur": {
+    "city_name": "Nagpur",
+    "city_bbox": [
+      78.9952182,
+      21.0529736,
+      79.1788461,
+      21.2310022
+    ],
+    "regions": {
+      "center": {
+        "name": "Nagpur Center",
+        "description": "Central business district and urban core of Nagpur",
+        "bbox": [
+          79.06203215,
+          21.1169879,
+          79.11203215,
+          21.1669879
+        ],
+        "coordinates": {
+          "center": [
+            21.1419879,
+            79.08703215
+          ],
+          "bounds": [
+            [
+              21.1169879,
+              79.06203215
+            ],
+            [
+              21.1669879,
+              79.11203215
+            ]
+          ]
+        },
+        "image_path": "Nagpur\\Nagpur_Center_satellite.png",
+        "generated_at": "2025-10-14 00:19:53"
+      },
+      "north": {
+        "name": "Nagpur North",
+        "description": "Northern region of Nagpur with suburban and residential areas",
+        "bbox": [
+          79.06203215,
+          21.175889329999997,
+          79.11203215,
+          21.222100769999997
+        ],
+        "coordinates": {
+          "center": [
+            21.200889329999995,
+            79.08703215
+          ],
+          "bounds": [
+            [
+              21.175889329999997,
+              79.06203215
+            ],
+            [
+              21.225889329999998,
+              79.11203215
+            ]
+          ]
+        },
+        "image_path": "Nagpur\\Nagpur_North_satellite.png",
+        "generated_at": "2025-10-14 00:20:57"
+      },
+      "south": {
+        "name": "Nagpur South",
+        "description": "Southern region of Nagpur including industrial and residential zones",
+        "bbox": [
+          79.06203215,
+          21.061875030000003,
+          79.11203215,
+          21.108086470000003
+        ],
+        "coordinates": {
+          "center": [
+            21.083086470000005,
+            79.08703215
+          ],
+          "bounds": [
+            [
+              21.058086470000003,
+              79.06203215
+            ],
+            [
+              21.108086470000003,
+              79.11203215
+            ]
+          ]
+        },
+        "image_path": "Nagpur\\Nagpur_South_satellite.png",
+        "generated_at": "2025-10-14 00:22:28"
+      },
+      "east": {
+        "name": "Nagpur East",
+        "description": "Eastern region of Nagpur with mixed urban development",
+        "bbox": [
+          79.121213545,
+          21.1169879,
+          79.169664705,
+          21.1669879
+        ],
+        "coordinates": {
+          "center": [
+            21.1419879,
+            79.145439125
+          ],
+          "bounds": [
+            [
+              21.1169879,
+              79.121213545
+            ],
+            [
+              21.1669879,
+              79.169664705
+            ]
+          ]
+        },
+        "image_path": "Nagpur\\Nagpur_East_satellite.png",
+        "generated_at": "2025-10-14 00:23:15"
+      },
+      "west": {
+        "name": "Nagpur West",
+        "description": "Western region of Nagpur featuring diverse urban landscapes",
+        "bbox": [
+          79.004399595,
+          21.1169879,
+          79.052850755,
+          21.1669879
+        ],
+        "coordinates": {
+          "center": [
+            21.1419879,
+            79.028625175
+          ],
+          "bounds": [
+            [
+              21.1169879,
+              79.004399595
+            ],
+            [
+              21.1669879,
+              79.052850755
+            ]
+          ]
+        },
+        "image_path": "Nagpur\\Nagpur_West_satellite.png",
+        "generated_at": "2025-10-14 00:24:30"
+      }
+    },
+    "generated_at": "2025-10-14 00:18:30",
+    "total_regions": 5
+  },
+  "Indore": {
+    "city_name": "Indore",
+    "city_bbox": [
+      75.7081996,
+      22.5603616,
+      76.0281996,
+      22.8803616
+    ],
+    "regions": {
+      "center": {
+        "name": "Indore Center",
+        "description": "Central business district and urban core of Indore",
+        "bbox": [
+          75.8281996,
+          22.6803616,
+          75.90819959999999,
+          22.7603616
+        ],
+        "coordinates": {
+          "center": [
+            22.7203616,
+            75.8681996
+          ],
+          "bounds": [
+            [
+              22.6803616,
+              75.8281996
+            ],
+            [
+              22.7603616,
+              75.90819959999999
+            ]
+          ]
+        },
+        "image_path": "Indore\\Indore_Center_satellite.png",
+        "generated_at": "2025-10-14 00:25:56"
+      },
+      "north": {
+        "name": "Indore North",
+        "description": "Northern region of Indore with suburban and residential areas",
+        "bbox": [
+          75.8281996,
+          22.7763616,
+          75.90819959999999,
+          22.8563616
+        ],
+        "coordinates": {
+          "center": [
+            22.8163616,
+            75.8681996
+          ],
+          "bounds": [
+            [
+              22.7763616,
+              75.8281996
+            ],
+            [
+              22.8563616,
+              75.90819959999999
+            ]
+          ]
+        },
+        "image_path": "Indore\\Indore_North_satellite.png",
+        "generated_at": "2025-10-14 00:27:51"
+      },
+      "south": {
+        "name": "Indore South",
+        "description": "Southern region of Indore including industrial and residential zones",
+        "bbox": [
+          75.8281996,
+          22.5843616,
+          75.90819959999999,
+          22.6643616
+        ],
+        "coordinates": {
+          "center": [
+            22.6243616,
+            75.8681996
+          ],
+          "bounds": [
+            [
+              22.5843616,
+              75.8281996
+            ],
+            [
+              22.6643616,
+              75.90819959999999
+            ]
+          ]
+        },
+        "image_path": "Indore\\Indore_South_satellite.png",
+        "generated_at": "2025-10-14 00:29:15"
+      },
+      "east": {
+        "name": "Indore East",
+        "description": "Eastern region of Indore with mixed urban development",
+        "bbox": [
+          75.9241996,
+          22.6803616,
+          76.00419959999999,
+          22.7603616
+        ],
+        "coordinates": {
+          "center": [
+            22.7203616,
+            75.9641996
+          ],
+          "bounds": [
+            [
+              22.6803616,
+              75.9241996
+            ],
+            [
+              22.7603616,
+              76.00419959999999
+            ]
+          ]
+        },
+        "image_path": "Indore\\Indore_East_satellite.png",
+        "generated_at": "2025-10-14 00:30:26"
+      },
+      "west": {
+        "name": "Indore West",
+        "description": "Western region of Indore featuring diverse urban landscapes",
+        "bbox": [
+          75.7321996,
+          22.6803616,
+          75.8121996,
+          22.7603616
+        ],
+        "coordinates": {
+          "center": [
+            22.7203616,
+            75.7721996
+          ],
+          "bounds": [
+            [
+              22.6803616,
+              75.7321996
+            ],
+            [
+              22.7603616,
+              75.8121996
+            ]
+          ]
+        },
+        "image_path": "Indore\\Indore_West_satellite.png",
+        "generated_at": "2025-10-14 00:31:26"
+      }
+    },
+    "generated_at": "2025-10-14 00:24:43",
+    "total_regions": 5
+  },
+  "Thane": {
+    "city_name": "Thane",
+    "city_bbox": [
+      72.9103803,
+      19.1316484,
+      73.0770635,
+      19.3001875
+    ],
+    "regions": {
+      "center": {
+        "name": "Thane Center",
+        "description": "Central business district and urban core of Thane",
+        "bbox": [
+          72.96872189999999,
+          19.19091795,
+          73.0187219,
+          19.240917949999996
+        ],
+        "coordinates": {
+          "center": [
+            19.215917949999998,
+            72.9937219
+          ],
+          "bounds": [
+            [
+              19.19091795,
+              72.96872189999999
+            ],
+            [
+              19.240917949999996,
+              73.0187219
+            ]
+          ]
+        },
+        "image_path": "Thane\\Thane_Center_satellite.png",
+        "generated_at": "2025-10-14 00:33:16"
+      },
+      "north": {
+        "name": "Thane North",
+        "description": "Northern region of Thane with suburban and residential areas",
+        "bbox": [
+          72.96872189999999,
+          19.249344904999997,
+          73.0187219,
+          19.291760545
+        ],
+        "coordinates": {
+          "center": [
+            19.274344904999996,
+            72.9937219
+          ],
+          "bounds": [
+            [
+              19.249344904999997,
+              72.96872189999999
+            ],
+            [
+              19.299344904999998,
+              73.0187219
+            ]
+          ]
+        },
+        "image_path": "Thane\\Thane_North_satellite.png",
+        "generated_at": "2025-10-14 00:34:43"
+      },
+      "south": {
+        "name": "Thane South",
+        "description": "Southern region of Thane including industrial and residential zones",
+        "bbox": [
+          72.96872189999999,
+          19.140075355,
+          73.0187219,
+          19.182490995
+        ],
+        "coordinates": {
+          "center": [
+            19.157490995,
+            72.9937219
+          ],
+          "bounds": [
+            [
+              19.132490994999998,
+              72.96872189999999
+            ],
+            [
+              19.182490995,
+              73.0187219
+            ]
+          ]
+        },
+        "image_path": "Thane\\Thane_South_satellite.png",
+        "generated_at": "2025-10-14 00:36:12"
+      },
+      "east": {
+        "name": "Thane East",
+        "description": "Eastern region of Thane with mixed urban development",
+        "bbox": [
+          73.02705606,
+          19.19091795,
+          73.06872933999999,
+          19.240917949999996
+        ],
+        "coordinates": {
+          "center": [
+            19.215917949999998,
+            73.0478927
+          ],
+          "bounds": [
+            [
+              19.19091795,
+              73.02705606
+            ],
+            [
+              19.240917949999996,
+              73.06872933999999
+            ]
+          ]
+        },
+        "image_path": "Thane\\Thane_East_satellite.png",
+        "generated_at": "2025-10-14 00:37:35"
+      },
+      "west": {
+        "name": "Thane West",
+        "description": "Western region of Thane featuring diverse urban landscapes",
+        "bbox": [
+          72.91871446,
+          19.19091795,
+          72.96038773999999,
+          19.240917949999996
+        ],
+        "coordinates": {
+          "center": [
+            19.215917949999998,
+            72.93955109999999
+          ],
+          "bounds": [
+            [
+              19.19091795,
+              72.91871446
+            ],
+            [
+              19.240917949999996,
+              72.96038773999999
+            ]
+          ]
+        },
+        "image_path": "Thane\\Thane_West_satellite.png",
+        "generated_at": "2025-10-14 00:38:45"
+      }
+    },
+    "generated_at": "2025-10-14 00:31:39",
+    "total_regions": 5
+  },
+  "Bhopal": {
+    "city_name": "Bhopal",
+    "city_bbox": [
+      77.241989,
+      23.0984857,
+      77.561989,
+      23.4184857
+    ],
+    "regions": {
+      "center": {
+        "name": "Bhopal Center",
+        "description": "Central business district and urban core of Bhopal",
+        "bbox": [
+          77.361989,
+          23.218485700000002,
+          77.441989,
+          23.2984857
+        ],
+        "coordinates": {
+          "center": [
+            23.2584857,
+            77.401989
+          ],
+          "bounds": [
+            [
+              23.218485700000002,
+              77.361989
+            ],
+            [
+              23.2984857,
+              77.441989
+            ]
+          ]
+        },
+        "image_path": "Bhopal\\Bhopal_Center_satellite.png",
+        "generated_at": "2025-10-14 00:41:42"
+      },
+      "north": {
+        "name": "Bhopal North",
+        "description": "Northern region of Bhopal with suburban and residential areas",
+        "bbox": [
+          77.361989,
+          23.3144857,
+          77.441989,
+          23.394485699999997
+        ],
+        "coordinates": {
+          "center": [
+            23.354485699999998,
+            77.401989
+          ],
+          "bounds": [
+            [
+              23.3144857,
+              77.361989
+            ],
+            [
+              23.394485699999997,
+              77.441989
+            ]
+          ]
+        },
+        "image_path": "Bhopal\\Bhopal_North_satellite.png",
+        "generated_at": "2025-10-14 00:42:38"
+      },
+      "south": {
+        "name": "Bhopal South",
+        "description": "Southern region of Bhopal including industrial and residential zones",
+        "bbox": [
+          77.361989,
+          23.122485700000006,
+          77.441989,
+          23.202485700000004
+        ],
+        "coordinates": {
+          "center": [
+            23.162485700000005,
+            77.401989
+          ],
+          "bounds": [
+            [
+              23.122485700000006,
+              77.361989
+            ],
+            [
+              23.202485700000004,
+              77.441989
+            ]
+          ]
+        },
+        "image_path": "Bhopal\\Bhopal_South_satellite.png",
+        "generated_at": "2025-10-14 00:44:17"
+      },
+      "east": {
+        "name": "Bhopal East",
+        "description": "Eastern region of Bhopal with mixed urban development",
+        "bbox": [
+          77.45798900000001,
+          23.218485700000002,
+          77.53798900000001,
+          23.2984857
+        ],
+        "coordinates": {
+          "center": [
+            23.2584857,
+            77.49798900000002
+          ],
+          "bounds": [
+            [
+              23.218485700000002,
+              77.45798900000001
+            ],
+            [
+              23.2984857,
+              77.53798900000001
+            ]
+          ]
+        },
+        "image_path": "Bhopal\\Bhopal_East_satellite.png",
+        "generated_at": "2025-10-14 00:45:41"
+      },
+      "west": {
+        "name": "Bhopal West",
+        "description": "Western region of Bhopal featuring diverse urban landscapes",
+        "bbox": [
+          77.26598899999999,
+          23.218485700000002,
+          77.34598899999999,
+          23.2984857
+        ],
+        "coordinates": {
+          "center": [
+            23.2584857,
+            77.30598899999998
+          ],
+          "bounds": [
+            [
+              23.218485700000002,
+              77.26598899999999
+            ],
+            [
+              23.2984857,
+              77.34598899999999
+            ]
+          ]
+        },
+        "image_path": "Bhopal\\Bhopal_West_satellite.png",
+        "generated_at": "2025-10-14 00:48:09"
+      }
+    },
+    "generated_at": "2025-10-14 00:38:58",
+    "total_regions": 5
+  },
+  "Pimpri Chinchwad": {
+    "city_name": "Pimpri Chinchwad",
+    "city_bbox": [
+      73.8009329,
+      18.6278788,
+      73.8010329,
+      18.6279788
+    ],
+    "regions": {
+      "center": {
+        "name": "Pimpri Chinchwad Center",
+        "description": "Central business district and urban core of Pimpri Chinchwad",
+        "bbox": [
+          73.80093790000001,
+          18.627883800000003,
+          73.8010279,
+          18.6279738
+        ],
+        "coordinates": {
+          "center": [
+            18.6279288,
+            73.80098290000001
+          ],
+          "bounds": [
+            [
+              18.6029288,
+              73.7759829
+            ],
+            [
+              18.652928799999998,
+              73.82598290000001
+            ]
+          ]
+        },
+        "image_path": "Pimpri_Chinchwad\\Pimpri_Chinchwad_Center_satellite.png",
+        "generated_at": "2025-10-14 01:06:16"
+      },
+      "north": {
+        "name": "Pimpri Chinchwad North",
+        "description": "Northern region of Pimpri Chinchwad with suburban and residential areas",
+        "bbox": [
+          73.80093790000001,
+          18.6529338,
+          73.8010279,
+          18.6279738
+        ],
+        "coordinates": {
+          "center": [
+            18.677933799999998,
+            73.80098290000001
+          ],
+          "bounds": [
+            [
+              18.6529338,
+              73.7759829
+            ],
+            [
+              18.7029338,
+              73.82598290000001
+            ]
+          ]
+        },
+        "image_path": "Pimpri_Chinchwad\\Pimpri_Chinchwad_North_satellite.png",
+        "generated_at": "2025-10-14 01:06:28"
+      },
+      "south": {
+        "name": "Pimpri Chinchwad South",
+        "description": "Southern region of Pimpri Chinchwad including industrial and residential zones",
+        "bbox": [
+          73.80093790000001,
+          18.627883800000003,
+          73.8010279,
+          18.6029238
+        ],
+        "coordinates": {
+          "center": [
+            18.5779238,
+            73.80098290000001
+          ],
+          "bounds": [
+            [
+              18.5529238,
+              73.7759829
+            ],
+            [
+              18.6029238,
+              73.82598290000001
+            ]
+          ]
+        },
+        "image_path": "Pimpri_Chinchwad\\Pimpri_Chinchwad_South_satellite.png",
+        "generated_at": "2025-10-14 01:06:39"
+      },
+      "east": {
+        "name": "Pimpri Chinchwad East",
+        "description": "Eastern region of Pimpri Chinchwad with mixed urban development",
+        "bbox": [
+          73.82598790000002,
+          18.627883800000003,
+          73.8010279,
+          18.6279738
+        ],
+        "coordinates": {
+          "center": [
+            18.6279288,
+            73.8135079
+          ],
+          "bounds": [
+            [
+              18.6029288,
+              73.82598790000002
+            ],
+            [
+              18.652928799999998,
+              73.8010279
+            ]
+          ]
+        },
+        "image_path": "Pimpri_Chinchwad\\Pimpri_Chinchwad_East_satellite.png",
+        "generated_at": "2025-10-14 01:06:51"
+      },
+      "west": {
+        "name": "Pimpri Chinchwad West",
+        "description": "Western region of Pimpri Chinchwad featuring diverse urban landscapes",
+        "bbox": [
+          73.80093790000002,
+          18.627883800000003,
+          73.7759779,
+          18.6279738
+        ],
+        "coordinates": {
+          "center": [
+            18.6279288,
+            73.78845790000001
+          ],
+          "bounds": [
+            [
+              18.6029288,
+              73.80093790000002
+            ],
+            [
+              18.652928799999998,
+              73.7759779
+            ]
+          ]
+        },
+        "image_path": "Pimpri_Chinchwad\\Pimpri_Chinchwad_West_satellite.png",
+        "generated_at": "2025-10-14 01:07:02"
+      }
+    },
+    "generated_at": "2025-10-14 00:55:24",
+    "total_regions": 5
+  },
+  "Patna": {
+    "city_name": "Patna",
+    "city_bbox": [
+      84.9635252,
+      25.4493239,
+      85.2835252,
+      25.7693239
+    ],
+    "regions": {
+      "center": {
+        "name": "Patna Center",
+        "description": "Central business district and urban core of Patna",
+        "bbox": [
+          85.0835252,
+          25.5693239,
+          85.16352520000001,
+          25.6493239
+        ],
+        "coordinates": {
+          "center": [
+            25.6093239,
+            85.1235252
+          ],
+          "bounds": [
+            [
+              25.5693239,
+              85.0835252
+            ],
+            [
+              25.6493239,
+              85.16352520000001
+            ]
+          ]
+        },
+        "image_path": "Patna\\Patna_Center_satellite.png",
+        "generated_at": "2025-10-14 01:09:14"
+      },
+      "north": {
+        "name": "Patna North",
+        "description": "Northern region of Patna with suburban and residential areas",
+        "bbox": [
+          85.0835252,
+          25.665323899999997,
+          85.16352520000001,
+          25.745323899999995
+        ],
+        "coordinates": {
+          "center": [
+            25.705323899999996,
+            85.1235252
+          ],
+          "bounds": [
+            [
+              25.665323899999997,
+              85.0835252
+            ],
+            [
+              25.745323899999995,
+              85.16352520000001
+            ]
+          ]
+        },
+        "image_path": "Patna\\Patna_North_satellite.png",
+        "generated_at": "2025-10-14 01:10:17"
+      },
+      "south": {
+        "name": "Patna South",
+        "description": "Southern region of Patna including industrial and residential zones",
+        "bbox": [
+          85.0835252,
+          25.473323900000004,
+          85.16352520000001,
+          25.553323900000002
+        ],
+        "coordinates": {
+          "center": [
+            25.513323900000003,
+            85.1235252
+          ],
+          "bounds": [
+            [
+              25.473323900000004,
+              85.0835252
+            ],
+            [
+              25.553323900000002,
+              85.16352520000001
+            ]
+          ]
+        },
+        "image_path": "Patna\\Patna_South_satellite.png",
+        "generated_at": "2025-10-14 01:11:36"
+      },
+      "east": {
+        "name": "Patna East",
+        "description": "Eastern region of Patna with mixed urban development",
+        "bbox": [
+          85.17952520000001,
+          25.5693239,
+          85.25952520000001,
+          25.6493239
+        ],
+        "coordinates": {
+          "center": [
+            25.6093239,
+            85.21952520000002
+          ],
+          "bounds": [
+            [
+              25.5693239,
+              85.17952520000001
+            ],
+            [
+              25.6493239,
+              85.25952520000001
+            ]
+          ]
+        },
+        "image_path": "Patna\\Patna_East_satellite.png",
+        "generated_at": "2025-10-14 01:12:44"
+      },
+      "west": {
+        "name": "Patna West",
+        "description": "Western region of Patna featuring diverse urban landscapes",
+        "bbox": [
+          84.9875252,
+          25.5693239,
+          85.06752519999999,
+          25.6493239
+        ],
+        "coordinates": {
+          "center": [
+            25.6093239,
+            85.02752519999999
+          ],
+          "bounds": [
+            [
+              25.5693239,
+              84.9875252
+            ],
+            [
+              25.6493239,
+              85.06752519999999
+            ]
+          ]
+        },
+        "image_path": "Patna\\Patna_West_satellite.png",
+        "generated_at": "2025-10-14 01:13:59"
+      }
+    },
+    "generated_at": "2025-10-14 01:07:14",
+    "total_regions": 5
+  },
+  "Vadodara": {
+    "city_name": "Vadodara",
+    "city_bbox": [
+      73.0342567,
+      22.1373142,
+      73.3542567,
+      22.4573142
+    ],
+    "regions": {
+      "center": {
+        "name": "Vadodara Center",
+        "description": "Central business district and urban core of Vadodara",
+        "bbox": [
+          73.15425669999999,
+          22.2573142,
+          73.2342567,
+          22.337314199999998
+        ],
+        "coordinates": {
+          "center": [
+            22.2973142,
+            73.1942567
+          ],
+          "bounds": [
+            [
+              22.2573142,
+              73.15425669999999
+            ],
+            [
+              22.337314199999998,
+              73.2342567
+            ]
+          ]
+        },
+        "image_path": "Vadodara\\Vadodara_Center_satellite.png",
+        "generated_at": "2025-10-14 01:15:48"
+      },
+      "north": {
+        "name": "Vadodara North",
+        "description": "Northern region of Vadodara with suburban and residential areas",
+        "bbox": [
+          73.15425669999999,
+          22.3533142,
+          73.2342567,
+          22.433314199999998
+        ],
+        "coordinates": {
+          "center": [
+            22.3933142,
+            73.1942567
+          ],
+          "bounds": [
+            [
+              22.3533142,
+              73.15425669999999
+            ],
+            [
+              22.433314199999998,
+              73.2342567
+            ]
+          ]
+        },
+        "image_path": "Vadodara\\Vadodara_North_satellite.png",
+        "generated_at": "2025-10-14 01:16:49"
+      },
+      "south": {
+        "name": "Vadodara South",
+        "description": "Southern region of Vadodara including industrial and residential zones",
+        "bbox": [
+          73.15425669999999,
+          22.1613142,
+          73.2342567,
+          22.241314199999998
+        ],
+        "coordinates": {
+          "center": [
+            22.2013142,
+            73.1942567
+          ],
+          "bounds": [
+            [
+              22.1613142,
+              73.15425669999999
+            ],
+            [
+              22.241314199999998,
+              73.2342567
+            ]
+          ]
+        },
+        "image_path": "Vadodara\\Vadodara_South_satellite.png",
+        "generated_at": "2025-10-14 01:18:11"
+      },
+      "east": {
+        "name": "Vadodara East",
+        "description": "Eastern region of Vadodara with mixed urban development",
+        "bbox": [
+          73.25025670000001,
+          22.2573142,
+          73.3302567,
+          22.337314199999998
+        ],
+        "coordinates": {
+          "center": [
+            22.2973142,
+            73.29025670000001
+          ],
+          "bounds": [
+            [
+              22.2573142,
+              73.25025670000001
+            ],
+            [
+              22.337314199999998,
+              73.3302567
+            ]
+          ]
+        },
+        "image_path": "Vadodara\\Vadodara_East_satellite.png",
+        "generated_at": "2025-10-14 01:20:32"
+      },
+      "west": {
+        "name": "Vadodara West",
+        "description": "Western region of Vadodara featuring diverse urban landscapes",
+        "bbox": [
+          73.05825669999999,
+          22.2573142,
+          73.13825669999999,
+          22.337314199999998
+        ],
+        "coordinates": {
+          "center": [
+            22.2973142,
+            73.09825669999998
+          ],
+          "bounds": [
+            [
+              22.2573142,
+              73.05825669999999
+            ],
+            [
+              22.337314199999998,
+              73.13825669999999
+            ]
+          ]
+        },
+        "image_path": "Vadodara\\Vadodara_West_satellite.png",
+        "generated_at": "2025-10-14 01:22:36"
+      }
+    },
+    "generated_at": "2025-10-14 01:14:11",
+    "total_regions": 5
+  },
+  "Ghaziabad": {
+    "city_name": "Ghaziabad",
+    "city_bbox": [
+      77.1992428,
+      28.6221757,
+      77.7095278,
+      28.9277798
+    ],
+    "regions": {
+      "center": {
+        "name": "Ghaziabad Center",
+        "description": "Central business district and urban core of Ghaziabad",
+        "bbox": [
+          77.4033568,
+          28.71385693,
+          77.5054138,
+          28.836098569999997
+        ],
+        "coordinates": {
+          "center": [
+            28.774977749999998,
+            77.4543853
+          ],
+          "bounds": [
+            [
+              28.71385693,
+              77.4033568
+            ],
+            [
+              28.836098569999997,
+              77.5054138
+            ]
+          ]
+        },
+        "image_path": "Ghaziabad\\Ghaziabad_Center_satellite.png",
+        "generated_at": "2025-10-14 01:23:43"
+      },
+      "north": {
+        "name": "Ghaziabad North",
+        "description": "Northern region of Ghaziabad with suburban and residential areas",
+        "bbox": [
+          77.4033568,
+          28.851378774999997,
+          77.5054138,
+          28.912499595
+        ],
+        "coordinates": {
+          "center": [
+            28.912499594999996,
+            77.4543853
+          ],
+          "bounds": [
+            [
+              28.851378774999997,
+              77.4033568
+            ],
+            [
+              28.973620414999996,
+              77.5054138
+            ]
+          ]
+        },
+        "image_path": "Ghaziabad\\Ghaziabad_North_satellite.png",
+        "generated_at": "2025-10-14 01:25:03"
+      },
+      "south": {
+        "name": "Ghaziabad South",
+        "description": "Southern region of Ghaziabad including industrial and residential zones",
+        "bbox": [
+          77.4033568,
+          28.637455905,
+          77.5054138,
+          28.698576725
+        ],
+        "coordinates": {
+          "center": [
+            28.637455905,
+            77.4543853
+          ],
+          "bounds": [
+            [
+              28.576335085,
+              77.4033568
+            ],
+            [
+              28.698576725,
+              77.5054138
+            ]
+          ]
+        },
+        "image_path": "Ghaziabad\\Ghaziabad_South_satellite.png",
+        "generated_at": "2025-10-14 01:26:09"
+      },
+      "east": {
+        "name": "Ghaziabad East",
+        "description": "Eastern region of Ghaziabad with mixed urban development",
+        "bbox": [
+          77.53092805,
+          28.71385693,
+          77.63298505,
+          28.836098569999997
+        ],
+        "coordinates": {
+          "center": [
+            28.774977749999998,
+            77.58195655
+          ],
+          "bounds": [
+            [
+              28.71385693,
+              77.53092805
+            ],
+            [
+              28.836098569999997,
+              77.63298505
+            ]
+          ]
+        },
+        "image_path": "Ghaziabad\\Ghaziabad_East_satellite.png",
+        "generated_at": "2025-10-14 01:27:16"
+      },
+      "west": {
+        "name": "Ghaziabad West",
+        "description": "Western region of Ghaziabad featuring diverse urban landscapes",
+        "bbox": [
+          77.27578555,
+          28.71385693,
+          77.37784255,
+          28.836098569999997
+        ],
+        "coordinates": {
+          "center": [
+            28.774977749999998,
+            77.32681405
+          ],
+          "bounds": [
+            [
+              28.71385693,
+              77.27578555
+            ],
+            [
+              28.836098569999997,
+              77.37784255
+            ]
+          ]
+        },
+        "image_path": "Ghaziabad\\Ghaziabad_West_satellite.png",
+        "generated_at": "2025-10-14 01:28:30"
+      }
+    },
+    "generated_at": "2025-10-14 01:22:49",
+    "total_regions": 5
+  },
+  "Ludhiana": {
+    "city_name": "Ludhiana",
+    "city_bbox": [
+      75.691601,
+      30.7490157,
+      76.011601,
+      31.0690157
+    ],
+    "regions": {
+      "center": {
+        "name": "Ludhiana Center",
+        "description": "Central business district and urban core of Ludhiana",
+        "bbox": [
+          75.811601,
+          30.869015700000002,
+          75.89160100000001,
+          30.9490157
+        ],
+        "coordinates": {
+          "center": [
+            30.9090157,
+            75.851601
+          ],
+          "bounds": [
+            [
+              30.869015700000002,
+              75.811601
+            ],
+            [
+              30.9490157,
+              75.89160100000001
+            ]
+          ]
+        },
+        "image_path": "Ludhiana\\Ludhiana_Center_satellite.png",
+        "generated_at": "2025-10-14 01:30:29"
+      },
+      "north": {
+        "name": "Ludhiana North",
+        "description": "Northern region of Ludhiana with suburban and residential areas",
+        "bbox": [
+          75.811601,
+          30.965015700000002,
+          75.89160100000001,
+          31.0450157
+        ],
+        "coordinates": {
+          "center": [
+            31.0050157,
+            75.851601
+          ],
+          "bounds": [
+            [
+              30.965015700000002,
+              75.811601
+            ],
+            [
+              31.0450157,
+              75.89160100000001
+            ]
+          ]
+        },
+        "image_path": "Ludhiana\\Ludhiana_North_satellite.png",
+        "generated_at": "2025-10-14 01:32:41"
+      },
+      "south": {
+        "name": "Ludhiana South",
+        "description": "Southern region of Ludhiana including industrial and residential zones",
+        "bbox": [
+          75.811601,
+          30.773015700000002,
+          75.89160100000001,
+          30.8530157
+        ],
+        "coordinates": {
+          "center": [
+            30.8130157,
+            75.851601
+          ],
+          "bounds": [
+            [
+              30.773015700000002,
+              75.811601
+            ],
+            [
+              30.8530157,
+              75.89160100000001
+            ]
+          ]
+        },
+        "image_path": "Ludhiana\\Ludhiana_South_satellite.png",
+        "generated_at": "2025-10-14 01:34:37"
+      },
+      "east": {
+        "name": "Ludhiana East",
+        "description": "Eastern region of Ludhiana with mixed urban development",
+        "bbox": [
+          75.90760100000001,
+          30.869015700000002,
+          75.98760100000001,
+          30.9490157
+        ],
+        "coordinates": {
+          "center": [
+            30.9090157,
+            75.94760100000002
+          ],
+          "bounds": [
+            [
+              30.869015700000002,
+              75.90760100000001
+            ],
+            [
+              30.9490157,
+              75.98760100000001
+            ]
+          ]
+        },
+        "image_path": "Ludhiana\\Ludhiana_East_satellite.png",
+        "generated_at": "2025-10-14 01:36:08"
+      },
+      "west": {
+        "name": "Ludhiana West",
+        "description": "Western region of Ludhiana featuring diverse urban landscapes",
+        "bbox": [
+          75.71560099999999,
+          30.869015700000002,
+          75.79560099999999,
+          30.9490157
+        ],
+        "coordinates": {
+          "center": [
+            30.9090157,
+            75.75560099999998
+          ],
+          "bounds": [
+            [
+              30.869015700000002,
+              75.71560099999999
+            ],
+            [
+              30.9490157,
+              75.79560099999999
+            ]
+          ]
+        },
+        "image_path": "Ludhiana\\Ludhiana_West_satellite.png",
+        "generated_at": "2025-10-14 01:37:54"
+      }
+    },
+    "generated_at": "2025-10-14 01:28:43",
+    "total_regions": 5
+  },
+  "Agra": {
+    "city_name": "Agra",
+    "city_bbox": [
+      77.851022,
+      27.045464,
+      78.2207625,
+      27.2963239
+    ],
+    "regions": {
+      "center": {
+        "name": "Agra Center",
+        "description": "Central business district and urban core of Agra",
+        "bbox": [
+          77.9989182,
+          27.120721969999998,
+          78.0728663,
+          27.22106593
+        ],
+        "coordinates": {
+          "center": [
+            27.17089395,
+            78.03589225
+          ],
+          "bounds": [
+            [
+              27.120721969999998,
+              77.9989182
+            ],
+            [
+              27.22106593,
+              78.0728663
+            ]
+          ]
+        },
+        "image_path": "Agra\\Agra_Center_satellite.png",
+        "generated_at": "2025-10-14 01:39:03"
+      },
+      "north": {
+        "name": "Agra North",
+        "description": "Northern region of Agra with suburban and residential areas",
+        "bbox": [
+          77.9989182,
+          27.233608925000002,
+          78.0728663,
+          27.283780905
+        ],
+        "coordinates": {
+          "center": [
+            27.283780905000004,
+            78.03589225
+          ],
+          "bounds": [
+            [
+              27.233608925000002,
+              77.9989182
+            ],
+            [
+              27.333952885000002,
+              78.0728663
+            ]
+          ]
+        },
+        "image_path": "Agra\\Agra_North_satellite.png",
+        "generated_at": "2025-10-14 01:39:52"
+      },
+      "south": {
+        "name": "Agra South",
+        "description": "Southern region of Agra including industrial and residential zones",
+        "bbox": [
+          77.9989182,
+          27.058006995,
+          78.0728663,
+          27.108178974999998
+        ],
+        "coordinates": {
+          "center": [
+            27.058006994999996,
+            78.03589225
+          ],
+          "bounds": [
+            [
+              27.007835014999998,
+              77.9989182
+            ],
+            [
+              27.108178974999998,
+              78.0728663
+            ]
+          ]
+        },
+        "image_path": "Agra\\Agra_South_satellite.png",
+        "generated_at": "2025-10-14 01:40:49"
+      },
+      "east": {
+        "name": "Agra East",
+        "description": "Eastern region of Agra with mixed urban development",
+        "bbox": [
+          78.091353325,
+          27.120721969999998,
+          78.165301425,
+          27.22106593
+        ],
+        "coordinates": {
+          "center": [
+            27.17089395,
+            78.128327375
+          ],
+          "bounds": [
+            [
+              27.120721969999998,
+              78.091353325
+            ],
+            [
+              27.22106593,
+              78.165301425
+            ]
+          ]
+        },
+        "image_path": "Agra\\Agra_East_satellite.png",
+        "generated_at": "2025-10-14 01:41:41"
+      },
+      "west": {
+        "name": "Agra West",
+        "description": "Western region of Agra featuring diverse urban landscapes",
+        "bbox": [
+          77.90648307500001,
+          27.120721969999998,
+          77.980431175,
+          27.22106593
+        ],
+        "coordinates": {
+          "center": [
+            27.17089395,
+            77.94345712500001
+          ],
+          "bounds": [
+            [
+              27.120721969999998,
+              77.90648307500001
+            ],
+            [
+              27.22106593,
+              77.980431175
+            ]
+          ]
+        },
+        "image_path": "Agra\\Agra_West_satellite.png",
+        "generated_at": "2025-10-14 01:42:36"
+      }
+    },
+    "generated_at": "2025-10-14 01:38:07",
+    "total_regions": 5
+  },
+  "Bhubaneswar": {
+    "city_name": "Bhubaneswar",
+    "city_bbox": [
+      85.6794521,
+      20.1002964,
+      85.9994521,
+      20.4202964
+    ],
+    "regions": {
+      "center": {
+        "name": "Bhubaneswar Center",
+        "description": "Central business district and urban core of Bhubaneswar",
+        "bbox": [
+          85.7994521,
+          20.220296400000002,
+          85.87945210000001,
+          20.3002964
+        ],
+        "coordinates": {
+          "center": [
+            20.2602964,
+            85.8394521
+          ],
+          "bounds": [
+            [
+              20.220296400000002,
+              85.7994521
+            ],
+            [
+              20.3002964,
+              85.87945210000001
+            ]
+          ]
+        },
+        "image_path": "Bhubaneswar\\Bhubaneswar_Center_satellite.png",
+        "generated_at": "2025-10-14 02:05:02"
+      },
+      "north": {
+        "name": "Bhubaneswar North",
+        "description": "Northern region of Bhubaneswar with suburban and residential areas",
+        "bbox": [
+          85.7994521,
+          20.3162964,
+          85.87945210000001,
+          20.396296399999997
+        ],
+        "coordinates": {
+          "center": [
+            20.356296399999998,
+            85.8394521
+          ],
+          "bounds": [
+            [
+              20.3162964,
+              85.7994521
+            ],
+            [
+              20.396296399999997,
+              85.87945210000001
+            ]
+          ]
+        },
+        "image_path": "Bhubaneswar\\Bhubaneswar_North_satellite.png",
+        "generated_at": "2025-10-14 02:06:12"
+      },
+      "south": {
+        "name": "Bhubaneswar South",
+        "description": "Southern region of Bhubaneswar including industrial and residential zones",
+        "bbox": [
+          85.7994521,
+          20.124296400000006,
+          85.87945210000001,
+          20.204296400000004
+        ],
+        "coordinates": {
+          "center": [
+            20.164296400000005,
+            85.8394521
+          ],
+          "bounds": [
+            [
+              20.124296400000006,
+              85.7994521
+            ],
+            [
+              20.204296400000004,
+              85.87945210000001
+            ]
+          ]
+        },
+        "image_path": "Bhubaneswar\\Bhubaneswar_South_satellite.png",
+        "generated_at": "2025-10-14 02:07:26"
+      },
+      "east": {
+        "name": "Bhubaneswar East",
+        "description": "Eastern region of Bhubaneswar with mixed urban development",
+        "bbox": [
+          85.89545210000001,
+          20.220296400000002,
+          85.97545210000001,
+          20.3002964
+        ],
+        "coordinates": {
+          "center": [
+            20.2602964,
+            85.93545210000002
+          ],
+          "bounds": [
+            [
+              20.220296400000002,
+              85.89545210000001
+            ],
+            [
+              20.3002964,
+              85.97545210000001
+            ]
+          ]
+        },
+        "image_path": "Bhubaneswar\\Bhubaneswar_East_satellite.png",
+        "generated_at": "2025-10-14 02:09:10"
+      },
+      "west": {
+        "name": "Bhubaneswar West",
+        "description": "Western region of Bhubaneswar featuring diverse urban landscapes",
+        "bbox": [
+          85.70345209999999,
+          20.220296400000002,
+          85.78345209999999,
+          20.3002964
+        ],
+        "coordinates": {
+          "center": [
+            20.2602964,
+            85.74345209999998
+          ],
+          "bounds": [
+            [
+              20.220296400000002,
+              85.70345209999999
+            ],
+            [
+              20.3002964,
+              85.78345209999999
+            ]
+          ]
+        },
+        "image_path": "Bhubaneswar\\Bhubaneswar_West_satellite.png",
+        "generated_at": "2025-10-14 02:11:04"
+      }
+    },
+    "generated_at": "2025-10-14 02:03:10",
+    "total_regions": 5
+  },
+  "Ranchi": {
+    "city_name": "Ranchi",
+    "city_bbox": [
+      85.1650387,
+      23.2100501,
+      85.4850387,
+      23.5300501
+    ],
+    "regions": {
+      "center": {
+        "name": "Ranchi Center",
+        "description": "Central business district and urban core of Ranchi",
+        "bbox": [
+          85.28503869999999,
+          23.3300501,
+          85.3650387,
+          23.4100501
+        ],
+        "coordinates": {
+          "center": [
+            23.3700501,
+            85.3250387
+          ],
+          "bounds": [
+            [
+              23.3300501,
+              85.28503869999999
+            ],
+            [
+              23.4100501,
+              85.3650387
+            ]
+          ]
+        },
+        "image_path": "Ranchi\\Ranchi_Center_satellite.png",
+        "generated_at": "2025-10-14 02:13:53"
+      },
+      "north": {
+        "name": "Ranchi North",
+        "description": "Northern region of Ranchi with suburban and residential areas",
+        "bbox": [
+          85.28503869999999,
+          23.426050099999998,
+          85.3650387,
+          23.506050099999996
+        ],
+        "coordinates": {
+          "center": [
+            23.466050099999997,
+            85.3250387
+          ],
+          "bounds": [
+            [
+              23.426050099999998,
+              85.28503869999999
+            ],
+            [
+              23.506050099999996,
+              85.3650387
+            ]
+          ]
+        },
+        "image_path": "Ranchi\\Ranchi_North_satellite.png",
+        "generated_at": "2025-10-14 02:15:52"
+      },
+      "south": {
+        "name": "Ranchi South",
+        "description": "Southern region of Ranchi including industrial and residential zones",
+        "bbox": [
+          85.28503869999999,
+          23.234050100000005,
+          85.3650387,
+          23.314050100000003
+        ],
+        "coordinates": {
+          "center": [
+            23.274050100000004,
+            85.3250387
+          ],
+          "bounds": [
+            [
+              23.234050100000005,
+              85.28503869999999
+            ],
+            [
+              23.314050100000003,
+              85.3650387
+            ]
+          ]
+        },
+        "image_path": "Ranchi\\Ranchi_South_satellite.png",
+        "generated_at": "2025-10-14 02:16:56"
+      },
+      "east": {
+        "name": "Ranchi East",
+        "description": "Eastern region of Ranchi with mixed urban development",
+        "bbox": [
+          85.3810387,
+          23.3300501,
+          85.4610387,
+          23.4100501
+        ],
+        "coordinates": {
+          "center": [
+            23.3700501,
+            85.42103870000001
+          ],
+          "bounds": [
+            [
+              23.3300501,
+              85.3810387
+            ],
+            [
+              23.4100501,
+              85.4610387
+            ]
+          ]
+        },
+        "image_path": "Ranchi\\Ranchi_East_satellite.png",
+        "generated_at": "2025-10-14 02:19:30"
+      },
+      "west": {
+        "name": "Ranchi West",
+        "description": "Western region of Ranchi featuring diverse urban landscapes",
+        "bbox": [
+          85.18903869999998,
+          23.3300501,
+          85.26903869999998,
+          23.4100501
+        ],
+        "coordinates": {
+          "center": [
+            23.3700501,
+            85.22903869999998
+          ],
+          "bounds": [
+            [
+              23.3300501,
+              85.18903869999998
+            ],
+            [
+              23.4100501,
+              85.26903869999998
+            ]
+          ]
+        },
+        "image_path": "Ranchi\\Ranchi_West_satellite.png",
+        "generated_at": "2025-10-14 02:20:25"
+      }
+    },
+    "generated_at": "2025-10-14 02:11:16",
+    "total_regions": 5
+  },
+  "Raipur": {
+    "city_name": "Raipur",
+    "city_bbox": [
+      81.4736993,
+      21.0780912,
+      81.7936993,
+      21.3980912
+    ],
+    "regions": {
+      "center": {
+        "name": "Raipur Center",
+        "description": "Central business district and urban core of Raipur",
+        "bbox": [
+          81.5936993,
+          21.1980912,
+          81.67369930000001,
+          21.2780912
+        ],
+        "coordinates": {
+          "center": [
+            21.2380912,
+            81.6336993
+          ],
+          "bounds": [
+            [
+              21.1980912,
+              81.5936993
+            ],
+            [
+              21.2780912,
+              81.67369930000001
+            ]
+          ]
+        },
+        "image_path": "Raipur\\Raipur_Center_satellite.png",
+        "generated_at": "2025-10-14 02:21:59"
+      },
+      "north": {
+        "name": "Raipur North",
+        "description": "Northern region of Raipur with suburban and residential areas",
+        "bbox": [
+          81.5936993,
+          21.294091199999997,
+          81.67369930000001,
+          21.374091199999995
+        ],
+        "coordinates": {
+          "center": [
+            21.334091199999996,
+            81.6336993
+          ],
+          "bounds": [
+            [
+              21.294091199999997,
+              81.5936993
+            ],
+            [
+              21.374091199999995,
+              81.67369930000001
+            ]
+          ]
+        },
+        "image_path": "Raipur\\Raipur_North_satellite.png",
+        "generated_at": "2025-10-14 02:23:36"
+      },
+      "south": {
+        "name": "Raipur South",
+        "description": "Southern region of Raipur including industrial and residential zones",
+        "bbox": [
+          81.5936993,
+          21.102091200000004,
+          81.67369930000001,
+          21.182091200000002
+        ],
+        "coordinates": {
+          "center": [
+            21.142091200000003,
+            81.6336993
+          ],
+          "bounds": [
+            [
+              21.102091200000004,
+              81.5936993
+            ],
+            [
+              21.182091200000002,
+              81.67369930000001
+            ]
+          ]
+        },
+        "image_path": "Raipur\\Raipur_South_satellite.png",
+        "generated_at": "2025-10-14 02:24:27"
+      },
+      "east": {
+        "name": "Raipur East",
+        "description": "Eastern region of Raipur with mixed urban development",
+        "bbox": [
+          81.68969930000002,
+          21.1980912,
+          81.76969930000001,
+          21.2780912
+        ],
+        "coordinates": {
+          "center": [
+            21.2380912,
+            81.72969930000002
+          ],
+          "bounds": [
+            [
+              21.1980912,
+              81.68969930000002
+            ],
+            [
+              21.2780912,
+              81.76969930000001
+            ]
+          ]
+        },
+        "image_path": "Raipur\\Raipur_East_satellite.png",
+        "generated_at": "2025-10-14 02:26:12"
+      },
+      "west": {
+        "name": "Raipur West",
+        "description": "Western region of Raipur featuring diverse urban landscapes",
+        "bbox": [
+          81.4976993,
+          21.1980912,
+          81.57769929999999,
+          21.2780912
+        ],
+        "coordinates": {
+          "center": [
+            21.2380912,
+            81.53769929999999
+          ],
+          "bounds": [
+            [
+              21.1980912,
+              81.4976993
+            ],
+            [
+              21.2780912,
+              81.57769929999999
+            ]
+          ]
+        },
+        "image_path": "Raipur\\Raipur_West_satellite.png",
+        "generated_at": "2025-10-14 02:27:40"
+      }
+    },
+    "generated_at": "2025-10-14 02:20:38",
+    "total_regions": 5
+  },
+  "Shimla": {
+    "city_name": "Shimla",
+    "city_bbox": [
+      77.1172964,
+      31.0641835,
+      77.229917,
+      31.1603379
+    ],
+    "regions": {
+      "center": {
+        "name": "Shimla Center",
+        "description": "Central business district and urban core of Shimla",
+        "bbox": [
+          77.14860669999999,
+          31.0872607,
+          77.1986067,
+          31.1372607
+        ],
+        "coordinates": {
+          "center": [
+            31.1122607,
+            77.1736067
+          ],
+          "bounds": [
+            [
+              31.0872607,
+              77.14860669999999
+            ],
+            [
+              31.1372607,
+              77.1986067
+            ]
+          ]
+        },
+        "image_path": "Shimla\\Shimla_Center_satellite.png",
+        "generated_at": "2025-10-14 02:38:00"
+      },
+      "north": {
+        "name": "Shimla North",
+        "description": "Northern region of Shimla with suburban and residential areas",
+        "bbox": [
+          77.14860669999999,
+          31.142068419999998,
+          77.1986067,
+          31.15553018
+        ],
+        "coordinates": {
+          "center": [
+            31.167068419999996,
+            77.1736067
+          ],
+          "bounds": [
+            [
+              31.142068419999998,
+              77.14860669999999
+            ],
+            [
+              31.19206842,
+              77.1986067
+            ]
+          ]
+        },
+        "image_path": "Shimla\\Shimla_North_satellite.png",
+        "generated_at": "2025-10-14 02:38:31"
+      },
+      "south": {
+        "name": "Shimla South",
+        "description": "Southern region of Shimla including industrial and residential zones",
+        "bbox": [
+          77.14860669999999,
+          31.068991219999997,
+          77.1986067,
+          31.082452980000003
+        ],
+        "coordinates": {
+          "center": [
+            31.057452980000004,
+            77.1736067
+          ],
+          "bounds": [
+            [
+              31.032452980000002,
+              77.14860669999999
+            ],
+            [
+              31.082452980000003,
+              77.1986067
+            ]
+          ]
+        },
+        "image_path": "Shimla\\Shimla_South_satellite.png",
+        "generated_at": "2025-10-14 02:39:19"
+      },
+      "east": {
+        "name": "Shimla East",
+        "description": "Eastern region of Shimla with mixed urban development",
+        "bbox": [
+          77.20423773,
+          31.0872607,
+          77.22428596999998,
+          31.1372607
+        ],
+        "coordinates": {
+          "center": [
+            31.1122607,
+            77.21426184999999
+          ],
+          "bounds": [
+            [
+              31.0872607,
+              77.20423773
+            ],
+            [
+              31.1372607,
+              77.22428596999998
+            ]
+          ]
+        },
+        "image_path": "Shimla\\Shimla_East_satellite.png",
+        "generated_at": "2025-10-14 02:40:06"
+      },
+      "west": {
+        "name": "Shimla West",
+        "description": "Western region of Shimla featuring diverse urban landscapes",
+        "bbox": [
+          77.12292743,
+          31.0872607,
+          77.14297566999998,
+          31.1372607
+        ],
+        "coordinates": {
+          "center": [
+            31.1122607,
+            77.13295155
+          ],
+          "bounds": [
+            [
+              31.0872607,
+              77.12292743
+            ],
+            [
+              31.1372607,
+              77.14297566999998
+            ]
+          ]
+        },
+        "image_path": "Shimla\\Shimla_West_satellite.png",
+        "generated_at": "2025-10-14 02:40:57"
+      }
+    },
+    "generated_at": "2025-10-14 02:35:51",
+    "total_regions": 5
+  },
+  "Srinagar": {
+    "city_name": "Srinagar",
+    "city_bbox": [
+      74.6604443,
+      33.9147444,
+      74.9804443,
+      34.2347444
+    ],
+    "regions": {
+      "center": {
+        "name": "Srinagar Center",
+        "description": "Central business district and urban core of Srinagar",
+        "bbox": [
+          74.78044429999998,
+          34.0347444,
+          74.8604443,
+          34.1147444
+        ],
+        "coordinates": {
+          "center": [
+            34.0747444,
+            74.82044429999999
+          ],
+          "bounds": [
+            [
+              34.0347444,
+              74.78044429999998
+            ],
+            [
+              34.1147444,
+              74.8604443
+            ]
+          ]
+        },
+        "image_path": "Srinagar\\Srinagar_Center_satellite.png",
+        "generated_at": "2025-10-14 02:42:37"
+      },
+      "north": {
+        "name": "Srinagar North",
+        "description": "Northern region of Srinagar with suburban and residential areas",
+        "bbox": [
+          74.78044429999998,
+          34.1307444,
+          74.8604443,
+          34.210744399999996
+        ],
+        "coordinates": {
+          "center": [
+            34.1707444,
+            74.82044429999999
+          ],
+          "bounds": [
+            [
+              34.1307444,
+              74.78044429999998
+            ],
+            [
+              34.210744399999996,
+              74.8604443
+            ]
+          ]
+        },
+        "image_path": "Srinagar\\Srinagar_North_satellite.png",
+        "generated_at": "2025-10-14 02:44:11"
+      },
+      "south": {
+        "name": "Srinagar South",
+        "description": "Southern region of Srinagar including industrial and residential zones",
+        "bbox": [
+          74.78044429999998,
+          33.938744400000004,
+          74.8604443,
+          34.0187444
+        ],
+        "coordinates": {
+          "center": [
+            33.978744400000004,
+            74.82044429999999
+          ],
+          "bounds": [
+            [
+              33.938744400000004,
+              74.78044429999998
+            ],
+            [
+              34.0187444,
+              74.8604443
+            ]
+          ]
+        },
+        "image_path": "Srinagar\\Srinagar_South_satellite.png",
+        "generated_at": "2025-10-14 02:45:48"
+      },
+      "east": {
+        "name": "Srinagar East",
+        "description": "Eastern region of Srinagar with mixed urban development",
+        "bbox": [
+          74.8764443,
+          34.0347444,
+          74.9564443,
+          34.1147444
+        ],
+        "coordinates": {
+          "center": [
+            34.0747444,
+            74.91644430000001
+          ],
+          "bounds": [
+            [
+              34.0347444,
+              74.8764443
+            ],
+            [
+              34.1147444,
+              74.9564443
+            ]
+          ]
+        },
+        "image_path": "Srinagar\\Srinagar_East_satellite.png",
+        "generated_at": "2025-10-14 02:47:58"
+      },
+      "west": {
+        "name": "Srinagar West",
+        "description": "Western region of Srinagar featuring diverse urban landscapes",
+        "bbox": [
+          74.68444429999998,
+          34.0347444,
+          74.76444429999998,
+          34.1147444
+        ],
+        "coordinates": {
+          "center": [
+            34.0747444,
+            74.72444429999997
+          ],
+          "bounds": [
+            [
+              34.0347444,
+              74.68444429999998
+            ],
+            [
+              34.1147444,
+              74.76444429999998
+            ]
+          ]
+        },
+        "image_path": "Srinagar\\Srinagar_West_satellite.png",
+        "generated_at": "2025-10-14 02:49:18"
+      }
+    },
+    "generated_at": "2025-10-14 02:41:10",
+    "total_regions": 5
+  },
+  "Jammu": {
+    "city_name": "Jammu",
+    "city_bbox": [
+      74.6980917,
+      32.5585614,
+      75.0180917,
+      32.8785614
+    ],
+    "regions": {
+      "center": {
+        "name": "Jammu Center",
+        "description": "Central business district and urban core of Jammu",
+        "bbox": [
+          74.8180917,
+          32.6785614,
+          74.89809170000001,
+          32.7585614
+        ],
+        "coordinates": {
+          "center": [
+            32.7185614,
+            74.8580917
+          ],
+          "bounds": [
+            [
+              32.6785614,
+              74.8180917
+            ],
+            [
+              32.7585614,
+              74.89809170000001
+            ]
+          ]
+        },
+        "image_path": "Jammu\\Jammu_Center_satellite.png",
+        "generated_at": "2025-10-14 02:51:58"
+      },
+      "north": {
+        "name": "Jammu North",
+        "description": "Northern region of Jammu with suburban and residential areas",
+        "bbox": [
+          74.8180917,
+          32.774561399999996,
+          74.89809170000001,
+          32.854561399999994
+        ],
+        "coordinates": {
+          "center": [
+            32.814561399999995,
+            74.8580917
+          ],
+          "bounds": [
+            [
+              32.774561399999996,
+              74.8180917
+            ],
+            [
+              32.854561399999994,
+              74.89809170000001
+            ]
+          ]
+        },
+        "image_path": "Jammu\\Jammu_North_satellite.png",
+        "generated_at": "2025-10-14 02:53:31"
+      },
+      "south": {
+        "name": "Jammu South",
+        "description": "Southern region of Jammu including industrial and residential zones",
+        "bbox": [
+          74.8180917,
+          32.5825614,
+          74.89809170000001,
+          32.6625614
+        ],
+        "coordinates": {
+          "center": [
+            32.6225614,
+            74.8580917
+          ],
+          "bounds": [
+            [
+              32.5825614,
+              74.8180917
+            ],
+            [
+              32.6625614,
+              74.89809170000001
+            ]
+          ]
+        },
+        "image_path": "Jammu\\Jammu_South_satellite.png",
+        "generated_at": "2025-10-14 02:55:17"
+      },
+      "east": {
+        "name": "Jammu East",
+        "description": "Eastern region of Jammu with mixed urban development",
+        "bbox": [
+          74.91409170000001,
+          32.6785614,
+          74.99409170000001,
+          32.7585614
+        ],
+        "coordinates": {
+          "center": [
+            32.7185614,
+            74.95409170000002
+          ],
+          "bounds": [
+            [
+              32.6785614,
+              74.91409170000001
+            ],
+            [
+              32.7585614,
+              74.99409170000001
+            ]
+          ]
+        },
+        "image_path": "Jammu\\Jammu_East_satellite.png",
+        "generated_at": "2025-10-14 02:56:51"
+      },
+      "west": {
+        "name": "Jammu West",
+        "description": "Western region of Jammu featuring diverse urban landscapes",
+        "bbox": [
+          74.7220917,
+          32.6785614,
+          74.80209169999999,
+          32.7585614
+        ],
+        "coordinates": {
+          "center": [
+            32.7185614,
+            74.76209169999998
+          ],
+          "bounds": [
+            [
+              32.6785614,
+              74.7220917
+            ],
+            [
+              32.7585614,
+              74.80209169999999
+            ]
+          ]
+        },
+        "image_path": "Jammu\\Jammu_West_satellite.png",
+        "generated_at": "2025-10-14 02:57:46"
+      }
+    },
+    "generated_at": "2025-10-14 02:49:31",
+    "total_regions": 5
+  },
+  "Guwahati": {
+    "city_name": "Guwahati",
+    "city_bbox": [
+      91.593943,
+      26.0205978,
+      91.913943,
+      26.3405978
+    ],
+    "regions": {
+      "center": {
+        "name": "Guwahati Center",
+        "description": "Central business district and urban core of Guwahati",
+        "bbox": [
+          91.71394299999999,
+          26.140597800000002,
+          91.793943,
+          26.2205978
+        ],
+        "coordinates": {
+          "center": [
+            26.1805978,
+            91.75394299999999
+          ],
+          "bounds": [
+            [
+              26.140597800000002,
+              91.71394299999999
+            ],
+            [
+              26.2205978,
+              91.793943
+            ]
+          ]
+        },
+        "image_path": "Guwahati\\Guwahati_Center_satellite.png",
+        "generated_at": "2025-10-14 02:59:44"
+      },
+      "north": {
+        "name": "Guwahati North",
+        "description": "Northern region of Guwahati with suburban and residential areas",
+        "bbox": [
+          91.71394299999999,
+          26.2365978,
+          91.793943,
+          26.316597799999997
+        ],
+        "coordinates": {
+          "center": [
+            26.276597799999998,
+            91.75394299999999
+          ],
+          "bounds": [
+            [
+              26.2365978,
+              91.71394299999999
+            ],
+            [
+              26.316597799999997,
+              91.793943
+            ]
+          ]
+        },
+        "image_path": "Guwahati\\Guwahati_North_satellite.png",
+        "generated_at": "2025-10-14 03:01:57"
+      },
+      "south": {
+        "name": "Guwahati South",
+        "description": "Southern region of Guwahati including industrial and residential zones",
+        "bbox": [
+          91.71394299999999,
+          26.044597800000005,
+          91.793943,
+          26.124597800000004
+        ],
+        "coordinates": {
+          "center": [
+            26.084597800000004,
+            91.75394299999999
+          ],
+          "bounds": [
+            [
+              26.044597800000005,
+              91.71394299999999
+            ],
+            [
+              26.124597800000004,
+              91.793943
+            ]
+          ]
+        },
+        "image_path": "Guwahati\\Guwahati_South_satellite.png",
+        "generated_at": "2025-10-14 03:03:01"
+      },
+      "east": {
+        "name": "Guwahati East",
+        "description": "Eastern region of Guwahati with mixed urban development",
+        "bbox": [
+          91.809943,
+          26.140597800000002,
+          91.889943,
+          26.2205978
+        ],
+        "coordinates": {
+          "center": [
+            26.1805978,
+            91.84994300000001
+          ],
+          "bounds": [
+            [
+              26.140597800000002,
+              91.809943
+            ],
+            [
+              26.2205978,
+              91.889943
+            ]
+          ]
+        },
+        "image_path": "Guwahati\\Guwahati_East_satellite.png",
+        "generated_at": "2025-10-14 03:04:38"
+      },
+      "west": {
+        "name": "Guwahati West",
+        "description": "Western region of Guwahati featuring diverse urban landscapes",
+        "bbox": [
+          91.61794299999998,
+          26.140597800000002,
+          91.69794299999998,
+          26.2205978
+        ],
+        "coordinates": {
+          "center": [
+            26.1805978,
+            91.65794299999997
+          ],
+          "bounds": [
+            [
+              26.140597800000002,
+              91.61794299999998
+            ],
+            [
+              26.2205978,
+              91.69794299999998
+            ]
+          ]
+        },
+        "image_path": "Guwahati\\Guwahati_West_satellite.png",
+        "generated_at": "2025-10-14 03:07:02"
+      }
+    },
+    "generated_at": "2025-10-14 02:57:59",
+    "total_regions": 5
+  },
+  "Dispur": {
+    "city_name": "Dispur",
+    "city_bbox": [
+      91.7510265,
+      26.1009355,
+      91.8310265,
+      26.1809355
+    ],
+    "regions": {
+      "center": {
+        "name": "Dispur Center",
+        "description": "Central business district and urban core of Dispur",
+        "bbox": [
+          91.76602649999998,
+          26.1159355,
+          91.81602649999999,
+          26.165935499999996
+        ],
+        "coordinates": {
+          "center": [
+            26.140935499999998,
+            91.79102649999999
+          ],
+          "bounds": [
+            [
+              26.1159355,
+              91.76602649999998
+            ],
+            [
+              26.165935499999996,
+              91.81602649999999
+            ]
+          ]
+        },
+        "image_path": "Dispur\\Dispur_Center_satellite.png",
+        "generated_at": "2025-10-14 03:08:49"
+      },
+      "north": {
+        "name": "Dispur North",
+        "description": "Northern region of Dispur with suburban and residential areas",
+        "bbox": [
+          91.76602649999998,
+          26.169935499999998,
+          91.81602649999999,
+          26.1769355
+        ],
+        "coordinates": {
+          "center": [
+            26.194935499999996,
+            91.79102649999999
+          ],
+          "bounds": [
+            [
+              26.169935499999998,
+              91.76602649999998
+            ],
+            [
+              26.2199355,
+              91.81602649999999
+            ]
+          ]
+        },
+        "image_path": "Dispur\\Dispur_North_satellite.png",
+        "generated_at": "2025-10-14 03:09:17"
+      },
+      "south": {
+        "name": "Dispur South",
+        "description": "Southern region of Dispur including industrial and residential zones",
+        "bbox": [
+          91.76602649999998,
+          26.1049355,
+          91.81602649999999,
+          26.111935499999998
+        ],
+        "coordinates": {
+          "center": [
+            26.0869355,
+            91.79102649999999
+          ],
+          "bounds": [
+            [
+              26.061935499999997,
+              91.76602649999998
+            ],
+            [
+              26.111935499999998,
+              91.81602649999999
+            ]
+          ]
+        },
+        "image_path": "Dispur\\Dispur_South_satellite.png",
+        "generated_at": "2025-10-14 03:09:37"
+      },
+      "east": {
+        "name": "Dispur East",
+        "description": "Eastern region of Dispur with mixed urban development",
+        "bbox": [
+          91.8200265,
+          26.1159355,
+          91.82702649999997,
+          26.165935499999996
+        ],
+        "coordinates": {
+          "center": [
+            26.140935499999998,
+            91.82352649999999
+          ],
+          "bounds": [
+            [
+              26.1159355,
+              91.8200265
+            ],
+            [
+              26.165935499999996,
+              91.82702649999997
+            ]
+          ]
+        },
+        "image_path": "Dispur\\Dispur_East_satellite.png",
+        "generated_at": "2025-10-14 03:09:54"
+      },
+      "west": {
+        "name": "Dispur West",
+        "description": "Western region of Dispur featuring diverse urban landscapes",
+        "bbox": [
+          91.7550265,
+          26.1159355,
+          91.76202649999998,
+          26.165935499999996
+        ],
+        "coordinates": {
+          "center": [
+            26.140935499999998,
+            91.75852649999999
+          ],
+          "bounds": [
+            [
+              26.1159355,
+              91.7550265
+            ],
+            [
+              26.165935499999996,
+              91.76202649999998
+            ]
+          ]
+        },
+        "image_path": "Dispur\\Dispur_West_satellite.png",
+        "generated_at": "2025-10-14 03:10:10"
+      }
+    },
+    "generated_at": "2025-10-14 03:07:15",
+    "total_regions": 5
+  },
+  "Agartala": {
+    "city_name": "Agartala",
+    "city_bbox": [
+      91.1223821,
+      23.6712377,
+      91.4423821,
+      23.9912377
+    ],
+    "regions": {
+      "center": {
+        "name": "Agartala Center",
+        "description": "Central business district and urban core of Agartala",
+        "bbox": [
+          91.2423821,
+          23.7912377,
+          91.32238210000001,
+          23.8712377
+        ],
+        "coordinates": {
+          "center": [
+            23.8312377,
+            91.2823821
+          ],
+          "bounds": [
+            [
+              23.7912377,
+              91.2423821
+            ],
+            [
+              23.8712377,
+              91.32238210000001
+            ]
+          ]
+        },
+        "image_path": "Agartala\\Agartala_Center_satellite.png",
+        "generated_at": "2025-10-14 03:11:11"
+      },
+      "north": {
+        "name": "Agartala North",
+        "description": "Northern region of Agartala with suburban and residential areas",
+        "bbox": [
+          91.2423821,
+          23.8872377,
+          91.32238210000001,
+          23.9672377
+        ],
+        "coordinates": {
+          "center": [
+            23.9272377,
+            91.2823821
+          ],
+          "bounds": [
+            [
+              23.8872377,
+              91.2423821
+            ],
+            [
+              23.9672377,
+              91.32238210000001
+            ]
+          ]
+        },
+        "image_path": "Agartala\\Agartala_North_satellite.png",
+        "generated_at": "2025-10-14 03:12:13"
+      },
+      "south": {
+        "name": "Agartala South",
+        "description": "Southern region of Agartala including industrial and residential zones",
+        "bbox": [
+          91.2423821,
+          23.6952377,
+          91.32238210000001,
+          23.775237699999998
+        ],
+        "coordinates": {
+          "center": [
+            23.7352377,
+            91.2823821
+          ],
+          "bounds": [
+            [
+              23.6952377,
+              91.2423821
+            ],
+            [
+              23.775237699999998,
+              91.32238210000001
+            ]
+          ]
+        },
+        "image_path": "Agartala\\Agartala_South_satellite.png",
+        "generated_at": "2025-10-14 03:13:02"
+      },
+      "east": {
+        "name": "Agartala East",
+        "description": "Eastern region of Agartala with mixed urban development",
+        "bbox": [
+          91.33838210000002,
+          23.7912377,
+          91.41838210000002,
+          23.8712377
+        ],
+        "coordinates": {
+          "center": [
+            23.8312377,
+            91.37838210000002
+          ],
+          "bounds": [
+            [
+              23.7912377,
+              91.33838210000002
+            ],
+            [
+              23.8712377,
+              91.41838210000002
+            ]
+          ]
+        },
+        "image_path": "Agartala\\Agartala_East_satellite.png",
+        "generated_at": "2025-10-14 03:14:41"
+      },
+      "west": {
+        "name": "Agartala West",
+        "description": "Western region of Agartala featuring diverse urban landscapes",
+        "bbox": [
+          91.1463821,
+          23.7912377,
+          91.2263821,
+          23.8712377
+        ],
+        "coordinates": {
+          "center": [
+            23.8312377,
+            91.18638209999999
+          ],
+          "bounds": [
+            [
+              23.7912377,
+              91.1463821
+            ],
+            [
+              23.8712377,
+              91.2263821
+            ]
+          ]
+        },
+        "image_path": "Agartala\\Agartala_West_satellite.png",
+        "generated_at": "2025-10-14 03:16:29"
+      }
+    },
+    "generated_at": "2025-10-14 03:10:23",
+    "total_regions": 5
+  },
+  "Aizawl": {
+    "city_name": "Aizawl",
+    "city_bbox": [
+      92.5579947,
+      23.5677631,
+      92.8779947,
+      23.8877631
+    ],
+    "regions": {
+      "center": {
+        "name": "Aizawl Center",
+        "description": "Central business district and urban core of Aizawl",
+        "bbox": [
+          92.67799469999999,
+          23.6877631,
+          92.7579947,
+          23.7677631
+        ],
+        "coordinates": {
+          "center": [
+            23.7277631,
+            92.71799469999999
+          ],
+          "bounds": [
+            [
+              23.6877631,
+              92.67799469999999
+            ],
+            [
+              23.7677631,
+              92.7579947
+            ]
+          ]
+        },
+        "image_path": "Aizawl\\Aizawl_Center_satellite.png",
+        "generated_at": "2025-10-14 03:18:09"
+      },
+      "north": {
+        "name": "Aizawl North",
+        "description": "Northern region of Aizawl with suburban and residential areas",
+        "bbox": [
+          92.67799469999999,
+          23.7837631,
+          92.7579947,
+          23.8637631
+        ],
+        "coordinates": {
+          "center": [
+            23.8237631,
+            92.71799469999999
+          ],
+          "bounds": [
+            [
+              23.7837631,
+              92.67799469999999
+            ],
+            [
+              23.8637631,
+              92.7579947
+            ]
+          ]
+        },
+        "image_path": "Aizawl\\Aizawl_North_satellite.png",
+        "generated_at": "2025-10-14 03:19:25"
+      },
+      "south": {
+        "name": "Aizawl South",
+        "description": "Southern region of Aizawl including industrial and residential zones",
+        "bbox": [
+          92.67799469999999,
+          23.5917631,
+          92.7579947,
+          23.6717631
+        ],
+        "coordinates": {
+          "center": [
+            23.6317631,
+            92.71799469999999
+          ],
+          "bounds": [
+            [
+              23.5917631,
+              92.67799469999999
+            ],
+            [
+              23.6717631,
+              92.7579947
+            ]
+          ]
+        },
+        "image_path": "Aizawl\\Aizawl_South_satellite.png",
+        "generated_at": "2025-10-14 03:21:39"
+      },
+      "east": {
+        "name": "Aizawl East",
+        "description": "Eastern region of Aizawl with mixed urban development",
+        "bbox": [
+          92.7739947,
+          23.6877631,
+          92.8539947,
+          23.7677631
+        ],
+        "coordinates": {
+          "center": [
+            23.7277631,
+            92.81399470000001
+          ],
+          "bounds": [
+            [
+              23.6877631,
+              92.7739947
+            ],
+            [
+              23.7677631,
+              92.8539947
+            ]
+          ]
+        },
+        "image_path": "Aizawl\\Aizawl_East_satellite.png",
+        "generated_at": "2025-10-14 03:23:49"
+      },
+      "west": {
+        "name": "Aizawl West",
+        "description": "Western region of Aizawl featuring diverse urban landscapes",
+        "bbox": [
+          92.58199469999998,
+          23.6877631,
+          92.66199469999998,
+          23.7677631
+        ],
+        "coordinates": {
+          "center": [
+            23.7277631,
+            92.62199469999997
+          ],
+          "bounds": [
+            [
+              23.6877631,
+              92.58199469999998
+            ],
+            [
+              23.7677631,
+              92.66199469999998
+            ]
+          ]
+        },
+        "image_path": "Aizawl\\Aizawl_West_satellite.png",
+        "generated_at": "2025-10-14 03:25:43"
+      }
+    },
+    "generated_at": "2025-10-14 03:16:41",
+    "total_regions": 5
+  },
+  "Imphal": {
+    "city_name": "Imphal",
+    "city_bbox": [
+      93.7764419,
+      24.6391162,
+      94.0964419,
+      24.9591162
+    ],
+    "regions": {
+      "center": {
+        "name": "Imphal Center",
+        "description": "Central business district and urban core of Imphal",
+        "bbox": [
+          93.8964419,
+          24.7591162,
+          93.97644190000001,
+          24.8391162
+        ],
+        "coordinates": {
+          "center": [
+            24.7991162,
+            93.9364419
+          ],
+          "bounds": [
+            [
+              24.7591162,
+              93.8964419
+            ],
+            [
+              24.8391162,
+              93.97644190000001
+            ]
+          ]
+        },
+        "image_path": "Imphal\\Imphal_Center_satellite.png",
+        "generated_at": "2025-10-14 03:26:59"
+      },
+      "north": {
+        "name": "Imphal North",
+        "description": "Northern region of Imphal with suburban and residential areas",
+        "bbox": [
+          93.8964419,
+          24.855116199999998,
+          93.97644190000001,
+          24.935116199999996
+        ],
+        "coordinates": {
+          "center": [
+            24.895116199999997,
+            93.9364419
+          ],
+          "bounds": [
+            [
+              24.855116199999998,
+              93.8964419
+            ],
+            [
+              24.935116199999996,
+              93.97644190000001
+            ]
+          ]
+        },
+        "image_path": "Imphal\\Imphal_North_satellite.png",
+        "generated_at": "2025-10-14 03:28:37"
+      },
+      "south": {
+        "name": "Imphal South",
+        "description": "Southern region of Imphal including industrial and residential zones",
+        "bbox": [
+          93.8964419,
+          24.663116200000005,
+          93.97644190000001,
+          24.743116200000003
+        ],
+        "coordinates": {
+          "center": [
+            24.703116200000004,
+            93.9364419
+          ],
+          "bounds": [
+            [
+              24.663116200000005,
+              93.8964419
+            ],
+            [
+              24.743116200000003,
+              93.97644190000001
+            ]
+          ]
+        },
+        "image_path": "Imphal\\Imphal_South_satellite.png",
+        "generated_at": "2025-10-14 03:29:28"
+      },
+      "east": {
+        "name": "Imphal East",
+        "description": "Eastern region of Imphal with mixed urban development",
+        "bbox": [
+          93.99244190000002,
+          24.7591162,
+          94.07244190000002,
+          24.8391162
+        ],
+        "coordinates": {
+          "center": [
+            24.7991162,
+            94.03244190000002
+          ],
+          "bounds": [
+            [
+              24.7591162,
+              93.99244190000002
+            ],
+            [
+              24.8391162,
+              94.07244190000002
+            ]
+          ]
+        },
+        "image_path": "Imphal\\Imphal_East_satellite.png",
+        "generated_at": "2025-10-14 03:31:41"
+      },
+      "west": {
+        "name": "Imphal West",
+        "description": "Western region of Imphal featuring diverse urban landscapes",
+        "bbox": [
+          93.8004419,
+          24.7591162,
+          93.8804419,
+          24.8391162
+        ],
+        "coordinates": {
+          "center": [
+            24.7991162,
+            93.84044189999999
+          ],
+          "bounds": [
+            [
+              24.7591162,
+              93.8004419
+            ],
+            [
+              24.8391162,
+              93.8804419
+            ]
+          ]
+        },
+        "image_path": "Imphal\\Imphal_West_satellite.png",
+        "generated_at": "2025-10-14 03:33:12"
+      }
+    },
+    "generated_at": "2025-10-14 03:25:56",
+    "total_regions": 5
+  },
+  "Kohima": {
+    "city_name": "Kohima",
+    "city_bbox": [
+      93.9419156,
+      25.5018755,
+      94.2619156,
+      25.8218755
+    ],
+    "regions": {
+      "center": {
+        "name": "Kohima Center",
+        "description": "Central business district and urban core of Kohima",
+        "bbox": [
+          94.06191559999999,
+          25.6218755,
+          94.1419156,
+          25.7018755
+        ],
+        "coordinates": {
+          "center": [
+            25.6618755,
+            94.1019156
+          ],
+          "bounds": [
+            [
+              25.6218755,
+              94.06191559999999
+            ],
+            [
+              25.7018755,
+              94.1419156
+            ]
+          ]
+        },
+        "image_path": "Kohima\\Kohima_Center_satellite.png",
+        "generated_at": "2025-10-14 03:34:52"
+      },
+      "north": {
+        "name": "Kohima North",
+        "description": "Northern region of Kohima with suburban and residential areas",
+        "bbox": [
+          94.06191559999999,
+          25.717875499999998,
+          94.1419156,
+          25.797875499999996
+        ],
+        "coordinates": {
+          "center": [
+            25.757875499999997,
+            94.1019156
+          ],
+          "bounds": [
+            [
+              25.717875499999998,
+              94.06191559999999
+            ],
+            [
+              25.797875499999996,
+              94.1419156
+            ]
+          ]
+        },
+        "image_path": "Kohima\\Kohima_North_satellite.png",
+        "generated_at": "2025-10-14 03:36:30"
+      },
+      "south": {
+        "name": "Kohima South",
+        "description": "Southern region of Kohima including industrial and residential zones",
+        "bbox": [
+          94.06191559999999,
+          25.525875500000005,
+          94.1419156,
+          25.605875500000003
+        ],
+        "coordinates": {
+          "center": [
+            25.565875500000004,
+            94.1019156
+          ],
+          "bounds": [
+            [
+              25.525875500000005,
+              94.06191559999999
+            ],
+            [
+              25.605875500000003,
+              94.1419156
+            ]
+          ]
+        },
+        "image_path": "Kohima\\Kohima_South_satellite.png",
+        "generated_at": "2025-10-14 03:37:21"
+      },
+      "east": {
+        "name": "Kohima East",
+        "description": "Eastern region of Kohima with mixed urban development",
+        "bbox": [
+          94.15791560000001,
+          25.6218755,
+          94.23791560000001,
+          25.7018755
+        ],
+        "coordinates": {
+          "center": [
+            25.6618755,
+            94.19791560000002
+          ],
+          "bounds": [
+            [
+              25.6218755,
+              94.15791560000001
+            ],
+            [
+              25.7018755,
+              94.23791560000001
+            ]
+          ]
+        },
+        "image_path": "Kohima\\Kohima_East_satellite.png",
+        "generated_at": "2025-10-14 03:38:43"
+      },
+      "west": {
+        "name": "Kohima West",
+        "description": "Western region of Kohima featuring diverse urban landscapes",
+        "bbox": [
+          93.96591559999999,
+          25.6218755,
+          94.04591559999999,
+          25.7018755
+        ],
+        "coordinates": {
+          "center": [
+            25.6618755,
+            94.00591559999998
+          ],
+          "bounds": [
+            [
+              25.6218755,
+              93.96591559999999
+            ],
+            [
+              25.7018755,
+              94.04591559999999
+            ]
+          ]
+        },
+        "image_path": "Kohima\\Kohima_West_satellite.png",
+        "generated_at": "2025-10-14 03:40:12"
+      }
+    },
+    "generated_at": "2025-10-14 03:33:25",
+    "total_regions": 5
+  },
+  "Itanagar": {
+    "city_name": "Itanagar",
+    "city_bbox": [
+      93.4637291,
+      26.9379659,
+      93.7837291,
+      27.2579659
+    ],
+    "regions": {
+      "center": {
+        "name": "Itanagar Center",
+        "description": "Central business district and urban core of Itanagar",
+        "bbox": [
+          93.58372909999999,
+          27.0579659,
+          93.6637291,
+          27.137965899999998
+        ],
+        "coordinates": {
+          "center": [
+            27.0979659,
+            93.62372909999999
+          ],
+          "bounds": [
+            [
+              27.0579659,
+              93.58372909999999
+            ],
+            [
+              27.137965899999998,
+              93.6637291
+            ]
+          ]
+        },
+        "image_path": "Itanagar\\Itanagar_Center_satellite.png",
+        "generated_at": "2025-10-14 03:41:31"
+      },
+      "north": {
+        "name": "Itanagar North",
+        "description": "Northern region of Itanagar with suburban and residential areas",
+        "bbox": [
+          93.58372909999999,
+          27.153965899999996,
+          93.6637291,
+          27.233965899999994
+        ],
+        "coordinates": {
+          "center": [
+            27.193965899999995,
+            93.62372909999999
+          ],
+          "bounds": [
+            [
+              27.153965899999996,
+              93.58372909999999
+            ],
+            [
+              27.233965899999994,
+              93.6637291
+            ]
+          ]
+        },
+        "image_path": "Itanagar\\Itanagar_North_satellite.png",
+        "generated_at": "2025-10-14 03:42:41"
+      },
+      "south": {
+        "name": "Itanagar South",
+        "description": "Southern region of Itanagar including industrial and residential zones",
+        "bbox": [
+          93.58372909999999,
+          26.961965900000003,
+          93.6637291,
+          27.0419659
+        ],
+        "coordinates": {
+          "center": [
+            27.001965900000002,
+            93.62372909999999
+          ],
+          "bounds": [
+            [
+              26.961965900000003,
+              93.58372909999999
+            ],
+            [
+              27.0419659,
+              93.6637291
+            ]
+          ]
+        },
+        "image_path": "Itanagar\\Itanagar_South_satellite.png",
+        "generated_at": "2025-10-14 03:43:54"
+      },
+      "east": {
+        "name": "Itanagar East",
+        "description": "Eastern region of Itanagar with mixed urban development",
+        "bbox": [
+          93.6797291,
+          27.0579659,
+          93.7597291,
+          27.137965899999998
+        ],
+        "coordinates": {
+          "center": [
+            27.0979659,
+            93.71972910000001
+          ],
+          "bounds": [
+            [
+              27.0579659,
+              93.6797291
+            ],
+            [
+              27.137965899999998,
+              93.7597291
+            ]
+          ]
+        },
+        "image_path": "Itanagar\\Itanagar_East_satellite.png",
+        "generated_at": "2025-10-14 03:45:27"
+      },
+      "west": {
+        "name": "Itanagar West",
+        "description": "Western region of Itanagar featuring diverse urban landscapes",
+        "bbox": [
+          93.48772909999998,
+          27.0579659,
+          93.56772909999998,
+          27.137965899999998
+        ],
+        "coordinates": {
+          "center": [
+            27.0979659,
+            93.52772909999997
+          ],
+          "bounds": [
+            [
+              27.0579659,
+              93.48772909999998
+            ],
+            [
+              27.137965899999998,
+              93.56772909999998
+            ]
+          ]
+        },
+        "image_path": "Itanagar\\Itanagar_West_satellite.png",
+        "generated_at": "2025-10-14 03:47:18"
+      }
+    },
+    "generated_at": "2025-10-14 03:40:24",
+    "total_regions": 5
+  },
+  "Gangtok": {
+    "city_name": "Gangtok",
+    "city_bbox": [
+      88.4522673,
+      27.169046,
+      88.7722673,
+      27.489046
+    ],
+    "regions": {
+      "center": {
+        "name": "Gangtok Center",
+        "description": "Central business district and urban core of Gangtok",
+        "bbox": [
+          88.5722673,
+          27.289046,
+          88.6522673,
+          27.369045999999997
+        ],
+        "coordinates": {
+          "center": [
+            27.329045999999998,
+            88.6122673
+          ],
+          "bounds": [
+            [
+              27.289046,
+              88.5722673
+            ],
+            [
+              27.369045999999997,
+              88.6522673
+            ]
+          ]
+        },
+        "image_path": "Gangtok\\Gangtok_Center_satellite.png",
+        "generated_at": "2025-10-14 03:48:55"
+      },
+      "north": {
+        "name": "Gangtok North",
+        "description": "Northern region of Gangtok with suburban and residential areas",
+        "bbox": [
+          88.5722673,
+          27.385045999999996,
+          88.6522673,
+          27.465045999999994
+        ],
+        "coordinates": {
+          "center": [
+            27.425045999999995,
+            88.6122673
+          ],
+          "bounds": [
+            [
+              27.385045999999996,
+              88.5722673
+            ],
+            [
+              27.465045999999994,
+              88.6522673
+            ]
+          ]
+        },
+        "image_path": "Gangtok\\Gangtok_North_satellite.png",
+        "generated_at": "2025-10-14 03:50:19"
+      },
+      "south": {
+        "name": "Gangtok South",
+        "description": "Southern region of Gangtok including industrial and residential zones",
+        "bbox": [
+          88.5722673,
+          27.193046000000002,
+          88.6522673,
+          27.273046
+        ],
+        "coordinates": {
+          "center": [
+            27.233046,
+            88.6122673
+          ],
+          "bounds": [
+            [
+              27.193046000000002,
+              88.5722673
+            ],
+            [
+              27.273046,
+              88.6522673
+            ]
+          ]
+        },
+        "image_path": "Gangtok\\Gangtok_South_satellite.png",
+        "generated_at": "2025-10-14 03:51:48"
+      },
+      "east": {
+        "name": "Gangtok East",
+        "description": "Eastern region of Gangtok with mixed urban development",
+        "bbox": [
+          88.66826730000001,
+          27.289046,
+          88.74826730000001,
+          27.369045999999997
+        ],
+        "coordinates": {
+          "center": [
+            27.329045999999998,
+            88.70826730000002
+          ],
+          "bounds": [
+            [
+              27.289046,
+              88.66826730000001
+            ],
+            [
+              27.369045999999997,
+              88.74826730000001
+            ]
+          ]
+        },
+        "image_path": "Gangtok\\Gangtok_East_satellite.png",
+        "generated_at": "2025-10-14 03:52:49"
+      },
+      "west": {
+        "name": "Gangtok West",
+        "description": "Western region of Gangtok featuring diverse urban landscapes",
+        "bbox": [
+          88.47626729999999,
+          27.289046,
+          88.55626729999999,
+          27.369045999999997
+        ],
+        "coordinates": {
+          "center": [
+            27.329045999999998,
+            88.51626729999998
+          ],
+          "bounds": [
+            [
+              27.289046,
+              88.47626729999999
+            ],
+            [
+              27.369045999999997,
+              88.55626729999999
+            ]
+          ]
+        },
+        "image_path": "Gangtok\\Gangtok_West_satellite.png",
+        "generated_at": "2025-10-14 03:53:58"
+      }
+    },
+    "generated_at": "2025-10-14 03:47:31",
+    "total_regions": 5
+  },
+  "Shillong": {
+    "city_name": "Shillong",
+    "city_bbox": [
+      91.7227872,
+      25.4159931,
+      92.0427872,
+      25.7359931
+    ],
+    "regions": {
+      "center": {
+        "name": "Shillong Center",
+        "description": "Central business district and urban core of Shillong",
+        "bbox": [
+          91.84278719999999,
+          25.535993100000002,
+          91.9227872,
+          25.6159931
+        ],
+        "coordinates": {
+          "center": [
+            25.5759931,
+            91.8827872
+          ],
+          "bounds": [
+            [
+              25.535993100000002,
+              91.84278719999999
+            ],
+            [
+              25.6159931,
+              91.9227872
+            ]
+          ]
+        },
+        "image_path": "Shillong\\Shillong_Center_satellite.png",
+        "generated_at": "2025-10-14 03:55:14"
+      },
+      "north": {
+        "name": "Shillong North",
+        "description": "Northern region of Shillong with suburban and residential areas",
+        "bbox": [
+          91.84278719999999,
+          25.631993100000003,
+          91.9227872,
+          25.7119931
+        ],
+        "coordinates": {
+          "center": [
+            25.6719931,
+            91.8827872
+          ],
+          "bounds": [
+            [
+              25.631993100000003,
+              91.84278719999999
+            ],
+            [
+              25.7119931,
+              91.9227872
+            ]
+          ]
+        },
+        "image_path": "Shillong\\Shillong_North_satellite.png",
+        "generated_at": "2025-10-14 03:56:55"
+      },
+      "south": {
+        "name": "Shillong South",
+        "description": "Southern region of Shillong including industrial and residential zones",
+        "bbox": [
+          91.84278719999999,
+          25.439993100000002,
+          91.9227872,
+          25.5199931
+        ],
+        "coordinates": {
+          "center": [
+            25.4799931,
+            91.8827872
+          ],
+          "bounds": [
+            [
+              25.439993100000002,
+              91.84278719999999
+            ],
+            [
+              25.5199931,
+              91.9227872
+            ]
+          ]
+        },
+        "image_path": "Shillong\\Shillong_South_satellite.png",
+        "generated_at": "2025-10-14 03:58:13"
+      },
+      "east": {
+        "name": "Shillong East",
+        "description": "Eastern region of Shillong with mixed urban development",
+        "bbox": [
+          91.93878720000001,
+          25.535993100000002,
+          92.0187872,
+          25.6159931
+        ],
+        "coordinates": {
+          "center": [
+            25.5759931,
+            91.97878720000001
+          ],
+          "bounds": [
+            [
+              25.535993100000002,
+              91.93878720000001
+            ],
+            [
+              25.6159931,
+              92.0187872
+            ]
+          ]
+        },
+        "image_path": "Shillong\\Shillong_East_satellite.png",
+        "generated_at": "2025-10-14 03:59:07"
+      },
+      "west": {
+        "name": "Shillong West",
+        "description": "Western region of Shillong featuring diverse urban landscapes",
+        "bbox": [
+          91.74678719999999,
+          25.535993100000002,
+          91.82678719999998,
+          25.6159931
+        ],
+        "coordinates": {
+          "center": [
+            25.5759931,
+            91.78678719999998
+          ],
+          "bounds": [
+            [
+              25.535993100000002,
+              91.74678719999999
+            ],
+            [
+              25.6159931,
+              91.82678719999998
+            ]
+          ]
+        },
+        "image_path": "Shillong\\Shillong_West_satellite.png",
+        "generated_at": "2025-10-14 04:00:09"
+      }
+    },
+    "generated_at": "2025-10-14 03:54:11",
+    "total_regions": 5
+  },
+  "Chandigarh": {
+    "city_name": "Chandigarh",
+    "city_bbox": [
+      76.7049857,
+      30.664974,
+      76.849028,
+      30.7949512
+    ],
+    "regions": {
+      "center": {
+        "name": "Chandigarh Center",
+        "description": "Central business district and urban core of Chandigarh",
+        "bbox": [
+          76.75200684999999,
+          30.7049626,
+          76.80200685,
+          30.7549626
+        ],
+        "coordinates": {
+          "center": [
+            30.7299626,
+            76.77700684999999
+          ],
+          "bounds": [
+            [
+              30.7049626,
+              76.75200684999999
+            ],
+            [
+              30.7549626,
+              76.80200685
+            ]
+          ]
+        },
+        "image_path": "Chandigarh\\Chandigarh_Center_satellite.png",
+        "generated_at": "2025-10-14 04:01:21"
+      },
+      "north": {
+        "name": "Chandigarh North",
+        "description": "Northern region of Chandigarh with suburban and residential areas",
+        "bbox": [
+          76.75200684999999,
+          30.76146146,
+          76.80200685,
+          30.78845234
+        ],
+        "coordinates": {
+          "center": [
+            30.786461459999998,
+            76.77700684999999
+          ],
+          "bounds": [
+            [
+              30.76146146,
+              76.75200684999999
+            ],
+            [
+              30.81146146,
+              76.80200685
+            ]
+          ]
+        },
+        "image_path": "Chandigarh\\Chandigarh_North_satellite.png",
+        "generated_at": "2025-10-14 04:02:01"
+      },
+      "south": {
+        "name": "Chandigarh South",
+        "description": "Southern region of Chandigarh including industrial and residential zones",
+        "bbox": [
+          76.75200684999999,
+          30.67147286,
+          76.80200685,
+          30.69846374
+        ],
+        "coordinates": {
+          "center": [
+            30.673463740000003,
+            76.77700684999999
+          ],
+          "bounds": [
+            [
+              30.64846374,
+              76.75200684999999
+            ],
+            [
+              30.69846374,
+              76.80200685
+            ]
+          ]
+        },
+        "image_path": "Chandigarh\\Chandigarh_South_satellite.png",
+        "generated_at": "2025-10-14 04:02:53"
+      },
+      "east": {
+        "name": "Chandigarh East",
+        "description": "Eastern region of Chandigarh with mixed urban development",
+        "bbox": [
+          76.809208965,
+          30.7049626,
+          76.84182588499999,
+          30.7549626
+        ],
+        "coordinates": {
+          "center": [
+            30.7299626,
+            76.82551742499999
+          ],
+          "bounds": [
+            [
+              30.7049626,
+              76.809208965
+            ],
+            [
+              30.7549626,
+              76.84182588499999
+            ]
+          ]
+        },
+        "image_path": "Chandigarh\\Chandigarh_East_satellite.png",
+        "generated_at": "2025-10-14 04:03:29"
+      },
+      "west": {
+        "name": "Chandigarh West",
+        "description": "Western region of Chandigarh featuring diverse urban landscapes",
+        "bbox": [
+          76.712187815,
+          30.7049626,
+          76.74480473499999,
+          30.7549626
+        ],
+        "coordinates": {
+          "center": [
+            30.7299626,
+            76.728496275
+          ],
+          "bounds": [
+            [
+              30.7049626,
+              76.712187815
+            ],
+            [
+              30.7549626,
+              76.74480473499999
+            ]
+          ]
+        },
+        "image_path": "Chandigarh\\Chandigarh_West_satellite.png",
+        "generated_at": "2025-10-14 04:04:06"
+      }
+    },
+    "generated_at": "2025-10-14 04:00:22",
+    "total_regions": 5
+  },
+  "Silvassa": {
+    "city_name": "Silvassa",
+    "city_bbox": [
+      72.8445787,
+      20.1136768,
+      73.1645787,
+      20.4336768
+    ],
+    "regions": {
+      "center": {
+        "name": "Silvassa Center",
+        "description": "Central business district and urban core of Silvassa",
+        "bbox": [
+          72.96457869999999,
+          20.2336768,
+          73.0445787,
+          20.3136768
+        ],
+        "coordinates": {
+          "center": [
+            20.2736768,
+            73.0045787
+          ],
+          "bounds": [
+            [
+              20.2336768,
+              72.96457869999999
+            ],
+            [
+              20.3136768,
+              73.0445787
+            ]
+          ]
+        },
+        "image_path": "Silvassa\\Silvassa_Center_satellite.png",
+        "generated_at": "2025-10-14 04:32:31"
+      },
+      "north": {
+        "name": "Silvassa North",
+        "description": "Northern region of Silvassa with suburban and residential areas",
+        "bbox": [
+          72.96457869999999,
+          20.3296768,
+          73.0445787,
+          20.4096768
+        ],
+        "coordinates": {
+          "center": [
+            20.3696768,
+            73.0045787
+          ],
+          "bounds": [
+            [
+              20.3296768,
+              72.96457869999999
+            ],
+            [
+              20.4096768,
+              73.0445787
+            ]
+          ]
+        },
+        "image_path": "Silvassa\\Silvassa_North_satellite.png",
+        "generated_at": "2025-10-14 04:34:18"
+      },
+      "south": {
+        "name": "Silvassa South",
+        "description": "Southern region of Silvassa including industrial and residential zones",
+        "bbox": [
+          72.96457869999999,
+          20.1376768,
+          73.0445787,
+          20.2176768
+        ],
+        "coordinates": {
+          "center": [
+            20.1776768,
+            73.0045787
+          ],
+          "bounds": [
+            [
+              20.1376768,
+              72.96457869999999
+            ],
+            [
+              20.2176768,
+              73.0445787
+            ]
+          ]
+        },
+        "image_path": "Silvassa\\Silvassa_South_satellite.png",
+        "generated_at": "2025-10-14 04:35:52"
+      },
+      "east": {
+        "name": "Silvassa East",
+        "description": "Eastern region of Silvassa with mixed urban development",
+        "bbox": [
+          73.06057870000001,
+          20.2336768,
+          73.1405787,
+          20.3136768
+        ],
+        "coordinates": {
+          "center": [
+            20.2736768,
+            73.10057870000001
+          ],
+          "bounds": [
+            [
+              20.2336768,
+              73.06057870000001
+            ],
+            [
+              20.3136768,
+              73.1405787
+            ]
+          ]
+        },
+        "image_path": "Silvassa\\Silvassa_East_satellite.png",
+        "generated_at": "2025-10-14 04:37:13"
+      },
+      "west": {
+        "name": "Silvassa West",
+        "description": "Western region of Silvassa featuring diverse urban landscapes",
+        "bbox": [
+          72.86857869999999,
+          20.2336768,
+          72.94857869999998,
+          20.3136768
+        ],
+        "coordinates": {
+          "center": [
+            20.2736768,
+            72.90857869999998
+          ],
+          "bounds": [
+            [
+              20.2336768,
+              72.86857869999999
+            ],
+            [
+              20.3136768,
+              72.94857869999998
+            ]
+          ]
+        },
+        "image_path": "Silvassa\\Silvassa_West_satellite.png",
+        "generated_at": "2025-10-14 04:38:46"
+      }
+    },
+    "generated_at": "2025-10-14 04:31:31",
+    "total_regions": 5
+  },
+  "Ladakh": {
+    "city_name": "Ladakh",
+    "city_bbox": [
+      75.3269726,
+      32.33574,
+      79.460728,
+      35.6745457
+    ],
+    "regions": {
+      "center": {
+        "name": "Ladakh Center",
+        "description": "Central business district and urban core of Ladakh",
+        "bbox": [
+          76.87713087499999,
+          33.587792137499996,
+          77.910569725,
+          34.4224935625
+        ],
+        "coordinates": {
+          "center": [
+            34.00514285,
+            77.3938503
+          ],
+          "bounds": [
+            [
+              33.587792137499996,
+              76.87713087499999
+            ],
+            [
+              34.4224935625,
+              77.910569725
+            ]
+          ]
+        },
+        "image_path": "Ladakh\\Ladakh_Center_satellite.png",
+        "generated_at": "2025-10-14 04:41:32"
+      },
+      "north": {
+        "name": "Ladakh North",
+        "description": "Northern region of Ladakh with suburban and residential areas",
+        "bbox": [
+          76.87713087499999,
+          34.589433847500004,
+          77.910569725,
+          35.4241352725
+        ],
+        "coordinates": {
+          "center": [
+            35.00678456000001,
+            77.3938503
+          ],
+          "bounds": [
+            [
+              34.589433847500004,
+              76.87713087499999
+            ],
+            [
+              35.4241352725,
+              77.910569725
+            ]
+          ]
+        },
+        "image_path": "Ladakh\\Ladakh_North_satellite.png",
+        "generated_at": "2025-10-14 04:43:55"
+      },
+      "south": {
+        "name": "Ladakh South",
+        "description": "Southern region of Ladakh including industrial and residential zones",
+        "bbox": [
+          76.87713087499999,
+          32.586150427499994,
+          77.910569725,
+          33.42085185249999
+        ],
+        "coordinates": {
+          "center": [
+            33.00350113999999,
+            77.3938503
+          ],
+          "bounds": [
+            [
+              32.586150427499994,
+              76.87713087499999
+            ],
+            [
+              33.42085185249999,
+              77.910569725
+            ]
+          ]
+        },
+        "image_path": "Ladakh\\Ladakh_South_satellite.png",
+        "generated_at": "2025-10-14 04:45:23"
+      },
+      "east": {
+        "name": "Ladakh East",
+        "description": "Eastern region of Ladakh with mixed urban development",
+        "bbox": [
+          78.117257495,
+          33.587792137499996,
+          79.150696345,
+          34.4224935625
+        ],
+        "coordinates": {
+          "center": [
+            34.00514285,
+            78.63397692000001
+          ],
+          "bounds": [
+            [
+              33.587792137499996,
+              78.117257495
+            ],
+            [
+              34.4224935625,
+              79.150696345
+            ]
+          ]
+        },
+        "image_path": "Ladakh\\Ladakh_East_satellite.png",
+        "generated_at": "2025-10-14 04:49:15"
+      },
+      "west": {
+        "name": "Ladakh West",
+        "description": "Western region of Ladakh featuring diverse urban landscapes",
+        "bbox": [
+          75.637004255,
+          33.587792137499996,
+          76.67044310499999,
+          34.4224935625
+        ],
+        "coordinates": {
+          "center": [
+            34.00514285,
+            76.15372367999998
+          ],
+          "bounds": [
+            [
+              33.587792137499996,
+              75.637004255
+            ],
+            [
+              34.4224935625,
+              76.67044310499999
+            ]
+          ]
+        },
+        "image_path": "Ladakh\\Ladakh_West_satellite.png",
+        "generated_at": "2025-10-14 04:50:24"
+      }
+    },
+    "generated_at": "2025-10-14 04:38:59",
+    "total_regions": 5
+  },
+  "Daman": {
+    "city_name": "Daman",
+    "city_bbox": [
+      72.82,
+      20.39,
+      72.86,
+      20.43
+    ],
+    "regions": {
+      "center": {
+        "name": "Daman Center",
+        "description": "Central business district and urban core of Daman",
+        "bbox": [
+          72.831,
+          20.401,
+          72.849,
+          20.419
+        ],
+        "coordinates": {
+          "center": [
+            20.41,
+            72.84
+          ],
+          "bounds": [
+            [
+              20.401,
+              72.831
+            ],
+            [
+              20.419,
+              72.849
+            ]
+          ]
+        },
+        "image_path": "Daman\\Daman_Center_satellite.png",
+        "generated_at": "2025-10-14 15:25:27",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Daman North",
+        "description": "Northern region of Daman with suburban and residential areas",
+        "bbox": [
+          72.831,
+          20.421,
+          72.849,
+          20.428
+        ],
+        "coordinates": {
+          "center": [
+            20.43,
+            72.84
+          ],
+          "bounds": [
+            [
+              20.421,
+              72.831
+            ],
+            [
+              20.439,
+              72.849
+            ]
+          ]
+        },
+        "image_path": "Daman\\Daman_North_satellite.png",
+        "generated_at": "2025-10-14 15:26:00",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Daman South",
+        "description": "Southern region of Daman including industrial and residential zones",
+        "bbox": [
+          72.831,
+          20.392,
+          72.849,
+          20.399
+        ],
+        "coordinates": {
+          "center": [
+            20.39,
+            72.84
+          ],
+          "bounds": [
+            [
+              20.381,
+              72.831
+            ],
+            [
+              20.399,
+              72.849
+            ]
+          ]
+        },
+        "image_path": "Daman\\Daman_South_satellite.png",
+        "generated_at": "2025-10-14 15:26:30",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Daman East",
+        "description": "Eastern region of Daman with mixed urban development",
+        "bbox": [
+          72.851,
+          20.401,
+          72.858,
+          20.419
+        ],
+        "coordinates": {
+          "center": [
+            20.41,
+            72.8545
+          ],
+          "bounds": [
+            [
+              20.401,
+              72.851
+            ],
+            [
+              20.419,
+              72.858
+            ]
+          ]
+        },
+        "image_path": "Daman\\Daman_East_satellite.png",
+        "generated_at": "2025-10-14 15:27:01",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Daman West",
+        "description": "Western region of Daman featuring diverse urban landscapes",
+        "bbox": [
+          72.822,
+          20.401,
+          72.82900000000001,
+          20.419
+        ],
+        "coordinates": {
+          "center": [
+            20.41,
+            72.8255
+          ],
+          "bounds": [
+            [
+              20.401,
+              72.822
+            ],
+            [
+              20.419,
+              72.82900000000001
+            ]
+          ]
+        },
+        "image_path": "Daman\\Daman_West_satellite.png",
+        "generated_at": "2025-10-14 15:27:45",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 15:23:11",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  },
+  "Kavaratti": {
+    "city_name": "Kavaratti",
+    "city_bbox": [
+      72.63,
+      10.55,
+      72.65,
+      10.57
+    ],
+    "regions": {
+      "center": {
+        "name": "Kavaratti Center",
+        "description": "Central business district and urban core of Kavaratti",
+        "bbox": [
+          72.6355,
+          10.5555,
+          72.64450000000001,
+          10.5645
+        ],
+        "coordinates": {
+          "center": [
+            10.56,
+            72.64
+          ],
+          "bounds": [
+            [
+              10.5555,
+              72.6355
+            ],
+            [
+              10.5645,
+              72.64450000000001
+            ]
+          ]
+        },
+        "image_path": "Kavaratti\\Kavaratti_Center_satellite.png",
+        "generated_at": "2025-10-14 15:30:22",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Kavaratti North",
+        "description": "Northern region of Kavaratti with suburban and residential areas",
+        "bbox": [
+          72.6355,
+          10.5655,
+          72.64450000000001,
+          10.569
+        ],
+        "coordinates": {
+          "center": [
+            10.57,
+            72.64
+          ],
+          "bounds": [
+            [
+              10.5655,
+              72.6355
+            ],
+            [
+              10.5745,
+              72.64450000000001
+            ]
+          ]
+        },
+        "image_path": "Kavaratti\\Kavaratti_North_satellite.png",
+        "generated_at": "2025-10-14 15:31:01",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Kavaratti South",
+        "description": "Southern region of Kavaratti including industrial and residential zones",
+        "bbox": [
+          72.6355,
+          10.551,
+          72.64450000000001,
+          10.5545
+        ],
+        "coordinates": {
+          "center": [
+            10.55,
+            72.64
+          ],
+          "bounds": [
+            [
+              10.5455,
+              72.6355
+            ],
+            [
+              10.5545,
+              72.64450000000001
+            ]
+          ]
+        },
+        "image_path": "Kavaratti\\Kavaratti_South_satellite.png",
+        "generated_at": "2025-10-14 15:31:51",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Kavaratti East",
+        "description": "Eastern region of Kavaratti with mixed urban development",
+        "bbox": [
+          72.64550000000001,
+          10.5555,
+          72.649,
+          10.5645
+        ],
+        "coordinates": {
+          "center": [
+            10.56,
+            72.64725000000001
+          ],
+          "bounds": [
+            [
+              10.5555,
+              72.64550000000001
+            ],
+            [
+              10.5645,
+              72.649
+            ]
+          ]
+        },
+        "image_path": "Kavaratti\\Kavaratti_East_satellite.png",
+        "generated_at": "2025-10-14 15:32:40",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Kavaratti West",
+        "description": "Western region of Kavaratti featuring diverse urban landscapes",
+        "bbox": [
+          72.631,
+          10.5555,
+          72.63449999999999,
+          10.5645
+        ],
+        "coordinates": {
+          "center": [
+            10.56,
+            72.63274999999999
+          ],
+          "bounds": [
+            [
+              10.5555,
+              72.631
+            ],
+            [
+              10.5645,
+              72.63449999999999
+            ]
+          ]
+        },
+        "image_path": "Kavaratti\\Kavaratti_West_satellite.png",
+        "generated_at": "2025-10-14 15:33:12",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 15:28:03",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  },
+  "Panaji": {
+    "city_name": "Panaji",
+    "city_bbox": [
+      73.815,
+      15.485,
+      73.845,
+      15.525
+    ],
+    "regions": {
+      "center": {
+        "name": "Panaji Center",
+        "description": "Central business district and urban core of Panaji",
+        "bbox": [
+          73.82325,
+          15.495999999999999,
+          73.83675,
+          15.514
+        ],
+        "coordinates": {
+          "center": [
+            15.504999999999999,
+            73.83
+          ],
+          "bounds": [
+            [
+              15.495999999999999,
+              73.82325
+            ],
+            [
+              15.514,
+              73.83675
+            ]
+          ]
+        },
+        "image_path": "Panaji\\Panaji_Center_satellite.png",
+        "generated_at": "2025-10-14 15:34:11",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Panaji North",
+        "description": "Northern region of Panaji with suburban and residential areas",
+        "bbox": [
+          73.82325,
+          15.516,
+          73.83675,
+          15.523
+        ],
+        "coordinates": {
+          "center": [
+            15.525,
+            73.83
+          ],
+          "bounds": [
+            [
+              15.516,
+              73.82325
+            ],
+            [
+              15.534,
+              73.83675
+            ]
+          ]
+        },
+        "image_path": "Panaji\\Panaji_North_satellite.png",
+        "generated_at": "2025-10-14 15:34:52",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Panaji South",
+        "description": "Southern region of Panaji including industrial and residential zones",
+        "bbox": [
+          73.82325,
+          15.487,
+          73.83675,
+          15.493999999999998
+        ],
+        "coordinates": {
+          "center": [
+            15.484999999999998,
+            73.83
+          ],
+          "bounds": [
+            [
+              15.475999999999997,
+              73.82325
+            ],
+            [
+              15.493999999999998,
+              73.83675
+            ]
+          ]
+        },
+        "image_path": "Panaji\\Panaji_South_satellite.png",
+        "generated_at": "2025-10-14 15:35:41",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Panaji East",
+        "description": "Eastern region of Panaji with mixed urban development",
+        "bbox": [
+          73.83824999999999,
+          15.495999999999999,
+          73.8435,
+          15.514
+        ],
+        "coordinates": {
+          "center": [
+            15.504999999999999,
+            73.840875
+          ],
+          "bounds": [
+            [
+              15.495999999999999,
+              73.83824999999999
+            ],
+            [
+              15.514,
+              73.8435
+            ]
+          ]
+        },
+        "image_path": "Panaji\\Panaji_East_satellite.png",
+        "generated_at": "2025-10-14 15:36:03",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Panaji West",
+        "description": "Western region of Panaji featuring diverse urban landscapes",
+        "bbox": [
+          73.81649999999999,
+          15.495999999999999,
+          73.82175000000001,
+          15.514
+        ],
+        "coordinates": {
+          "center": [
+            15.504999999999999,
+            73.819125
+          ],
+          "bounds": [
+            [
+              15.495999999999999,
+              73.81649999999999
+            ],
+            [
+              15.514,
+              73.82175000000001
+            ]
+          ]
+        },
+        "image_path": "Panaji\\Panaji_West_satellite.png",
+        "generated_at": "2025-10-14 15:36:41",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 15:33:30",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  },
+  "Port Blair": {
+    "city_name": "Port Blair",
+    "city_bbox": [
+      92.72,
+      11.65,
+      92.78,
+      11.71
+    ],
+    "regions": {
+      "center": {
+        "name": "Port Blair Center",
+        "description": "Central business district and urban core of Port Blair",
+        "bbox": [
+          92.7365,
+          11.6665,
+          92.7635,
+          11.6935
+        ],
+        "coordinates": {
+          "center": [
+            11.68,
+            92.75
+          ],
+          "bounds": [
+            [
+              11.6665,
+              92.7365
+            ],
+            [
+              11.6935,
+              92.7635
+            ]
+          ]
+        },
+        "image_path": "Port_Blair\\Port_Blair_Center_satellite.png",
+        "generated_at": "2025-10-14 15:38:48",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Port Blair North",
+        "description": "Northern region of Port Blair with suburban and residential areas",
+        "bbox": [
+          92.7365,
+          11.6965,
+          92.7635,
+          11.707
+        ],
+        "coordinates": {
+          "center": [
+            11.71,
+            92.75
+          ],
+          "bounds": [
+            [
+              11.6965,
+              92.7365
+            ],
+            [
+              11.723500000000001,
+              92.7635
+            ]
+          ]
+        },
+        "image_path": "Port_Blair\\Port_Blair_North_satellite.png",
+        "generated_at": "2025-10-14 15:39:29",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Port Blair South",
+        "description": "Southern region of Port Blair including industrial and residential zones",
+        "bbox": [
+          92.7365,
+          11.653,
+          92.7635,
+          11.663499999999999
+        ],
+        "coordinates": {
+          "center": [
+            11.649999999999999,
+            92.75
+          ],
+          "bounds": [
+            [
+              11.636499999999998,
+              92.7365
+            ],
+            [
+              11.663499999999999,
+              92.7635
+            ]
+          ]
+        },
+        "image_path": "Port_Blair\\Port_Blair_South_satellite.png",
+        "generated_at": "2025-10-14 15:40:27",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Port Blair East",
+        "description": "Eastern region of Port Blair with mixed urban development",
+        "bbox": [
+          92.7665,
+          11.6665,
+          92.777,
+          11.6935
+        ],
+        "coordinates": {
+          "center": [
+            11.68,
+            92.77175
+          ],
+          "bounds": [
+            [
+              11.6665,
+              92.7665
+            ],
+            [
+              11.6935,
+              92.777
+            ]
+          ]
+        },
+        "image_path": "Port_Blair\\Port_Blair_East_satellite.png",
+        "generated_at": "2025-10-14 15:41:10",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Port Blair West",
+        "description": "Western region of Port Blair featuring diverse urban landscapes",
+        "bbox": [
+          92.723,
+          11.6665,
+          92.7335,
+          11.6935
+        ],
+        "coordinates": {
+          "center": [
+            11.68,
+            92.72825
+          ],
+          "bounds": [
+            [
+              11.6665,
+              92.723
+            ],
+            [
+              11.6935,
+              92.7335
+            ]
+          ]
+        },
+        "image_path": "Port_Blair\\Port_Blair_West_satellite.png",
+        "generated_at": "2025-10-14 15:42:12",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 15:36:59",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  },
+  "Puducherry": {
+    "city_name": "Puducherry",
+    "city_bbox": [
+      79.79,
+      11.89,
+      79.83,
+      11.93
+    ],
+    "regions": {
+      "center": {
+        "name": "Puducherry Center",
+        "description": "Central business district and urban core of Puducherry",
+        "bbox": [
+          79.801,
+          11.901,
+          79.819,
+          11.919
+        ],
+        "coordinates": {
+          "center": [
+            11.91,
+            79.81
+          ],
+          "bounds": [
+            [
+              11.901,
+              79.801
+            ],
+            [
+              11.919,
+              79.819
+            ]
+          ]
+        },
+        "image_path": "Puducherry\\Puducherry_Center_satellite.png",
+        "generated_at": "2025-10-14 15:44:38",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Puducherry North",
+        "description": "Northern region of Puducherry with suburban and residential areas",
+        "bbox": [
+          79.801,
+          11.921000000000001,
+          79.819,
+          11.927999999999999
+        ],
+        "coordinates": {
+          "center": [
+            11.930000000000001,
+            79.81
+          ],
+          "bounds": [
+            [
+              11.921000000000001,
+              79.801
+            ],
+            [
+              11.939,
+              79.819
+            ]
+          ]
+        },
+        "image_path": "Puducherry\\Puducherry_North_satellite.png",
+        "generated_at": "2025-10-14 15:45:18",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Puducherry South",
+        "description": "Southern region of Puducherry including industrial and residential zones",
+        "bbox": [
+          79.801,
+          11.892000000000001,
+          79.819,
+          11.899
+        ],
+        "coordinates": {
+          "center": [
+            11.889999999999999,
+            79.81
+          ],
+          "bounds": [
+            [
+              11.881,
+              79.801
+            ],
+            [
+              11.899,
+              79.819
+            ]
+          ]
+        },
+        "image_path": "Puducherry\\Puducherry_South_satellite.png",
+        "generated_at": "2025-10-14 15:46:07",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Puducherry East",
+        "description": "Eastern region of Puducherry with mixed urban development",
+        "bbox": [
+          79.821,
+          11.901,
+          79.828,
+          11.919
+        ],
+        "coordinates": {
+          "center": [
+            11.91,
+            79.8245
+          ],
+          "bounds": [
+            [
+              11.901,
+              79.821
+            ],
+            [
+              11.919,
+              79.828
+            ]
+          ]
+        },
+        "image_path": "Puducherry\\Puducherry_East_satellite.png",
+        "generated_at": "2025-10-14 15:46:53",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Puducherry West",
+        "description": "Western region of Puducherry featuring diverse urban landscapes",
+        "bbox": [
+          79.792,
+          11.901,
+          79.799,
+          11.919
+        ],
+        "coordinates": {
+          "center": [
+            11.91,
+            79.7955
+          ],
+          "bounds": [
+            [
+              11.901,
+              79.792
+            ],
+            [
+              11.919,
+              79.799
+            ]
+          ]
+        },
+        "image_path": "Puducherry\\Puducherry_West_satellite.png",
+        "generated_at": "2025-10-14 15:47:33",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 15:42:30",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  },
+  "Chennai": {
+    "city_name": "Chennai",
+    "city_bbox": [
+      80.16,
+      13.0,
+      80.24,
+      13.08
+    ],
+    "regions": {
+      "center": {
+        "name": "Chennai Center",
+        "description": "Central business district and urban core of Chennai",
+        "bbox": [
+          80.18199999999999,
+          13.021999999999998,
+          80.21799999999999,
+          13.058
+        ],
+        "coordinates": {
+          "center": [
+            13.04,
+            80.19999999999999
+          ],
+          "bounds": [
+            [
+              13.021999999999998,
+              80.18199999999999
+            ],
+            [
+              13.058,
+              80.21799999999999
+            ]
+          ]
+        },
+        "image_path": "Chennai\\Chennai_Center_satellite.png",
+        "generated_at": "2025-10-14 15:48:49",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Chennai North",
+        "description": "Northern region of Chennai with suburban and residential areas",
+        "bbox": [
+          80.18199999999999,
+          13.062,
+          80.21799999999999,
+          13.076
+        ],
+        "coordinates": {
+          "center": [
+            13.08,
+            80.19999999999999
+          ],
+          "bounds": [
+            [
+              13.062,
+              80.18199999999999
+            ],
+            [
+              13.097999999999999,
+              80.21799999999999
+            ]
+          ]
+        },
+        "image_path": "Chennai\\Chennai_North_satellite.png",
+        "generated_at": "2025-10-14 15:49:44",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Chennai South",
+        "description": "Southern region of Chennai including industrial and residential zones",
+        "bbox": [
+          80.18199999999999,
+          13.004,
+          80.21799999999999,
+          13.017999999999999
+        ],
+        "coordinates": {
+          "center": [
+            12.999999999999998,
+            80.19999999999999
+          ],
+          "bounds": [
+            [
+              12.982,
+              80.18199999999999
+            ],
+            [
+              13.017999999999999,
+              80.21799999999999
+            ]
+          ]
+        },
+        "image_path": "Chennai\\Chennai_South_satellite.png",
+        "generated_at": "2025-10-14 15:51:02",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Chennai East",
+        "description": "Eastern region of Chennai with mixed urban development",
+        "bbox": [
+          80.222,
+          13.021999999999998,
+          80.23599999999998,
+          13.058
+        ],
+        "coordinates": {
+          "center": [
+            13.04,
+            80.22899999999998
+          ],
+          "bounds": [
+            [
+              13.021999999999998,
+              80.222
+            ],
+            [
+              13.058,
+              80.23599999999998
+            ]
+          ]
+        },
+        "image_path": "Chennai\\Chennai_East_satellite.png",
+        "generated_at": "2025-10-14 15:52:34",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Chennai West",
+        "description": "Western region of Chennai featuring diverse urban landscapes",
+        "bbox": [
+          80.164,
+          13.021999999999998,
+          80.17799999999998,
+          13.058
+        ],
+        "coordinates": {
+          "center": [
+            13.04,
+            80.17099999999999
+          ],
+          "bounds": [
+            [
+              13.021999999999998,
+              80.164
+            ],
+            [
+              13.058,
+              80.17799999999998
+            ]
+          ]
+        },
+        "image_path": "Chennai\\Chennai_West_satellite.png",
+        "generated_at": "2025-10-14 15:53:27",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 15:47:51",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  },
+  "Thiruvananthapuram": {
+    "city_name": "Thiruvananthapuram",
+    "city_bbox": [
+      76.905,
+      8.485,
+      76.995,
+      8.575
+    ],
+    "regions": {
+      "center": {
+        "name": "Thiruvananthapuram Center",
+        "description": "Central business district and urban core of Thiruvananthapuram",
+        "bbox": [
+          76.92975,
+          8.509749999999999,
+          76.97025000000001,
+          8.55025
+        ],
+        "coordinates": {
+          "center": [
+            8.53,
+            76.95
+          ],
+          "bounds": [
+            [
+              8.509749999999999,
+              76.92975
+            ],
+            [
+              8.55025,
+              76.97025000000001
+            ]
+          ]
+        },
+        "image_path": "Thiruvananthapuram\\Thiruvananthapuram_Center_satellite.png",
+        "generated_at": "2025-10-14 15:55:03",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Thiruvananthapuram North",
+        "description": "Northern region of Thiruvananthapuram with suburban and residential areas",
+        "bbox": [
+          76.92975,
+          8.55475,
+          76.97025000000001,
+          8.5705
+        ],
+        "coordinates": {
+          "center": [
+            8.575000000000001,
+            76.95
+          ],
+          "bounds": [
+            [
+              8.55475,
+              76.92975
+            ],
+            [
+              8.59525,
+              76.97025000000001
+            ]
+          ]
+        },
+        "image_path": "Thiruvananthapuram\\Thiruvananthapuram_North_satellite.png",
+        "generated_at": "2025-10-14 15:55:55",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Thiruvananthapuram South",
+        "description": "Southern region of Thiruvananthapuram including industrial and residential zones",
+        "bbox": [
+          76.92975,
+          8.4895,
+          76.97025000000001,
+          8.505249999999998
+        ],
+        "coordinates": {
+          "center": [
+            8.484999999999998,
+            76.95
+          ],
+          "bounds": [
+            [
+              8.464749999999999,
+              76.92975
+            ],
+            [
+              8.505249999999998,
+              76.97025000000001
+            ]
+          ]
+        },
+        "image_path": "Thiruvananthapuram\\Thiruvananthapuram_South_satellite.png",
+        "generated_at": "2025-10-14 15:56:42",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Thiruvananthapuram East",
+        "description": "Eastern region of Thiruvananthapuram with mixed urban development",
+        "bbox": [
+          76.97475,
+          8.509749999999999,
+          76.9905,
+          8.55025
+        ],
+        "coordinates": {
+          "center": [
+            8.53,
+            76.982625
+          ],
+          "bounds": [
+            [
+              8.509749999999999,
+              76.97475
+            ],
+            [
+              8.55025,
+              76.9905
+            ]
+          ]
+        },
+        "image_path": "Thiruvananthapuram\\Thiruvananthapuram_East_satellite.png",
+        "generated_at": "2025-10-14 15:57:14",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Thiruvananthapuram West",
+        "description": "Western region of Thiruvananthapuram featuring diverse urban landscapes",
+        "bbox": [
+          76.90950000000001,
+          8.509749999999999,
+          76.92525,
+          8.55025
+        ],
+        "coordinates": {
+          "center": [
+            8.53,
+            76.917375
+          ],
+          "bounds": [
+            [
+              8.509749999999999,
+              76.90950000000001
+            ],
+            [
+              8.55025,
+              76.92525
+            ]
+          ]
+        },
+        "image_path": "Thiruvananthapuram\\Thiruvananthapuram_West_satellite.png",
+        "generated_at": "2025-10-14 15:57:50",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 15:53:45",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  },
+  "Gandhinagar": {
+    "city_name": "Gandhinagar",
+    "city_bbox": [
+      72.6,
+      23.15,
+      72.7,
+      23.3
+    ],
+    "regions": {
+      "center": {
+        "name": "Gandhinagar Center",
+        "description": "Central business district and urban core of Gandhinagar",
+        "bbox": [
+          72.6275,
+          23.200000000000003,
+          72.67250000000001,
+          23.25
+        ],
+        "coordinates": {
+          "center": [
+            23.225,
+            72.65
+          ],
+          "bounds": [
+            [
+              23.200000000000003,
+              72.6275
+            ],
+            [
+              23.25,
+              72.67250000000001
+            ]
+          ]
+        },
+        "image_path": "Gandhinagar\\Gandhinagar_Center_satellite.png",
+        "generated_at": "2025-10-14 15:59:08",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Gandhinagar North",
+        "description": "Northern region of Gandhinagar with suburban and residential areas",
+        "bbox": [
+          72.6275,
+          23.2575,
+          72.67250000000001,
+          23.2925
+        ],
+        "coordinates": {
+          "center": [
+            23.2825,
+            72.65
+          ],
+          "bounds": [
+            [
+              23.2575,
+              72.6275
+            ],
+            [
+              23.3075,
+              72.67250000000001
+            ]
+          ]
+        },
+        "image_path": "Gandhinagar\\Gandhinagar_North_satellite.png",
+        "generated_at": "2025-10-14 16:01:02",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Gandhinagar South",
+        "description": "Southern region of Gandhinagar including industrial and residential zones",
+        "bbox": [
+          72.6275,
+          23.1575,
+          72.67250000000001,
+          23.192500000000003
+        ],
+        "coordinates": {
+          "center": [
+            23.167500000000004,
+            72.65
+          ],
+          "bounds": [
+            [
+              23.142500000000002,
+              72.6275
+            ],
+            [
+              23.192500000000003,
+              72.67250000000001
+            ]
+          ]
+        },
+        "image_path": "Gandhinagar\\Gandhinagar_South_satellite.png",
+        "generated_at": "2025-10-14 16:02:41",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Gandhinagar East",
+        "description": "Eastern region of Gandhinagar with mixed urban development",
+        "bbox": [
+          72.67750000000001,
+          23.2145,
+          72.69500000000001,
+          23.235500000000002
+        ],
+        "coordinates": {
+          "center": [
+            23.225,
+            72.68625
+          ],
+          "bounds": [
+            [
+              23.2145,
+              72.67750000000001
+            ],
+            [
+              23.235500000000002,
+              72.69500000000001
+            ]
+          ]
+        },
+        "image_path": "Gandhinagar\\Gandhinagar_East_satellite.png",
+        "generated_at": "2025-10-14 16:04:17",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Gandhinagar West",
+        "description": "Western region of Gandhinagar featuring diverse urban landscapes",
+        "bbox": [
+          72.605,
+          23.2145,
+          72.6225,
+          23.235500000000002
+        ],
+        "coordinates": {
+          "center": [
+            23.225,
+            72.61375000000001
+          ],
+          "bounds": [
+            [
+              23.2145,
+              72.605
+            ],
+            [
+              23.235500000000002,
+              72.6225
+            ]
+          ]
+        },
+        "image_path": "Gandhinagar\\Gandhinagar_West_satellite.png",
+        "generated_at": "2025-10-14 16:05:48",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 15:58:08",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  },
+  "Visakhapatnam": {
+    "city_name": "Visakhapatnam",
+    "city_bbox": [
+      83.2,
+      17.65,
+      83.35,
+      17.75
+    ],
+    "regions": {
+      "center": {
+        "name": "Visakhapatnam Center",
+        "description": "Central business district and urban core of Visakhapatnam",
+        "bbox": [
+          83.25,
+          17.6775,
+          83.30000000000001,
+          17.7225
+        ],
+        "coordinates": {
+          "center": [
+            17.7,
+            83.275
+          ],
+          "bounds": [
+            [
+              17.6775,
+              83.25
+            ],
+            [
+              17.7225,
+              83.30000000000001
+            ]
+          ]
+        },
+        "image_path": "Visakhapatnam\\Visakhapatnam_Center_satellite.png",
+        "generated_at": "2025-10-14 16:07:58",
+        "status": "CORRECTED"
+      },
+      "north": {
+        "name": "Visakhapatnam North",
+        "description": "Northern region of Visakhapatnam with suburban and residential areas",
+        "bbox": [
+          83.25,
+          17.7275,
+          83.30000000000001,
+          17.745
+        ],
+        "coordinates": {
+          "center": [
+            17.75,
+            83.275
+          ],
+          "bounds": [
+            [
+              17.7275,
+              83.25
+            ],
+            [
+              17.7725,
+              83.30000000000001
+            ]
+          ]
+        },
+        "image_path": "Visakhapatnam\\Visakhapatnam_North_satellite.png",
+        "generated_at": "2025-10-14 16:08:51",
+        "status": "CORRECTED"
+      },
+      "south": {
+        "name": "Visakhapatnam South",
+        "description": "Southern region of Visakhapatnam including industrial and residential zones",
+        "bbox": [
+          83.25,
+          17.654999999999998,
+          83.30000000000001,
+          17.6725
+        ],
+        "coordinates": {
+          "center": [
+            17.65,
+            83.275
+          ],
+          "bounds": [
+            [
+              17.627499999999998,
+              83.25
+            ],
+            [
+              17.6725,
+              83.30000000000001
+            ]
+          ]
+        },
+        "image_path": "Visakhapatnam\\Visakhapatnam_South_satellite.png",
+        "generated_at": "2025-10-14 16:09:32",
+        "status": "CORRECTED"
+      },
+      "east": {
+        "name": "Visakhapatnam East",
+        "description": "Eastern region of Visakhapatnam with mixed urban development",
+        "bbox": [
+          83.3075,
+          17.6775,
+          83.3425,
+          17.7225
+        ],
+        "coordinates": {
+          "center": [
+            17.7,
+            83.325
+          ],
+          "bounds": [
+            [
+              17.6775,
+              83.3075
+            ],
+            [
+              17.7225,
+              83.3425
+            ]
+          ]
+        },
+        "image_path": "Visakhapatnam\\Visakhapatnam_East_satellite.png",
+        "generated_at": "2025-10-14 16:11:07",
+        "status": "CORRECTED"
+      },
+      "west": {
+        "name": "Visakhapatnam West",
+        "description": "Western region of Visakhapatnam featuring diverse urban landscapes",
+        "bbox": [
+          83.20750000000001,
+          17.6775,
+          83.2425,
+          17.7225
+        ],
+        "coordinates": {
+          "center": [
+            17.7,
+            83.22500000000001
+          ],
+          "bounds": [
+            [
+              17.6775,
+              83.20750000000001
+            ],
+            [
+              17.7225,
+              83.2425
+            ]
+          ]
+        },
+        "image_path": "Visakhapatnam\\Visakhapatnam_West_satellite.png",
+        "generated_at": "2025-10-14 16:12:02",
+        "status": "CORRECTED"
+      }
+    },
+    "generated_at": "2025-10-14 16:06:06",
+    "total_regions": 5,
+    "status": "CORRECTED_BBOX",
+    "bbox_version": "VALIDATED_V2"
+  }
+}
