@@ -31,7 +31,7 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
   const [selectedRegion, setSelectedRegion] = useState<RegionData | null>(null);
   const [previewsLoaded, setPreviewsLoaded] = useState<{ [key: string]: boolean }>({});
   const [showFakeLoading, setShowFakeLoading] = useState(true);
-  const [hasStartedLoading, setHasStartedLoading] = useState(false);
+
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [currentLoadingRegion, setCurrentLoadingRegion] = useState(0);
 
@@ -169,7 +169,7 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
     <div className="max-w-7xl mx-auto">
       {showFakeLoading ? (
         /* Fake Loading Screen */
-        <div className="text-center" style={{ backgroundColor: 'rgba(255, 0, 0, 0.1)', border: '2px solid red', padding: '20px' }}>
+        <div className="text-center bg-red-500/10 border-2 border-red-500 p-5">
           <div className="inline-block bg-neon-100/20 backdrop-blur-md border border-neon-100/30 rounded-full px-8 py-3 mb-8">
             <span className="text-neon-100 font-bold text-sm md:text-base uppercase tracking-wider">
               🛰️ Downloading Satellite Data

@@ -18,7 +18,7 @@ const LandingPage: React.FC = () => {
         {/* Bright Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src={`${process.env.PUBLIC_URL}/kikin-landscape.png`}
+            src="/kikin-landscape.png"
             alt="Beautiful landscape illustration with mountains, trees, river, and outdoor elements"
             className="w-full h-full object-cover brightness-125 contrast-110 saturate-110"
           />
@@ -33,16 +33,16 @@ const LandingPage: React.FC = () => {
             BIOSCOPE
           </div>
           <div className="flex items-center space-x-6">
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={() => window.location.href = '/login'}
               className="text-white hover:text-neon-100 transition-colors text-sm font-medium"
               style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.7)' }}
             >
               LOG IN
             </button>
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={() => window.location.href = '/model'}
               className="bg-neon-100 text-green px-6 py-2 rounded-full font-semibold text-sm hover:bg-neon-80 transition-all shadow-lg hover:scale-105 transform"
             >
@@ -75,9 +75,9 @@ const LandingPage: React.FC = () => {
               Get access to real-time vegetation mapping for sustainable decision making.
             </p>
 
-            <MagnetizeButton 
-              variant="magnetize" 
-              size="xl" 
+            <MagnetizeButton
+              variant="magnetize"
+              size="xl"
               particleCount={25}
               onClick={() => window.location.href = '/model'}
             >
@@ -96,7 +96,7 @@ const LandingPage: React.FC = () => {
             className={`absolute top-8 left-8 w-28 h-28 transform rotate-12 hover:scale-110 transition-all duration-700 pointer-events-auto ${scrollY > window.innerHeight * 0.8 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <img src={`${process.env.PUBLIC_URL}/badge-realtime.png`} alt="Real-time Analysis Badge" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src="/badge-realtime.png" alt="Real-time Analysis Badge" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
 
           {/* Top Right Corner */}
@@ -104,7 +104,7 @@ const LandingPage: React.FC = () => {
             className={`absolute top-9 right-9 w-30 h-28 transform -rotate-6 hover:scale-110 transition-all duration-700 delay-200 pointer-events-auto ${scrollY > window.innerHeight * 0.8 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <img src={`${process.env.PUBLIC_URL}/badge-global.png`} alt="Global Coverage Badge" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src="/badge-global.png" alt="Global Coverage Badge" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
 
           {/* Bottom Left Corner */}
@@ -112,7 +112,7 @@ const LandingPage: React.FC = () => {
             className={`absolute bottom-8 left-8 w-28 h-28 transform -rotate-12 hover:scale-110 transition-all duration-700 delay-400 pointer-events-auto ${scrollY > window.innerHeight * 1.2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <img src={`${process.env.PUBLIC_URL}/badge-accurate.png`} alt="Accurate Analysis Badge" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src="/badge-accurate.png" alt="Accurate Analysis Badge" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
 
           {/* Bottom Right Corner */}
@@ -120,7 +120,7 @@ const LandingPage: React.FC = () => {
             className={`absolute bottom-8 right-8 w-28 h-28 transform rotate-15 hover:scale-110 transition-all duration-700 delay-600 pointer-events-auto ${scrollY > window.innerHeight * 1.2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <img src={`${process.env.PUBLIC_URL}/badge-sustainable.png`} alt="Sustainable Solutions Badge" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src="/badge-sustainable.png" alt="Sustainable Solutions Badge" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
         </div>
 
@@ -139,9 +139,9 @@ const LandingPage: React.FC = () => {
                 BioScope ML harnesses advanced satellite imagery and machine learning to provide
                 unprecedented insights into global vegetation health and biomass distribution.
               </p>
-              <MagnetizeButton 
-                variant="magnetize" 
-                size="xl" 
+              <MagnetizeButton
+                variant="magnetize"
+                size="xl"
                 particleCount={20}
                 onClick={() => window.location.href = '/model'}
               >
@@ -153,7 +153,7 @@ const LandingPage: React.FC = () => {
             <div className="flex justify-center items-center order-1 md:order-2">
               <div className="relative w-full max-w-lg">
                 <img
-                  src={`${process.env.PUBLIC_URL}/planet-care-illustration.png`}
+                  src="/planet-care-illustration.png"
                   alt="People caring for the planet - environmental sustainability illustration"
                   className="w-full h-auto object-contain drop-shadow-2xl"
                 />
@@ -251,8 +251,8 @@ const LandingPage: React.FC = () => {
       <section className="h-screen bg-off-white text-green relative overflow-hidden flex items-center">
         {/* Background Image - Full Opacity */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={`${process.env.PUBLIC_URL}/partnership-landscape.png`}
+          <img
+            src="/partnership-landscape.png"
             alt="Partnership and collaboration in natural landscape"
             className="w-full h-full object-cover"
           />
@@ -264,10 +264,10 @@ const LandingPage: React.FC = () => {
           <div className="flex justify-end pt-16 pr-16">
             <div className="max-w-md text-right">
               <h2 className="text-5xl md:text-6xl font-black leading-tight font-sans text-white"
-                  style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.9)' }}>
+                style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.9)' }}>
                 OUR<br />
-                <span className="text-neon-100" 
-                      style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.9)' }}>
+                <span className="text-neon-100"
+                  style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.8), 1px 1px 3px rgba(0,0,0,0.9)' }}>
                   PROCESS
                 </span>
               </h2>
@@ -278,13 +278,13 @@ const LandingPage: React.FC = () => {
           <div className="flex-grow flex items-end pb-16 pl-16">
             <div className="max-w-lg">
               <p className="text-xl leading-relaxed font-sans font-medium text-white"
-                 style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.9)' }}>
-                We capture multi-spectral satellite imagery, process it through advanced 
+                style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.9)' }}>
+                We capture multi-spectral satellite imagery, process it through advanced
                 machine learning models, and deliver precise biomass predictions with 99.9% accuracy.
               </p>
               <p className="text-lg mt-4 font-sans text-white/90"
-                 style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.9)' }}>
-                From space to insights, our AI transforms raw satellite data into actionable 
+                style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8), 1px 1px 2px rgba(0,0,0,0.9)' }}>
+                From space to insights, our AI transforms raw satellite data into actionable
                 environmental intelligence for sustainable decision making.
               </p>
             </div>
@@ -296,8 +296,8 @@ const LandingPage: React.FC = () => {
       <section className="h-screen bg-green text-off-white relative overflow-hidden">
         {/* Environmental Landscape Background */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={`${process.env.PUBLIC_URL}/environmental-landscape.png`}
+          <img
+            src="/environmental-landscape.png"
             alt="Environmental landscape with mountains, forest, and wildlife"
             className="w-full h-full object-cover"
           />
@@ -311,32 +311,32 @@ const LandingPage: React.FC = () => {
             <div className="max-w-5xl mx-auto px-8 text-center">
               {/* Main Heading */}
               <h1 className="text-6xl md:text-8xl font-black font-deacon leading-tight mb-8"
-                  style={{ textShadow: '4px 4px 16px rgba(0,0,0,0.9), 2px 2px 6px rgba(0,0,0,1)' }}>
+                style={{ textShadow: '4px 4px 16px rgba(0,0,0,0.9), 2px 2px 6px rgba(0,0,0,1)' }}>
                 <span className="text-off-white">START YOUR</span><br />
                 <span className="text-neon-100">IMPACT TODAY</span>
               </h1>
 
               {/* Subtitle */}
               <p className="text-xl md:text-2xl text-off-white mb-12 max-w-4xl mx-auto font-medium leading-relaxed"
-                 style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.9), 1px 1px 4px rgba(0,0,0,1)' }}>
-                Join organizations worldwide using BioScope ML to make data-driven decisions 
+                style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.9), 1px 1px 4px rgba(0,0,0,1)' }}>
+                Join organizations worldwide using BioScope ML to make data-driven decisions
                 for environmental sustainability and positive climate impact.
               </p>
 
               {/* Call to Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <MagnetizeButton 
-                  variant="magnetize" 
-                  size="xl" 
+                <MagnetizeButton
+                  variant="magnetize"
+                  size="xl"
                   particleCount={30}
                   className="px-12 py-5 text-xl font-bold"
                   onClick={() => window.location.href = '/model'}
                 >
                   GET STARTED FREE
                 </MagnetizeButton>
-                <MagnetizeButton 
-                  variant="outline" 
-                  size="xl" 
+                <MagnetizeButton
+                  variant="outline"
+                  size="xl"
                   particleCount={25}
                   className="border-2 border-off-white text-off-white px-12 py-5 text-xl font-bold hover:bg-off-white hover:text-green shadow-2xl hover:scale-105 transform transition-all"
                 >

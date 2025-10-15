@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 import { MagnetizeButton } from '../components/ui/magnetize-button';
 import RegionSelector from '../components/RegionSelector';
 import urbanAGBService, { UrbanAGBResponse, SystemStatus } from '../services/urbanAgbService';
-import regionService, { RegionData, CityRegionsResponse } from '../services/regionService';
+import regionService, { RegionData } from '../services/regionService';
 
 type AppStep = 'city' | 'region' | 'analysis' | 'results';
 
@@ -16,20 +16,11 @@ const MLModelPageWithRegions: React.FC = () => {
   const [systemStatus, setSystemStatus] = useState<SystemStatus | null>(null);
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
-  const [scrollY, setScrollY] = useState(0);
-
   // New state for region selection
   const [currentStep, setCurrentStep] = useState<AppStep>('city');
   const [availableRegions, setAvailableRegions] = useState<RegionData[]>([]);
   const [selectedRegion, setSelectedRegion] = useState<RegionData | null>(null);
   const [isLoadingRegions, setIsLoadingRegions] = useState(false);
-
-  // Track scroll position for animations
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Load system status on component mount
   useEffect(() => {
@@ -193,13 +184,7 @@ const MLModelPageWithRegions: React.FC = () => {
 
         {/* Hero Content */}
         <div className="relative z-40 h-full flex flex-col justify-center items-center px-6 pt-24 pb-24">
-          <div
-            className="text-center max-w-6xl mx-auto mt-8"
-            style={{
-              transform: `translateY(${scrollY * 0.3}px)`,
-              opacity: 1 - scrollY / 500
-            }}
-          >
+          <div className="text-center max-w-6xl mx-auto mt-8 transform transition-transform">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-8 tracking-tight font-deacon text-center">
               <div className="text-off-white drop-shadow-2xl mb-2">
                 ABOVE GROUND
@@ -305,7 +290,7 @@ const MLModelPageWithRegions: React.FC = () => {
                         type="text"
                         value={cityInput}
                         onChange={(e) => setCityInput(e.target.value)}
-                        onKeyPress={(e) => e.key === 'Enter' && handleCitySubmit()}
+                        onKeyDown={(e) => e.key === 'Enter' && handleCitySubmit()}
                         placeholder="Type any city name..."
                         className="w-full px-6 py-5 bg-off-white/10 border-2 border-off-white/20 focus:border-neon-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-neon-100/20 text-off-white placeholder-off-white/40 text-lg transition-all"
                         disabled={isLoadingRegions}
