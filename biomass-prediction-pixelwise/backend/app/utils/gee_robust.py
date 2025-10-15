@@ -290,7 +290,8 @@ class RobustGEEClient:
             self.initialized = True
             
         except Exception as e:
-            logger.error(f"❌ GEE initialization failed: {e}")
+            logger.warning(f"⚠️ GEE initialization failed: {e}")
+            logger.info("🔄 Will use NASA GIBS fallback for satellite data")
             self.initialized = False
     
     def _create_session(self) -> requests.Session:
