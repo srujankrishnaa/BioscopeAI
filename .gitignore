@@ -53,7 +53,10 @@ dataset/
 data/
 */data/
 *.csv
-*.json
+dataset/*.json
+data/*.json
+*/dataset/*.json
+*/data/*.json
 *.h5
 *.hdf5
 *.pkl
@@ -108,9 +111,10 @@ results/
 *.tif
 
 # Google Earth Engine credentials
-*.json
 service-account-key.json
 gee-credentials.json
+**/gee-*.json
+**/credentials*.json
 
 # Docker
 .dockerignore
