@@ -1,0 +1,12 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Allow all crawlers access to CSS and JS files
+Allow: /static/
+
+# BioScope ML - Biomass Prediction System
+# Advanced satellite-powered biomass analysis

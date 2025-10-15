@@ -1,0 +1,27 @@
+# Minimal Requirements for Urban AGB Prediction System
+# This is a lightweight version that works without heavy ML dependencies
+
+# Core Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Data Processing
+numpy>=1.24.0
+requests>=2.31.0
+
+# Visualization
+matplotlib>=3.7.0
+pillow>=10.0.0
+
+# Optional: Google Earth Engine (system works without this)
+earthengine-api>=0.1.374
+google-auth>=2.23.0
+google-auth-httplib2>=0.1.1
+google-auth-oauthlib>=1.1.0
+
+# Development
+python-dotenv>=1.0.0
+

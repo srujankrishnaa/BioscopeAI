@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./dataset:/app/data
+      - ./backend/models:/app/models
+      - ./backend/outputs:/app/outputs
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - DATA_PATH=/app/data
+      - MODEL_PATH=/app/models
+      - OUTPUT_PATH=/app/outputs
+    env_file:
+      - ./backend/.env
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - db
+    networks:
+      - biomass-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - biomass-network
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=biomass_prediction
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - biomass-network
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - biomass-network
+
+volumes:
+  postgres_data:
+
+networks:
+  biomass-network:
+    driver: bridge
