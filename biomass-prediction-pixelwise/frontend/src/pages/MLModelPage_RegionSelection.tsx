@@ -175,7 +175,7 @@ const MLModelPageWithRegions: React.FC = () => {
             preload="auto"
             onLoadedData={(e) => (e.currentTarget.style.opacity = '1')}
             className="w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out"
-            poster="/earth-poster.svg"
+            poster={`${process.env.PUBLIC_URL}/earth-poster.svg`}
           >
             <source src="/earth animation.mp4" type="video/mp4" />
             <source src="/earth animation.webm" type="video/webm" />

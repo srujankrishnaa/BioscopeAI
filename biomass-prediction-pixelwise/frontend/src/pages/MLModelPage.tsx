@@ -156,7 +156,7 @@ const MLModelPage: React.FC = () => {
             preload="auto"
             onLoadedData={(e) => (e.currentTarget.style.opacity = '1')}
             className="w-full h-full object-cover opacity-0 transition-opacity duration-1000 ease-in-out"
-            poster="/earth-poster.svg"
+            poster={`${process.env.PUBLIC_URL}/earth-poster.svg`}
           >
             {/* Use MP4 as primary source */}
             <source src="/earth animation.mp4" type="video/mp4" />
@@ -542,12 +542,12 @@ const MLModelPage: React.FC = () => {
                   </div>
                   <div className="bg-off-white/5 rounded-2xl overflow-hidden border-2 border-off-white/10 shadow-inner">
                     <img
-                      src={analysisResult.heat_map.image_url || '/placeholder-heatmap.png'}
+                      src={analysisResult.heat_map.image_url || `${process.env.PUBLIC_URL}/placeholder-heatmap.png`}
                       alt={`Above Ground Biomass analysis of ${selectedRegion ? selectedRegion.name : analysisResult.city}`}
                       className="w-full h-auto"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.src = '/placeholder-heatmap.png';
+                        target.src = `${process.env.PUBLIC_URL}/placeholder-heatmap.png`;
                       }}
                     />
                   </div>

@@ -308,7 +308,7 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
                         onLoad={() => handleImageLoad(region.id)}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src = '/placeholder-satellite.png';
+                          target.src = `${process.env.PUBLIC_URL}/placeholder-satellite.png`;
                         }}
                       />
                       {!previewsLoaded[region.id] && (

@@ -18,7 +18,7 @@ const LandingPage: React.FC = () => {
         {/* Bright Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/kikin-landscape.png"
+            src={`${process.env.PUBLIC_URL}/kikin-landscape.png`}
             alt="Beautiful landscape illustration with mountains, trees, river, and outdoor elements"
             className="w-full h-full object-cover brightness-125 contrast-110 saturate-110"
           />
@@ -96,7 +96,7 @@ const LandingPage: React.FC = () => {
             className={`absolute top-8 left-8 w-28 h-28 transform rotate-12 hover:scale-110 transition-all duration-700 pointer-events-auto ${scrollY > window.innerHeight * 0.8 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <img src="/badge-realtime.png" alt="Real-time Analysis Badge" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src={`${process.env.PUBLIC_URL}/badge-realtime.png`} alt="Real-time Analysis Badge" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
 
           {/* Top Right Corner */}
@@ -104,7 +104,7 @@ const LandingPage: React.FC = () => {
             className={`absolute top-9 right-9 w-30 h-28 transform -rotate-6 hover:scale-110 transition-all duration-700 delay-200 pointer-events-auto ${scrollY > window.innerHeight * 0.8 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <img src="/badge-global.png" alt="Global Coverage Badge" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src={`${process.env.PUBLIC_URL}/badge-global.png`} alt="Global Coverage Badge" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
 
           {/* Bottom Left Corner */}
@@ -112,7 +112,7 @@ const LandingPage: React.FC = () => {
             className={`absolute bottom-8 left-8 w-28 h-28 transform -rotate-12 hover:scale-110 transition-all duration-700 delay-400 pointer-events-auto ${scrollY > window.innerHeight * 1.2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <img src="/badge-accurate.png" alt="Accurate Analysis Badge" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src={`${process.env.PUBLIC_URL}/badge-accurate.png`} alt="Accurate Analysis Badge" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
 
           {/* Bottom Right Corner */}
@@ -120,7 +120,7 @@ const LandingPage: React.FC = () => {
             className={`absolute bottom-8 right-8 w-28 h-28 transform rotate-15 hover:scale-110 transition-all duration-700 delay-600 pointer-events-auto ${scrollY > window.innerHeight * 1.2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
           >
-            <img src="/badge-sustainable.png" alt="Sustainable Solutions Badge" className="w-full h-full object-contain drop-shadow-xl" />
+            <img src={`${process.env.PUBLIC_URL}/badge-sustainable.png`} alt="Sustainable Solutions Badge" className="w-full h-full object-contain drop-shadow-xl" />
           </div>
         </div>
 
@@ -153,7 +153,7 @@ const LandingPage: React.FC = () => {
             <div className="flex justify-center items-center order-1 md:order-2">
               <div className="relative w-full max-w-lg">
                 <img
-                  src="/planet-care-illustration.png"
+                  src={`${process.env.PUBLIC_URL}/planet-care-illustration.png`}
                   alt="People caring for the planet - environmental sustainability illustration"
                   className="w-full h-auto object-contain drop-shadow-2xl"
                 />
@@ -252,7 +252,7 @@ const LandingPage: React.FC = () => {
         {/* Background Image - Full Opacity */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/partnership-landscape.png" 
+            src={`${process.env.PUBLIC_URL}/partnership-landscape.png`}
             alt="Partnership and collaboration in natural landscape"
             className="w-full h-full object-cover"
           />
@@ -297,7 +297,7 @@ const LandingPage: React.FC = () => {
         {/* Environmental Landscape Background */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/environmental-landscape.png" 
+            src={`${process.env.PUBLIC_URL}/environmental-landscape.png`}
             alt="Environmental landscape with mountains, forest, and wildlife"
             className="w-full h-full object-cover"
           />
