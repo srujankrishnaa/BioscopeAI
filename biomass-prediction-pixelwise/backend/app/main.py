@@ -70,6 +70,7 @@ try:
     logger.info("Region selection API routes loaded successfully")
 except ImportError as e:
     logger.warning(f"Could not import region selection API routes: {e}")
+    logger.info("Using fallback endpoints defined in main.py")
 
 # Import cache service routes
 try:
