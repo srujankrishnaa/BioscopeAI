@@ -56,7 +56,14 @@ const MLModelPageWithRegions: React.FC = () => {
     try {
       // Fetch available regions for the city
       const regionsResponse = await regionService.getCityRegions(cityInput.trim());
-      setAvailableRegions(regionsResponse.regions);
+      
+      // Map the regions to include previewImage property
+      const mappedRegions = regionsResponse.regions.map(region => ({
+        ...region,
+        previewImage: region.preview_image_url ? regionService.getPreviewImageUrl(region.preview_image_url) : undefined
+      }));
+      
+      setAvailableRegions(mappedRegions);
       setCurrentStep('region');
       
       // Scroll to region selection

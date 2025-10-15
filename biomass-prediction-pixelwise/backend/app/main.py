@@ -127,56 +127,121 @@ async def system_status():
 # Fallback endpoints for Railway deployment
 @app.post("/api/get-city-regions")
 async def get_city_regions_fallback(request: PredictionRequest):
-    """Fallback endpoint for city regions when full API unavailable."""
+    """Get city regions with cached satellite images."""
     try:
-        # Import here to avoid startup issues
-        from app.api.region_selection import get_city_regions
-        return await get_city_regions(request)
+        # Import cache service
+        from app.api.cache_service import cache_service
+        
+        logger.info(f"Getting regions for city: {request.city}")
+        
+        # Check if city has cached data
+        city_data = cache_service.get_city_regions_from_cache(request.city)
+        
+        if city_data:
+            logger.info(f"Found cached data for {request.city}")
+            regions = []
+            
+            for region_id, region_info in city_data.get('regions', {}).items():
+                # Check if cached image exists
+                image_path = cache_service.get_cached_image_path(request.city, region_id)
+                
+                if image_path:
+                    logger.info(f"Cached image available for {request.city} {region_info['name']}: /api/cached-image/{request.city}/{region_id}")
+                    preview_url = f"/api/cached-image/{request.city}/{region_id}"
+                else:
+                    logger.warning(f"No cached image found for {request.city} {region_id}")
+                    preview_url = None
+                
+                regions.append({
+                    "id": region_id,
+                    "name": region_info['name'],
+                    "description": region_info['description'],
+                    "bbox": region_info['bbox'],
+                    "coordinates": region_info['coordinates'],
+                    "preview_image_url": preview_url
+                })
+            
+            logger.info(f"Successfully generated {len(regions)} regions for {request.city}")
+            
+            return {
+                "city": request.city,
+                "total_regions": len(regions),
+                "regions": regions,
+                "city_center": [city_data['city_bbox'][1] + (city_data['city_bbox'][3] - city_data['city_bbox'][1])/2,
+                               city_data['city_bbox'][0] + (city_data['city_bbox'][2] - city_data['city_bbox'][0])/2],
+                "city_bbox": city_data['city_bbox']
+            }
+        
+        else:
+            logger.warning(f"No cached data found for {request.city}")
+            # Return mock data for uncached cities
+            return {
+                "city": request.city,
+                "regions": [
+                    {
+                        "name": f"{request.city} Center",
+                        "id": "center",
+                        "description": f"Central business district and urban core of {request.city}",
+                        "preview_image_url": None,
+                        "bbox": [77.4, 12.9, 77.5, 13.0],
+                        "coordinates": {
+                            "center": [12.95, 77.45],
+                            "bounds": [[12.9, 77.4], [13.0, 77.5]]
+                        }
+                    },
+                    {
+                        "name": f"{request.city} North", 
+                        "id": "north",
+                        "description": f"Northern region of {request.city} with suburban and residential areas",
+                        "preview_image_url": None,
+                        "bbox": [77.4, 13.0, 77.5, 13.1],
+                        "coordinates": {
+                            "center": [13.05, 77.45],
+                            "bounds": [[13.0, 77.4], [13.1, 77.5]]
+                        }
+                    },
+                    {
+                        "name": f"{request.city} South",
+                        "id": "south", 
+                        "description": f"Southern region of {request.city} including industrial and residential zones",
+                        "preview_image_url": None,
+                        "bbox": [77.4, 12.8, 77.5, 12.9],
+                        "coordinates": {
+                            "center": [12.85, 77.45],
+                            "bounds": [[12.8, 77.4], [12.9, 77.5]]
+                        }
+                    },
+                    {
+                        "name": f"{request.city} East",
+                        "id": "east",
+                        "description": f"Eastern region of {request.city} with mixed urban development",
+                        "preview_image_url": None,
+                        "bbox": [77.5, 12.9, 77.6, 13.0],
+                        "coordinates": {
+                            "center": [12.95, 77.55],
+                            "bounds": [[12.9, 77.5], [13.0, 77.6]]
+                        }
+                    },
+                    {
+                        "name": f"{request.city} West",
+                        "id": "west",
+                        "description": f"Western region of {request.city} featuring diverse urban landscapes",
+                        "preview_image_url": None,
+                        "bbox": [77.3, 12.9, 77.4, 13.0],
+                        "coordinates": {
+                            "center": [12.95, 77.35],
+                            "bounds": [[12.9, 77.3], [13.0, 77.4]]
+                        }
+                    }
+                ],
+                "total_regions": 5,
+                "city_center": [12.95, 77.45],
+                "city_bbox": [77.3, 12.8, 77.6, 13.1]
+            }
+            
     except Exception as e:
-        logger.warning(f"Region selection API unavailable: {e}")
-        # Return mock data for Railway
-        return {
-            "city": request.city,
-            "regions": [
-                {
-                    "name": f"{request.city} Center",
-                    "id": "center",
-                    "preview_url": f"/api/cached-image/{request.city}/center",
-                    "bbox": [77.4, 12.9, 77.5, 13.0],
-                    "estimated_duration": 20
-                },
-                {
-                    "name": f"{request.city} North", 
-                    "id": "north",
-                    "preview_url": f"/api/cached-image/{request.city}/north",
-                    "bbox": [77.4, 13.0, 77.5, 13.1],
-                    "estimated_duration": 25
-                },
-                {
-                    "name": f"{request.city} South",
-                    "id": "south", 
-                    "preview_url": f"/api/cached-image/{request.city}/south",
-                    "bbox": [77.4, 12.8, 77.5, 12.9],
-                    "estimated_duration": 20
-                },
-                {
-                    "name": f"{request.city} East",
-                    "id": "east",
-                    "preview_url": f"/api/cached-image/{request.city}/east", 
-                    "bbox": [77.5, 12.9, 77.6, 13.0],
-                    "estimated_duration": 25
-                },
-                {
-                    "name": f"{request.city} West",
-                    "id": "west",
-                    "preview_url": f"/api/cached-image/{request.city}/west",
-                    "bbox": [77.3, 12.9, 77.4, 13.0], 
-                    "estimated_duration": 30
-                }
-            ],
-            "total_regions": 5,
-            "status": "success"
-        }
+        logger.error(f"Error getting city regions: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get city regions: {str(e)}")
 
 @app.post("/api/analyze-region")
 async def analyze_region_fallback(request: dict):

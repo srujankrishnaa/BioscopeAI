@@ -65,7 +65,14 @@ class CacheService:
         if not region_data or not region_data.get('image_path'):
             return None
         
-        image_path = self.cache_dir / region_data['image_path']
+        # Fix path separator issues - convert Windows backslashes to forward slashes
+        image_path_str = region_data['image_path'].replace('\\', '/')
+        image_path = self.cache_dir / image_path_str
+        
+        # Log for debugging
+        logger.info(f"Looking for cached image: {image_path}")
+        logger.info(f"Image exists: {image_path.exists()}")
+        
         if image_path.exists():
             return image_path
         
