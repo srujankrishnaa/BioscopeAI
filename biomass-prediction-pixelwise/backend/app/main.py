@@ -65,13 +65,16 @@ except ImportError as e:
     logger.warning(f"Could not import prediction API routes: {e}")
 
 # Import region selection routes
+region_router_loaded = False
 try:
     from app.api.region_selection import router as region_router
     app.include_router(region_router, prefix="/api", tags=["regions"])
     logger.info("Included region_selection router")
+    region_router_loaded = True
 except Exception as e:
     logger.exception("Failed to include region_selection router")
     logger.error(f"Region selection router error: {e}")
+    region_router_loaded = False
 
 # Import cache service routes
 try:
@@ -174,6 +177,24 @@ async def system_status():
         }
     }
 
+@app.get("/api/debug-routes")
+async def debug_routes():
+    """Debug endpoint to check which routes are available"""
+    routes = []
+    for route in app.routes:
+        if hasattr(route, 'path') and hasattr(route, 'methods'):
+            routes.append({
+                "path": route.path,
+                "methods": list(route.methods) if route.methods else ["GET"]
+            })
+    
+    return {
+        "total_routes": len(routes),
+        "routes": routes,
+        "analyze_routes": [r for r in routes if "analyze" in r["path"]],
+        "api_routes": [r for r in routes if r["path"].startswith("/api")]
+    }
+
 # Fallback endpoints for Railway deployment
 @app.post("/api/get-city-regions")
 async def get_city_regions_fallback(request: PredictionRequest):
@@ -237,8 +258,63 @@ async def get_city_regions_fallback(request: PredictionRequest):
         detail=f"No cached data available for city: {request.city}. Please ensure the city has been processed and cached."
     )
 
-# Region analysis endpoint is handled by region_selection.router
-# No fallback needed since the router includes proper error handling
+# Only add fallback endpoints if router failed to load
+if not region_router_loaded:
+    logger.warning("Adding fallback analyze-region endpoint since router failed")
+    
+    @app.post("/api/analyze-region")
+    async def analyze_region_fallback(payload: dict):
+        """
+        Fallback analyze-region endpoint - ensures 200 response always
+        This runs if the region_selection router fails to load
+        """
+        logger.info(f"Using fallback analyze-region endpoint for: {payload}")
+        
+        city = payload.get("city", "Unknown")
+        cache_dir = Path("./outputs/region_cache")
+        
+        # Check for cached images
+        city_cache_dir = cache_dir / city
+        if city_cache_dir.exists():
+            cached_entries = []
+            for region_file in city_cache_dir.glob("*.png"):
+                region_name = region_file.stem
+                cached_entries.append({
+                    "region": region_name,
+                    "image_url": f"/api/cached-image/{city}/{region_name}"
+                })
+            
+            if cached_entries:
+                logger.info(f"Fallback: Found {len(cached_entries)} cached images for {city}")
+                return {
+                    "status": "ok",
+                    "source": "cache",
+                    "city": city,
+                    "regions": cached_entries,
+                    "message": "Using fallback endpoint - cached data only"
+                }
+        
+        # Return minimal response if no cache
+        logger.warning(f"Fallback: No cache found for {city}")
+        raise HTTPException(
+            status_code=503,
+            detail=f"Service temporarily unavailable for {city} - no cached data"
+        )
+
+    @app.get("/api/cached-image/{city}/{region}")
+    async def serve_cached_image_fallback(city: str, region: str):
+        """Fallback cached image serving"""
+        safe_city = city.replace("..", "")
+        safe_region = region.replace("..", "")
+        path = Path("./outputs/region_cache") / safe_city / f"{safe_region}.png"
+        
+        if not path.exists():
+            raise HTTPException(status_code=404, detail="Cached image not found")
+        
+        from fastapi.responses import FileResponse
+        return FileResponse(str(path), media_type="image/png")
+else:
+    logger.info("Region router loaded successfully - no fallback endpoints needed")
 
 if __name__ == "__main__":
     import uvicorn
