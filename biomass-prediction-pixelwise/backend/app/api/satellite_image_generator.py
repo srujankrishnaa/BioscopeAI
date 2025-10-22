@@ -1181,11 +1181,11 @@ def generate_satellite_heatmap(
     # Add legend for land cover types on right panel
     from matplotlib.patches import Patch
     legend_elements = [
-        Patch(facecolor='#008000', label='🌲 Dense Forest/Trees (>80 Mg/ha)'),
-        Patch(facecolor='#4DE94D', label='🌳 Parks/Urban Forest (50-80 Mg/ha)'),
-        Patch(facecolor='#9AE832', label='🌿 Shrubs/Gardens (30-50 Mg/ha)'),
-        Patch(facecolor='#E6CC4D', label='🌾 Grasslands (10-30 Mg/ha)'),
-        Patch(facecolor='#8B4513', label='🏢 Buildings/Roads (<10 Mg/ha)'),
+        Patch(facecolor='#008000', label='Dense Forest/Trees (>80 Mg/ha)'),
+        Patch(facecolor='#4DE94D', label='Parks/Urban Forest (50-80 Mg/ha)'),
+        Patch(facecolor='#9AE832', label='Shrubs/Gardens (30-50 Mg/ha)'),
+        Patch(facecolor='#E6CC4D', label='Grasslands (10-30 Mg/ha)'),
+        Patch(facecolor='#8B4513', label='Buildings/Roads (<10 Mg/ha)'),
     ]
     main_ax.legend(handles=legend_elements, loc='lower right', fontsize=10, 
                   framealpha=0.95, edgecolor='gray', title='Biomass Classification',
@@ -1240,10 +1240,21 @@ def generate_satellite_heatmap(
                 pad_inches=0.1)
     plt.close(fig)
     
+    # Ensure file is fully written to disk
+    import time
+    time.sleep(0.1)  # Small delay to ensure file is flushed
+    
+    # Verify file exists before returning
+    if not filepath.exists():
+        logger.error(f"❌ Heatmap file not found after saving: {filepath}")
+        raise Exception("Failed to save heatmap file")
+    
     logger.info(f"✅ {'Side-by-side' if satellite_rgb is not None else 'Single'} heatmap saved: {filepath}")
     
     # Return the URL path for the frontend
-    return f"/outputs/heatmaps/{filename}"
+    url_path = f"/outputs/heatmaps/{filename}"
+    logger.info(f"🔗 Returning heatmap URL: {url_path}")
+    return url_path
 
 
 # Add missing import

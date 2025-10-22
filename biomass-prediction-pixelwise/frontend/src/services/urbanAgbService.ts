@@ -89,8 +89,10 @@ class UrbanAGBService {
   private baseUrl: string;
 
   constructor() {
-    // Connect to backend API - default to localhost:8000
-    this.baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+    // Connect to backend API - use Railway URL in production
+    this.baseUrl = process.env.REACT_APP_API_URL || 
+      (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:8000');
+    console.debug("Urban AGB Service initialized with base URL:", this.baseUrl);
   }
 
   /**
@@ -131,12 +133,20 @@ class UrbanAGBService {
     try {
       console.log('🚀 Sending Urban AGB prediction request:', request);
       
-      const response = await fetch(`${this.baseUrl}/api/predict`, {
+      // Use analyze-region endpoint which generates heatmaps
+      const apiUrl = `${this.baseUrl}/api/analyze-region`;
+      console.debug("Calling analyze:", apiUrl);
+      
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ city: request.city }),
+        body: JSON.stringify({ 
+          city: request.city,
+          region_name: "Center", // Default to center region
+          region_bbox: this.getCityBoundingBox(request.city)
+        }),
       });
 
       console.log('📡 Response status:', response.status);
@@ -329,6 +339,120 @@ class UrbanAGBService {
     if (avgScore < 60) return 'High';
     if (avgScore < 80) return 'Medium';
     return 'Low';
+  }
+
+  /**
+   * Get bounding box for a city (approximate coordinates)
+   */
+  private getCityBoundingBox(cityName: string): [number, number, number, number] {
+    const city = cityName.toLowerCase().trim();
+    
+    // City coordinates: [min_lon, min_lat, max_lon, max_lat]
+    const cityCoordinates: { [key: string]: [number, number, number, number] } = {
+      'mumbai': [72.7757, 18.8896, 72.9781, 19.2183],
+      'delhi': [76.8388, 28.4089, 77.3462, 28.8842],
+      'bangalore': [77.4601, 12.8339, 77.7840, 13.1746],
+      'hyderabad': [78.2479, 17.2473, 78.6677, 17.5618],
+      'chennai': [80.0255, 12.8342, 80.3242, 13.2277],
+      'kolkata': [88.2636, 22.4697, 88.4304, 22.6405],
+      'pune': [73.6816, 18.4088, 73.9857, 18.6298],
+      'ahmedabad': [72.4194, 22.9734, 72.6947, 23.1636],
+      'jaipur': [75.6499, 26.8105, 76.0399, 27.0238],
+      'surat': [72.6369, 21.0702, 72.9489, 21.2787],
+      'lucknow': [80.7718, 26.6307, 81.0861, 27.0047],
+      'kanpur': [80.2319, 26.3598, 80.5562, 26.5499],
+      'nagpur': [78.9629, 21.0514, 79.2423, 21.2514],
+      'indore': [75.6876, 22.6273, 76.0013, 22.8171],
+      'thane': [72.9375, 19.1136, 73.0297, 19.2183],
+      'bhopal': [77.2497, 23.1585, 77.5370, 23.3441],
+      'visakhapatnam': [83.1777, 17.6599, 83.3532, 17.7731],
+      'pimpri': [73.7672, 18.6186, 73.8390, 18.6745],
+      'patna': [85.0002, 25.5020, 85.2401, 25.6751],
+      'vadodara': [73.0169, 22.2587, 73.2815, 22.3894],
+      'ludhiana': [75.7849, 30.8320, 75.9349, 30.9320],
+      'agra': [77.9126, 27.1303, 78.0845, 27.2479],
+      'nashik': [73.6816, 19.9975, 73.8370, 20.0110],
+      'faridabad': [77.2674, 28.3670, 77.3674, 28.4670],
+      'meerut': [77.6687, 28.9685, 77.7687, 29.0685],
+      'rajkot': [70.7429, 22.2587, 70.8429, 22.3587],
+      'kalyan': [73.1340, 19.2183, 73.2340, 19.3183],
+      'vasai': [72.7757, 19.3919, 72.8757, 19.4919],
+      'varanasi': [82.9739, 25.2677, 83.0739, 25.3677],
+      'srinagar': [74.7973, 34.0837, 74.8973, 34.1837],
+      'aurangabad': [75.2933, 19.8762, 75.3933, 19.9762],
+      'dhanbad': [86.4304, 23.7957, 86.5304, 23.8957],
+      'amritsar': [74.8723, 31.6340, 74.9723, 31.7340],
+      'navi mumbai': [73.0297, 19.0330, 73.1297, 19.1330],
+      'allahabad': [81.8463, 25.4358, 81.9463, 25.5358],
+      'ranchi': [85.2672, 23.3441, 85.3672, 23.4441],
+      'howrah': [88.2636, 22.5958, 88.3636, 22.6958],
+      'coimbatore': [76.9366, 11.0168, 77.0366, 11.1168],
+      'jabalpur': [79.9864, 23.1815, 80.0864, 23.2815],
+      'gwalior': [78.1828, 26.2124, 78.2828, 26.3124],
+      'vijayawada': [80.5562, 16.5062, 80.6562, 16.6062],
+      'jodhpur': [73.0169, 26.2389, 73.1169, 26.3389],
+      'madurai': [78.0747, 9.9252, 78.1747, 10.0252],
+      'raipur': [81.5404, 21.2514, 81.6404, 21.3514],
+      'kota': [75.8648, 25.2138, 75.9648, 25.3138],
+      'chandigarh': [76.7635, 30.7333, 76.8635, 30.8333],
+      'guwahati': [91.7362, 26.1445, 91.8362, 26.2445],
+      'solapur': [75.8648, 17.6599, 75.9648, 17.7599],
+      'hubli': [75.1240, 15.3647, 75.2240, 15.4647],
+      'bareilly': [79.4304, 28.3670, 79.5304, 28.4670],
+      'moradabad': [78.7733, 28.8386, 78.8733, 28.9386],
+      'mysore': [76.6394, 12.2958, 76.7394, 12.3958],
+      'gurgaon': [77.0266, 28.4595, 77.1266, 28.5595],
+      'aligarh': [78.0747, 27.8974, 78.1747, 27.9974],
+      'jalandhar': [75.5762, 31.3260, 75.6762, 31.4260],
+      'tiruchirappalli': [78.7047, 10.7905, 78.8047, 10.8905],
+      'bhubaneswar': [85.7982, 20.2961, 85.8982, 20.3961],
+      'salem': [78.1460, 11.6643, 78.2460, 11.7643],
+      'warangal': [79.5881, 17.9689, 79.6881, 18.0689],
+      'mira': [72.8757, 19.2919, 72.9757, 19.3919],
+      'thiruvananthapuram': [76.9366, 8.5241, 77.0366, 8.6241],
+      'bhiwandi': [73.0297, 19.2919, 73.1297, 19.3919],
+      'saharanpur': [77.5463, 29.9680, 77.6463, 30.0680],
+      'guntur': [80.4365, 16.2970, 80.5365, 16.3970],
+      'amravati': [77.7499, 20.9374, 77.8499, 21.0374],
+      'bikaner': [73.3119, 28.0229, 73.4119, 28.1229],
+      'noida': [77.3910, 28.5355, 77.4910, 28.6355],
+      'jamshedpur': [86.1844, 22.8046, 86.2844, 22.9046],
+      'bhilai nagar': [81.3509, 21.1938, 81.4509, 21.2938],
+      'cuttack': [85.8245, 20.4625, 85.9245, 20.5625],
+      'firozabad': [78.3941, 27.1592, 78.4941, 27.2592],
+      'kochi': [76.2144, 9.9312, 76.3144, 10.0312],
+      'bhavnagar': [72.1019, 21.7645, 72.2019, 21.8645],
+      'dehradun': [78.0322, 30.3165, 78.1322, 30.4165],
+      'durgapur': [87.3119, 23.4833, 87.4119, 23.5833],
+      'asansol': [86.9842, 23.6739, 87.0842, 23.7739],
+      'nanded': [77.2663, 19.1383, 77.3663, 19.2383],
+      'kolhapur': [74.2433, 16.7050, 74.3433, 16.8050],
+      'ajmer': [74.6399, 26.4499, 74.7399, 26.5499],
+      'akola': [77.0082, 20.7002, 77.1082, 20.8002],
+      'gulbarga': [76.8343, 17.3297, 76.9343, 17.4297],
+      'jamnagar': [70.0692, 22.4697, 70.1692, 22.5697],
+      'ujjain': [75.7849, 23.1765, 75.8849, 23.2765],
+      'loni': [77.2863, 28.7594, 77.3863, 28.8594],
+      'siliguri': [88.3953, 26.7271, 88.4953, 26.8271],
+      'jhansi': [78.5685, 25.4484, 78.6685, 25.5484],
+      'ulhasnagar': [73.1340, 19.2183, 73.2340, 19.3183],
+      'jammu': [74.8723, 32.7266, 74.9723, 32.8266],
+      'sangli': [74.5815, 16.8524, 74.6815, 16.9524],
+      'mangalore': [74.7972, 12.9141, 74.8972, 13.0141],
+      'erode': [77.7172, 11.3410, 77.8172, 11.4410],
+      'belgaum': [74.4977, 15.8497, 74.5977, 15.9497],
+      'ambattur': [80.1623, 13.0983, 80.2623, 13.1983],
+      'tirunelveli': [77.6869, 8.7139, 77.7869, 8.8139],
+      'malegaon': [74.5815, 20.5579, 74.6815, 20.6579],
+      'gaya': [84.9994, 24.7914, 85.0994, 24.8914],
+      'jalgaon': [75.5648, 21.0077, 75.6648, 21.1077],
+      'udaipur': [73.6816, 24.5854, 73.7816, 24.6854],
+      'maheshtala': [88.2477, 22.4697, 88.3477, 22.5697],
+      'silvassa': [73.0169, 20.2737, 73.1169, 20.3737]
+    };
+
+    // Return coordinates for the city, or default to Delhi if not found
+    return cityCoordinates[city] || cityCoordinates['delhi'];
   }
 }
 

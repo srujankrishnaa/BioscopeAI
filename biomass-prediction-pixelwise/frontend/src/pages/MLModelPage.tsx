@@ -20,6 +20,7 @@ const MLModelPage: React.FC = () => {
   const [cityRegions, setCityRegions] = useState<CityRegionsResponse | null>(null);
   const [isLoadingRegions, setIsLoadingRegions] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState<RegionData | null>(null);
+  const [isReturningToRegions, setIsReturningToRegions] = useState(false);
 
   // Track scroll position for animations
   useEffect(() => {
@@ -57,6 +58,23 @@ const MLModelPage: React.FC = () => {
       return;
     }
 
+    // Check if we're returning to regions (skip loading animation)
+    if (isReturningToRegions) {
+      // Reset the flag and show regions immediately
+      setIsReturningToRegions(false);
+      setShowRegionSelection(true);
+      
+      // Scroll to region selection
+      setTimeout(() => {
+        const regionSection = document.getElementById('region-selection-section');
+        if (regionSection) {
+          regionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return;
+    }
+
+    // Normal flow - show loading animation for first time
     setIsLoadingRegions(true);
     setError(null);
     setAnalysisResult(null);
@@ -89,16 +107,42 @@ const MLModelPage: React.FC = () => {
     setError(null);
     setShowRegionSelection(false);
 
-    // Progress simulation for UX
-    const progressInterval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 90) {
-          clearInterval(progressInterval);
-          return 90;
+    // Robust progress simulation with proper cleanup
+    let progressInterval: NodeJS.Timeout | null = null;
+    let currentProgress = 0;
+    let isProgressActive = true;
+
+    const startProgressSimulation = () => {
+      progressInterval = setInterval(() => {
+        if (!isProgressActive) {
+          if (progressInterval) clearInterval(progressInterval);
+          return;
         }
-        return prev + Math.random() * 15;
-      });
-    }, 500);
+
+        currentProgress += Math.random() * 8 + 2; // Increment by 2-10%
+        
+        if (currentProgress >= 90) {
+          currentProgress = 90; // Cap at 90% until API completes
+          if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+          }
+        }
+        
+        setProgress(Math.min(currentProgress, 90));
+      }, 400);
+    };
+
+    const stopProgressSimulation = () => {
+      isProgressActive = false;
+      if (progressInterval) {
+        clearInterval(progressInterval);
+        progressInterval = null;
+      }
+    };
+
+    // Start progress simulation
+    startProgressSimulation();
 
     try {
       // Analyze the selected region
@@ -108,13 +152,15 @@ const MLModelPage: React.FC = () => {
         city: cityInput.trim()
       });
 
-      clearInterval(progressInterval);
+      // Stop simulation and complete progress
+      stopProgressSimulation();
       setProgress(100);
 
+      // Show results after brief delay
       setTimeout(() => {
         setAnalysisResult(result);
         setIsAnalyzing(false);
-        setProgress(0);
+        // Don't reset progress to 0 here - let it stay at 100%
 
         // Scroll to results
         setTimeout(() => {
@@ -123,10 +169,11 @@ const MLModelPage: React.FC = () => {
             resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }, 100);
-      }, 1000);
+      }, 800);
 
     } catch (error) {
-      clearInterval(progressInterval);
+      // Clean up on error
+      stopProgressSimulation();
       setProgress(0);
       setIsAnalyzing(false);
       setError(error instanceof Error ? error.message : 'Regional analysis failed');
@@ -542,12 +589,26 @@ const MLModelPage: React.FC = () => {
                   </div>
                   <div className="bg-off-white/5 rounded-2xl overflow-hidden border-2 border-off-white/10 shadow-inner">
                     <img
-                      src={analysisResult.heat_map.image_url || `${process.env.PUBLIC_URL}/placeholder-heatmap.png`}
+                      src={`${process.env.REACT_APP_API_URL || 'http://localhost:8000'}${analysisResult.heat_map.image_url}`}
                       alt={`Above Ground Biomass analysis of ${selectedRegion ? selectedRegion.name : analysisResult.city}`}
                       className="w-full h-auto"
                       onError={(e) => {
+                        const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+                        const fullUrl = `${baseUrl}${analysisResult.heat_map.image_url}`;
+                        console.error('❌ Failed to load heatmap image:');
+                        console.error('  - Image URL from API:', analysisResult.heat_map.image_url);
+                        console.error('  - Base URL:', baseUrl);
+                        console.error('  - Full constructed URL:', fullUrl);
+                        
                         const target = e.target as HTMLImageElement;
                         target.src = `${process.env.PUBLIC_URL}/placeholder-heatmap.png`;
+                      }}
+                      onLoad={() => {
+                        const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+                        const fullUrl = `${baseUrl}${analysisResult.heat_map.image_url}`;
+                        console.log('✅ Heatmap image loaded successfully:');
+                        console.log('  - Image URL from API:', analysisResult.heat_map.image_url);
+                        console.log('  - Full constructed URL:', fullUrl);
                       }}
                     />
                   </div>
@@ -679,6 +740,8 @@ const MLModelPage: React.FC = () => {
                 </p>
               </div>
 
+
+
               {/* Recommendations */}
               <div className="bg-gradient-to-br from-off-white/15 to-off-white/5 backdrop-blur-xl rounded-3xl p-10 lg:p-12 border border-off-white/20 shadow-xl mb-16 animate-slideUp">
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-off-white mb-10 flex items-center">
@@ -707,7 +770,11 @@ const MLModelPage: React.FC = () => {
                   particleCount={25}
                   className="px-12 py-5 text-lg font-bold shadow-xl"
                   onClick={() => {
+                    // NEW ANALYSIS - Start completely fresh
                     setAnalysisResult(null);
+                    setSelectedRegion(null);
+                    setCityRegions(null);
+                    setShowRegionSelection(false);
                     setCityInput('');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
@@ -719,7 +786,22 @@ const MLModelPage: React.FC = () => {
                   size="lg"
                   particleCount={20}
                   className="border-2 border-neon-100 text-neon-100 hover:bg-neon-100 hover:text-green px-12 py-5 text-lg font-bold shadow-xl"
-                  onClick={() => window.location.href = '/model'}
+                  onClick={() => {
+                    // ANALYZE ANOTHER REGION - Go back to region selection for same city
+                    setAnalysisResult(null);
+                    setSelectedRegion(null);
+                    setIsReturningToRegions(true); // Flag that we're returning, not loading fresh
+                    setShowRegionSelection(true);
+                    // Keep cityRegions and cityInput so user sees the same city's regions
+                    
+                    // Scroll to region selection
+                    setTimeout(() => {
+                      const regionSection = document.getElementById('region-selection-section');
+                      if (regionSection) {
+                        regionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }, 100);
+                  }}
                 >
                   🔄 ANALYZE ANOTHER REGION
                 </MagnetizeButton>

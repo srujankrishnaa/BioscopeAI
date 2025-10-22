@@ -65,8 +65,10 @@ class CacheService:
         if not region_data or not region_data.get('image_path'):
             return None
         
-        # Fix path separator issues - convert Windows backslashes to forward slashes
+        # Fix path separator issues - convert Windows backslashes to forward slashes for cross-platform compatibility
         image_path_str = region_data['image_path'].replace('\\', '/')
+        # Remove any leading path separators to ensure relative path
+        image_path_str = image_path_str.lstrip('/')
         image_path = self.cache_dir / image_path_str
         
         # Log for debugging

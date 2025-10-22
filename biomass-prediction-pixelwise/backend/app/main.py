@@ -17,11 +17,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Create output directories
+# Create output directories - ensure cross-platform compatibility
 OUTPUT_DIR = Path("./outputs")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 (OUTPUT_DIR / "heatmaps").mkdir(exist_ok=True)
 (OUTPUT_DIR / "reports").mkdir(exist_ok=True)
+(OUTPUT_DIR / "region_cache").mkdir(exist_ok=True)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -65,12 +66,12 @@ except ImportError as e:
 
 # Import region selection routes
 try:
-    from app.api import region_selection
-    app.include_router(region_selection.router, prefix="/api", tags=["regions"])
-    logger.info("Region selection API routes loaded successfully")
-except ImportError as e:
-    logger.warning(f"Could not import region selection API routes: {e}")
-    logger.info("Using fallback endpoints defined in main.py")
+    from app.api.region_selection import router as region_router
+    app.include_router(region_router, prefix="/api", tags=["regions"])
+    logger.info("Included region_selection router")
+except Exception as e:
+    logger.exception("Failed to include region_selection router")
+    logger.error(f"Region selection router error: {e}")
 
 # Import cache service routes
 try:
@@ -90,10 +91,59 @@ except ImportError as e:
 
 # Mount static files for serving generated heatmaps and reports
 if OUTPUT_DIR.exists():
-    app.mount("/outputs", StaticFiles(directory=str(OUTPUT_DIR)), name="outputs")
-    logger.info("Static file serving enabled for /outputs")
+    from fastapi.responses import FileResponse
+    import os
+    
+    # Custom static file handler with proper headers
+    @app.get("/outputs/{file_path:path}")
+    async def serve_static_file(file_path: str):
+        """Serve static files with proper headers for images"""
+        full_path = OUTPUT_DIR / file_path
+        
+        if not full_path.exists():
+            raise HTTPException(status_code=404, detail="File not found")
+        
+        # Determine content type based on file extension
+        content_type = "application/octet-stream"
+        if file_path.lower().endswith(('.png', '.jpg', '.jpeg')):
+            content_type = f"image/{file_path.split('.')[-1].lower()}"
+        elif file_path.lower().endswith('.svg'):
+            content_type = "image/svg+xml"
+        
+        return FileResponse(
+            path=str(full_path),
+            media_type=content_type,
+            headers={
+                "Cache-Control": "public, max-age=3600",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET",
+                "Access-Control-Allow-Headers": "*"
+            }
+        )
+    
+    logger.info("Custom static file serving enabled for /outputs with CORS headers")
 else:
     logger.warning("Output directory not found - static file serving disabled")
+
+@app.get("/test-static")
+async def test_static():
+    """Test static file serving."""
+    import os
+    from pathlib import Path
+    
+    # Check if outputs directory exists and list files
+    output_dir = Path("./outputs/heatmaps")
+    if output_dir.exists():
+        files = list(output_dir.glob("*.png"))
+        return {
+            "status": "outputs directory exists",
+            "heatmap_files": [f.name for f in files[-5:]],  # Last 5 files
+            "total_files": len(files),
+            "static_mount": "/outputs mounted",
+            "test_url": f"/outputs/heatmaps/{files[-1].name}" if files else "no files found"
+        }
+    else:
+        return {"status": "outputs directory not found"}
 
 @app.get("/")
 async def root():
@@ -180,135 +230,22 @@ async def get_city_regions_fallback(request: PredictionRequest):
     except Exception as e:
         logger.error(f"Cache service failed: {e}")
     
-    # Fallback to mock data if cache service fails or no cached data
-    logger.info(f"Using fallback mock data for {request.city}")
-    return {
-        "city": request.city,
-        "regions": [
-            {
-                "name": f"{request.city} Center",
-                "id": "center",
-                "description": f"Central business district and urban core of {request.city}",
-                "preview_image_url": None,
-                "bbox": [77.4, 12.9, 77.5, 13.0],
-                "coordinates": {
-                    "center": [12.95, 77.45],
-                    "bounds": [[12.9, 77.4], [13.0, 77.5]]
-                }
-            },
-            {
-                "name": f"{request.city} North", 
-                "id": "north",
-                "description": f"Northern region of {request.city} with suburban and residential areas",
-                "preview_image_url": None,
-                "bbox": [77.4, 13.0, 77.5, 13.1],
-                "coordinates": {
-                    "center": [13.05, 77.45],
-                    "bounds": [[13.0, 77.4], [13.1, 77.5]]
-                }
-            },
-            {
-                "name": f"{request.city} South",
-                "id": "south", 
-                "description": f"Southern region of {request.city} including industrial and residential zones",
-                "preview_image_url": None,
-                "bbox": [77.4, 12.8, 77.5, 12.9],
-                "coordinates": {
-                    "center": [12.85, 77.45],
-                    "bounds": [[12.8, 77.4], [12.9, 77.5]]
-                }
-            },
-            {
-                "name": f"{request.city} East",
-                "id": "east",
-                "description": f"Eastern region of {request.city} with mixed urban development",
-                "preview_image_url": None,
-                "bbox": [77.5, 12.9, 77.6, 13.0],
-                "coordinates": {
-                    "center": [12.95, 77.55],
-                    "bounds": [[12.9, 77.5], [13.0, 77.6]]
-                }
-            },
-            {
-                "name": f"{request.city} West",
-                "id": "west",
-                "description": f"Western region of {request.city} featuring diverse urban landscapes",
-                "preview_image_url": None,
-                "bbox": [77.3, 12.9, 77.4, 13.0],
-                "coordinates": {
-                    "center": [12.95, 77.35],
-                    "bounds": [[12.9, 77.3], [13.0, 77.4]]
-                }
-            }
-        ],
-        "total_regions": 5,
-        "city_center": [12.95, 77.45],
-        "city_bbox": [77.3, 12.8, 77.6, 13.1]
-    }
+    # No cached data found - return error instead of mock data
+    logger.error(f"No cached data available for {request.city}")
+    raise HTTPException(
+        status_code=404, 
+        detail=f"No cached data available for city: {request.city}. Please ensure the city has been processed and cached."
+    )
 
-@app.post("/api/analyze-region")
-async def analyze_region_fallback(request: dict):
-    """Analyze a specific region for biomass prediction."""
-    logger.info(f"Analyzing region: {request}")
-    
-    try:
-        # Try to import and use the full region analysis
-        from app.api.region_selection import analyze_region
-        return await analyze_region(request)
-    except ImportError as e:
-        logger.warning(f"Region analysis module not available: {e}")
-    except Exception as e:
-        logger.error(f"Region analysis failed: {e}")
-    
-    # Fallback to mock analysis result
-    city = request.get('city', 'Unknown')
-    region_name = request.get('region_name', 'Unknown Region')
-    
-    logger.info(f"Using fallback analysis for {region_name}, {city}")
-    
-    # Generate mock biomass analysis result
-    import random
-    from datetime import datetime
-    
-    # Mock realistic biomass values
-    total_agb = round(random.uniform(35.0, 85.0), 1)
-    canopy_cover = round(random.uniform(15.0, 65.0), 1)
-    carbon_sequestration = round(total_agb * 0.47 * 3.67, 1)  # Standard carbon calculation
-    cooling_potential = round(canopy_cover * 0.08, 1)  # Approximate cooling effect
-    
-    return {
-        "city": city,
-        "region_name": region_name,
-        "location": {
-            "coordinates": f"{random.uniform(12.0, 28.0):.4f}, {random.uniform(72.0, 88.0):.4f}",
-            "bbox": request.get('region_bbox', [77.4, 12.9, 77.5, 13.0])
-        },
-        "timestamp": datetime.now().isoformat(),
-        "current_agb": {
-            "total_agb": total_agb,
-            "canopy_cover": canopy_cover,
-            "carbon_sequestration": carbon_sequestration,
-            "cooling_potential": cooling_potential
-        },
-        "forecasting": {
-            "year_1": round(total_agb * 1.05, 1),
-            "year_2": round(total_agb * 1.12, 1),
-            "year_3": round(total_agb * 1.18, 1)
-        },
-        "heat_map": {
-            "image_url": f"/outputs/heatmaps/biomass_heatmap_{city.lower().replace(' ', '_')}_{region_name.lower().replace(' ', '_')}_fallback.png",
-            "description": f"Biomass analysis for {region_name}, {city} (Fallback Data)"
-        },
-        "status": "success",
-        "message": "Analysis completed using fallback estimation model",
-        "data_source": "Fallback Estimation (Demo Mode)"
-    }
+# Region analysis endpoint is handled by region_selection.router
+# No fallback needed since the router includes proper error handling
 
 if __name__ == "__main__":
     import uvicorn
+    port = int(os.getenv("PORT", os.getenv("API_PORT", 8000)))
     uvicorn.run(
         "app.main:app",
         host=os.getenv("API_HOST", "0.0.0.0"),
-        port=int(os.getenv("API_PORT", 8000)),
-        reload=True
+        port=port,
+        reload=False  # Disable reload in production
     )
