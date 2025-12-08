@@ -38,9 +38,8 @@ export interface UrbanAGBResponse {
   forecasting: {
     current_year?: number;
     year_1: number;
-    year_2?: number;
+    year_2: number;
     year_3: number;
-    year_5: number;
     growth_rate: number;
     methodology?: string;
     factors_considered?: string[];
@@ -189,7 +188,6 @@ class UrbanAGBService {
           year_1: data.forecasting.year_1,
           year_2: data.forecasting.year_2,
           year_3: data.forecasting.year_3,
-          year_5: data.forecasting.year_5,
           growth_rate: data.forecasting.growth_rate,
           methodology: data.forecasting.methodology,
           factors_considered: data.forecasting.factors_considered

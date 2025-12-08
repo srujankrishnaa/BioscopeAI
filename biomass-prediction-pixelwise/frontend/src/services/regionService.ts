@@ -115,7 +115,14 @@ class RegionService {
       return `${this.baseURL}${imagePath}`;
     }
     
-    return `${this.baseURL}${imagePath}`;
+    const fullUrl = `${this.baseURL}${imagePath}`;
+    console.log('🔍 RegionService.getPreviewImageUrl:', {
+      input: imagePath,
+      baseURL: this.baseURL,
+      output: fullUrl
+    });
+    
+    return fullUrl;
   }
 
   /**

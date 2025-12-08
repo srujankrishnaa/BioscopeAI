@@ -135,6 +135,7 @@ async def get_cache_status(city_name: str):
 async def get_cached_satellite_image(city_name: str, region_id: str):
     """Serve cached satellite image for a city region"""
     try:
+        logger.info(f"🔍 CACHE_SERVICE ROUTE HIT: /cached-image/{city_name}/{region_id}")
         logger.info(f"Serving cached image for {city_name} - {region_id}")
         
         # Get cached image path

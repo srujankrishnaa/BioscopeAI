@@ -62,8 +62,8 @@ class CurrentAGB(BaseModel):
 
 class Forecasting(BaseModel):
     year_1: float
+    year_2: float
     year_3: float
-    year_5: float
     growth_rate: float
 
 class UrbanMetrics(BaseModel):

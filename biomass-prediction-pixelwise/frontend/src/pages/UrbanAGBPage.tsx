@@ -408,17 +408,17 @@ const UrbanAGBPage: React.FC = () => {
                   </div>
                   <div className="text-center">
                     <div className="bg-off-white/10 rounded-lg p-4">
-                      <div className="text-sm text-off-white/70 mb-1">Year 3 (2028)</div>
-                      <div className="text-2xl font-bold text-blue-400">
-                        {urbanAGBService.formatBiomass(analysisResult.forecasting.year_3)}
+                      <div className="text-sm text-off-white/70 mb-1">Year 2 (2027)</div>
+                      <div className="text-2xl font-bold text-purple-400">
+                        {urbanAGBService.formatBiomass(analysisResult.forecasting.year_2)}
                       </div>
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="bg-off-white/10 rounded-lg p-4">
-                      <div className="text-sm text-off-white/70 mb-1">Year 5 (2030)</div>
-                      <div className="text-2xl font-bold text-purple-400">
-                        {urbanAGBService.formatBiomass(analysisResult.forecasting.year_5)}
+                      <div className="text-sm text-off-white/70 mb-1">Year 3 (2028)</div>
+                      <div className="text-2xl font-bold text-blue-400">
+                        {urbanAGBService.formatBiomass(analysisResult.forecasting.year_3)}
                       </div>
                     </div>
                   </div>

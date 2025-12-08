@@ -7,11 +7,10 @@ interface ScientificForecastProps {
 
 const ScientificForecast: React.FC<ScientificForecastProps> = ({ analysisResult }) => {
   const { forecasting, current_agb } = analysisResult;
-  
-  // Calculate year 2 if not provided (interpolation between year 1 and year 3)
-  const year2Value = forecasting.year_2 || 
-    (forecasting.year_1 + forecasting.year_3) / 2;
-  
+
+  // Use year_2 directly from backend (now provided)
+  const year2Value = forecasting.year_2;
+
   const formatBiomass = (value: number) => `${value.toFixed(1)} Mg/ha`;
   const formatGrowth = (current: number, future: number) => {
     const growth = ((future - current) / current) * 100;
@@ -25,7 +24,7 @@ const ScientificForecast: React.FC<ScientificForecastProps> = ({ analysisResult 
         <div className="text-3xl">📈</div>
         <div>
           <h3 className="text-2xl font-bold text-neon-100">3-YEAR FORECAST</h3>
-          <p className="text-sm text-off-white/60">Scientific biomass projection (2025-2027)</p>
+          <p className="text-sm text-off-white/60">Scientific biomass projection (2025-2028)</p>
         </div>
       </div>
 
@@ -116,13 +115,13 @@ const ScientificForecast: React.FC<ScientificForecastProps> = ({ analysisResult 
           <div className="text-lg">🔬</div>
           <span className="text-sm font-semibold text-off-white">Scientific Methodology</span>
         </div>
-        
+
         <div className="text-xs text-off-white/70 space-y-2">
           <div>
-            <span className="font-medium text-off-white/80">Research Base:</span> 
+            <span className="font-medium text-off-white/80">Research Base:</span>
             {forecasting.methodology || "Piao et al. (2019), Zhao et al. (2021)"}
           </div>
-          
+
           <div>
             <span className="font-medium text-off-white/80">Factors Considered:</span>
             <div className="mt-1 flex flex-wrap gap-1">
@@ -134,7 +133,7 @@ const ScientificForecast: React.FC<ScientificForecastProps> = ({ analysisResult 
                 'Urban forestry management',
                 'Tree maturity benefits'
               ]).map((factor, index) => (
-                <span 
+                <span
                   key={index}
                   className="px-2 py-1 bg-neon-500/10 text-neon-200 rounded text-xs border border-neon-500/20"
                 >
@@ -143,9 +142,9 @@ const ScientificForecast: React.FC<ScientificForecastProps> = ({ analysisResult 
               ))}
             </div>
           </div>
-          
+
           <div className="pt-2 border-t border-off-white/10">
-            <span className="font-medium text-off-white/80">Model Validation:</span> 
+            <span className="font-medium text-off-white/80">Model Validation:</span>
             <span className="ml-1">Cross-validated against GEDI L4A dataset (603,943 measurements)</span>
           </div>
         </div>

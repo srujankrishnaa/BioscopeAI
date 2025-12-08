@@ -50,13 +50,13 @@ const RegionSelector: React.FC<RegionSelectorProps> = ({
 
     console.log('🚀 Starting fake loading for:', cityName);
 
-    // Variable timing for each region - realistic satellite data processing times
+    // Variable timing for each region - 1 minute total processing time
     const regionDurations = [
-      { name: 'Center', duration: 20000, progressEnd: 20 },   // 20 seconds -> 20%
-      { name: 'North', duration: 25000, progressEnd: 40 },    // 25 seconds -> 40%
-      { name: 'South', duration: 20000, progressEnd: 60 },    // 20 seconds -> 60%
-      { name: 'East', duration: 25000, progressEnd: 80 },     // 25 seconds -> 80%
-      { name: 'West', duration: 30000, progressEnd: 100 }     // 30 seconds -> 100%
+      { name: 'Center', duration: 12000, progressEnd: 20 },   // 12 seconds -> 20%
+      { name: 'North', duration: 12000, progressEnd: 40 },    // 12 seconds -> 40%
+      { name: 'South', duration: 12000, progressEnd: 60 },    // 12 seconds -> 60%
+      { name: 'East', duration: 12000, progressEnd: 80 },     // 12 seconds -> 80%
+      { name: 'West', duration: 12000, progressEnd: 100 }     // 12 seconds -> 100%
     ];
 
     const updateInterval = 100; // Update every 100ms for smooth animation

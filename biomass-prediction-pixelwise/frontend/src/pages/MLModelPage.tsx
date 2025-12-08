@@ -63,7 +63,7 @@ const MLModelPage: React.FC = () => {
       // Reset the flag and show regions immediately
       setIsReturningToRegions(false);
       setShowRegionSelection(true);
-      
+
       // Scroll to region selection
       setTimeout(() => {
         const regionSection = document.getElementById('region-selection-section');
@@ -120,7 +120,7 @@ const MLModelPage: React.FC = () => {
         }
 
         currentProgress += Math.random() * 8 + 2; // Increment by 2-10%
-        
+
         if (currentProgress >= 90) {
           currentProgress = 90; // Cap at 90% until API completes
           if (progressInterval) {
@@ -128,7 +128,7 @@ const MLModelPage: React.FC = () => {
             progressInterval = null;
           }
         }
-        
+
         setProgress(Math.min(currentProgress, 90));
       }, 400);
     };
@@ -599,7 +599,7 @@ const MLModelPage: React.FC = () => {
                         console.error('  - Image URL from API:', analysisResult.heat_map.image_url);
                         console.error('  - Base URL:', baseUrl);
                         console.error('  - Full constructed URL:', fullUrl);
-                        
+
                         const target = e.target as HTMLImageElement;
                         target.src = `${process.env.PUBLIC_URL}/placeholder-heatmap.png`;
                       }}
@@ -645,15 +645,15 @@ const MLModelPage: React.FC = () => {
                       </span>
                     </div>
                     <div className="flex justify-between items-center p-4 bg-off-white/5 rounded-xl">
-                      <span className="text-off-white/70 font-medium">Year 3 (2028)</span>
+                      <span className="text-off-white/70 font-medium">Year 2 (2027)</span>
                       <span className="text-neon-100 font-black text-xl">
-                        {analysisResult.forecasting.year_3.toFixed(1)} Mg/ha
+                        {analysisResult.forecasting.year_2.toFixed(1)} Mg/ha
                       </span>
                     </div>
                     <div className="flex justify-between items-center p-4 bg-off-white/5 rounded-xl">
-                      <span className="text-off-white/70 font-medium">Year 5 (2030)</span>
+                      <span className="text-off-white/70 font-medium">Year 3 (2028)</span>
                       <span className="text-neon-100 font-black text-xl">
-                        {analysisResult.forecasting.year_5.toFixed(1)} Mg/ha
+                        {analysisResult.forecasting.year_3.toFixed(1)} Mg/ha
                       </span>
                     </div>
                     <div className="pt-5 border-t border-off-white/20">
@@ -705,6 +705,7 @@ const MLModelPage: React.FC = () => {
                   </div>
                 </div>
               </div>
+
 
               {/* Satellite Data */}
               <div className="bg-gradient-to-br from-off-white/15 to-off-white/5 backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-off-white/20 shadow-xl mb-16 animate-fadeIn">
@@ -793,7 +794,7 @@ const MLModelPage: React.FC = () => {
                     setIsReturningToRegions(true); // Flag that we're returning, not loading fresh
                     setShowRegionSelection(true);
                     // Keep cityRegions and cityInput so user sees the same city's regions
-                    
+
                     // Scroll to region selection
                     setTimeout(() => {
                       const regionSection = document.getElementById('region-selection-section');

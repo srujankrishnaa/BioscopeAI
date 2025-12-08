@@ -304,6 +304,7 @@ if not region_router_loaded:
     @app.get("/api/cached-image/{city}/{region}")
     async def serve_cached_image_fallback(city: str, region: str):
         """Fallback cached image serving"""
+        logger.info(f"🔍 MAIN.PY FALLBACK ROUTE HIT: /api/cached-image/{city}/{region}")
         safe_city = city.replace("..", "")
         safe_region = region.replace("..", "")
         path = Path("./outputs/region_cache") / safe_city / f"{safe_region}.png"

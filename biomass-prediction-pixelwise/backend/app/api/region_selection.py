@@ -14,14 +14,33 @@ import numpy as np
 logger = logging.getLogger(__name__)
 router = APIRouter()
 
+# Try to initialize GEE data fetcher at module level for compatibility
+gee_fetcher = None
+try:
+    from app.models.gee_data_fetcher import GEEDataFetcher
+    gee_fetcher = GEEDataFetcher()
+    logger.info(f"GEE Data Fetcher initialized (GEE available: {gee_fetcher.initialized})")
+except Exception as e:
+    logger.warning(f"Could not initialize GEE Data Fetcher: {e}")
+    gee_fetcher = None
+
+def normalize_city_folder(city: str) -> str:
+    """Normalize city name for consistent folder/filename usage"""
+    return city.strip().replace(" ", "_")
+
 def make_absolute_url(request: Request, image_path: str):
-    """Create absolute URL for image paths"""
-    base = os.getenv("BACKEND_EXTERNAL_URL")
-    if not base:
-        base = str(request.base_url).rstrip("/")
+    """Create URL for image paths - absolute for production, relative for local"""
+    # Ensure path starts with /
     if not image_path.startswith("/"):
         image_path = "/" + image_path
-    return base.rstrip("/") + image_path
+    
+    # If BACKEND_EXTERNAL_URL is set (production), return absolute URL
+    base = os.getenv("BACKEND_EXTERNAL_URL")
+    if base:
+        return base.rstrip("/") + image_path
+    
+    # For local development, return relative URL so frontend can construct it
+    return image_path
 
 class RegionRequest(BaseModel):
     """Model for region generation request"""
@@ -810,7 +829,8 @@ async def get_city_regions(request: RegionRequest):
             preview_url = None
             if cache_service.is_city_cached(request.city):
                 # Use cached satellite image (but frontend will fake loading)
-                preview_url = f"/api/cached-image/{request.city.replace(' ', '_')}/{region_data['id']}"
+                safe_city_folder = normalize_city_folder(request.city)
+                preview_url = f"/api/cached-image/{safe_city_folder}/{region_data['id']}"
                 logger.info(f"Cached image available for {region_data['name']}: {preview_url}")
             else:
                 logger.info(f"No cached image for {region_data['name']}")
@@ -915,7 +935,11 @@ async def analyze_region(payload: dict, request: Request):
                 bbox_tuple,
                 use_real_satellite=True
             )
+            # Ensure the path starts with / for proper URL construction
+            if not heatmap_path.startswith('/'):
+                heatmap_path = '/' + heatmap_path
             heatmap_url = make_absolute_url(request, heatmap_path)
+            logger.info(f"Generated heatmap URL: {heatmap_url}")
         except Exception as heatmap_error:
             logger.warning(f"Heatmap generation failed: {heatmap_error}")
             # Continue without heatmap
@@ -929,6 +953,84 @@ async def analyze_region(payload: dict, request: Request):
         data_source = satellite_data.get('data_source', 'Unknown')
         source_type = "live" if "Google Earth Engine" in data_source else "estimated"
         
+        # Clean satellite_data for JSON serialization (remove numpy arrays)
+        clean_satellite_data = {
+            "ndvi": float(satellite_data.get('ndvi', 0.5)),
+            "evi": float(satellite_data.get('evi', 0.3)),
+            "lai": float(satellite_data.get('lai', 2.0)),
+            "lst": float(satellite_data.get('lst', 25.0)),
+            "data_source": data_source,
+            "date_range": satellite_data.get('date_range', 'N/A'),
+            "success": satellite_data.get('success', True)
+        }
+        
+        # Clean biomass_results for JSON serialization
+        clean_biomass_results = {
+            "total_agb": float(biomass_results.get('total_agb', 0)),
+            "tree_biomass": float(biomass_results.get('tree_biomass', 0)),
+            "shrub_biomass": float(biomass_results.get('shrub_biomass', 0)),
+            "herbaceous_biomass": float(biomass_results.get('herbaceous_biomass', 0)),
+            "canopy_cover": float(biomass_results.get('canopy_cover', 0)),
+            "cooling_potential": float(biomass_results.get('cooling_potential', 0)),
+            "carbon_sequestration": float(biomass_results.get('carbon_sequestration', 0))
+        }
+        
+        # Clean forecast_data for JSON serialization
+        clean_forecast_data = {
+            "current_year": float(forecast_data.get('current_year', 0)),
+            "year_1": float(forecast_data.get('year_1', 0)),
+            "year_2": float(forecast_data.get('year_2', 0)),
+            "year_3": float(forecast_data.get('year_3', 0)),
+            "year_5": float(forecast_data.get('year_5', 0)),
+            "growth_rate": float(forecast_data.get('growth_rate', 0)),
+            "methodology": str(forecast_data.get('methodology', 'N/A')),
+            "factors_considered": list(forecast_data.get('factors_considered', []))
+        }
+        
+        # Calculate urban metrics for frontend compatibility
+        agb = clean_biomass_results['total_agb']
+        canopy_cover = clean_biomass_results['canopy_cover']
+        
+        urban_metrics = {
+            "epi_score": int(min(100, (agb / 100.0) * 60 + (canopy_cover / 100) * 40)),
+            "tree_cities_score": int(min(100, (canopy_cover / 25.0) * 100)),
+            "green_space_ratio": round(canopy_cover / 100.0, 3),
+            "energy_savings": round(canopy_cover * 0.05, 2)  # Estimated energy savings
+        }
+        
+        # Generate planning recommendations
+        planning_recommendations = []
+        
+        if canopy_cover < 25:
+            planning_recommendations.append(
+                f"Current canopy cover is {canopy_cover:.1f}%. Consider establishing "
+                "urban forests and green corridors to increase carbon sequestration capacity."
+            )
+        
+        if agb < 40:
+            planning_recommendations.append(
+                "Current biomass density is below optimal levels. Focus on: "
+                "native species plantations, green roof programs, and park expansion."
+            )
+        
+        if urban_metrics['epi_score'] < 60:
+            planning_recommendations.append(
+                f"EPI score ({urban_metrics['epi_score']}/100) indicates room for improvement. "
+                "Implement smart irrigation systems to maintain vegetation health "
+                "during dry seasons and maximize biomass growth potential."
+            )
+        
+        planning_recommendations.append(
+            "Create neighborhood-level green infrastructure plans to distribute "
+            "biomass equitably across all districts, especially in high-density areas."
+        )
+        
+        if agb > 70:
+            planning_recommendations.append(
+                f"Excellent biomass density ({agb:.1f} Mg/ha)! Maintain current "
+                "green spaces and consider implementing a monitoring program."
+            )
+        
         # Return live/estimated analysis result
         return {
             "status": "ok",
@@ -937,12 +1039,14 @@ async def analyze_region(payload: dict, request: Request):
             "region_name": region_name,
             "location": {
                 "coordinates": f"{center_lat:.4f}, {center_lon:.4f}",
-                "bbox": list(bbox_tuple)
+                "bbox": [float(x) for x in bbox_tuple]
             },
             "timestamp": datetime.now().isoformat(),
-            "satellite_data": satellite_data,
-            "current_agb": biomass_results,
-            "forecasting": forecast_data,
+            "satellite_data": clean_satellite_data,
+            "current_agb": clean_biomass_results,
+            "forecasting": clean_forecast_data,
+            "urban_metrics": urban_metrics,
+            "planning_recommendations": planning_recommendations[:5],  # Limit to 5 recommendations
             "heat_map": {
                 "image_url": heatmap_url,
                 "description": f"Biomass analysis for {region_name}, {city} ({data_source})"
@@ -991,13 +1095,104 @@ async def analyze_region(payload: dict, request: Request):
 
 @router.get("/cached-image/{city}/{region}")
 async def serve_cached_image(city: str, region: str):
-    """Serve cached image files from local storage"""
-    safe_city = city.replace("..", "")
-    safe_region = region.replace("..", "")
-    path = os.path.join("./outputs/region_cache", safe_city, f"{safe_region}.png")
+    """Serve cached image files from local storage (robust to casing / underscores)"""
+    logger.info(f"🔍 REGION_SELECTION ROUTE HIT: /cached-image/{city}/{region}")
+    # Minimal sanitization
+    safe_city = city.replace("..", "").strip()
+    safe_region = region.replace("..", "").strip()
+    logger.info(f"🔍 Serving cached image request: raw city='{city}', raw region='{region}'")
+    logger.info(f"🔍 Sanitized to: city='{safe_city}', region='{safe_region}'")
     
-    if not os.path.exists(path):
-        raise HTTPException(status_code=404, detail="Cached image not found")
+    base_cache = "./outputs/region_cache"
     
-    return FileResponse(path, media_type="image/png")
+    # Build candidate city folder names to try (preserve typical variants)
+    city_variants = []
+    # original, with spaces -> underscores, title, lower, upper
+    city_variants.append(safe_city)
+    city_variants.append(safe_city.replace(" ", "_"))
+    city_variants.append(safe_city.title().replace(" ", "_"))
+    city_variants.append(safe_city.lower().replace(" ", "_"))
+    city_variants.append(safe_city.upper().replace(" ", "_"))
+    
+    # For known alternate names you can add manual mappings if needed:
+    # e.g., 'bengaluru' -> 'Bangalore' if you stored files under Bangalore
+    city_aliases = {"bengaluru": "Bangalore", "bangalore": "Bangalore"}
+    for k, v in city_aliases.items():
+        if safe_city.lower() == k:
+            city_variants.insert(0, v)
+    
+    tried_paths = []
+    # Candidate filename patterns to try within each city folder.
+    # Note: region will often be 'center', 'north', etc. Try capitalized and lowercase.
+    region_variants = [safe_region, safe_region.capitalize(), safe_region.lower(), safe_region.upper()]
+    filename_patterns = []
+    
+    # Common patterns used by your code / save functions
+    for cvar in city_variants:
+        for rvar in region_variants:
+            # 1) simple: region.png
+            filename_patterns.append((cvar, f"{rvar}.png"))
+            # 2) City_Region_satellite.png (common)
+            filename_patterns.append((cvar, f"{cvar}_{rvar}_satellite.png"))
+            # 3) city_region_satellite.png (lowercase)
+            filename_patterns.append((cvar, f"{cvar.lower()}_{rvar.lower()}_satellite.png"))
+            # 4) city.Region_satellite.png (just in case)
+            filename_patterns.append((cvar, f"{cvar}.{rvar}_satellite.png"))
+    
+    # Deduplicate
+    filename_patterns = list(dict.fromkeys(filename_patterns))
+    
+    # Try each candidate
+    for folder_name, filename in filename_patterns:
+        cache_dir = os.path.join(base_cache, folder_name)
+        candidate_path = os.path.join(cache_dir, filename)
+        tried_paths.append(candidate_path)
+        if os.path.exists(candidate_path):
+            logger.info(f"✅ Serving cached image: {candidate_path}")
+            return FileResponse(candidate_path, media_type="image/png")
+    
+    # Last attempt: case-insensitive search inside any matching folder (expensive but useful)
+    for folder_name in city_variants:
+        cache_dir = os.path.join(base_cache, folder_name)
+        if os.path.exists(cache_dir) and os.path.isdir(cache_dir):
+            try:
+                for fname in os.listdir(cache_dir):
+                    # case-insensitive match of "*{region}*satellite*.png" or region in filename
+                    if safe_region.lower() in fname.lower() and fname.lower().endswith(".png"):
+                        candidate_path = os.path.join(cache_dir, fname)
+                        logger.info(f"✅ Found (case-insensitive) cached image: {candidate_path}")
+                        return FileResponse(candidate_path, media_type="image/png")
+            except Exception as e:
+                logger.warning("Error listing cache directory %s: %s", cache_dir, e)
+    
+    # No match — helpful debug logging
+    logger.warning("Cached image not found. Tried paths:")
+    for p in tried_paths[:10]:
+        logger.warning("  %s", p)
+    # If any of the candidate cache dirs exist, list their files for debugging
+    existing_dirs = []
+    for folder_name in city_variants:
+        cache_dir = os.path.join(base_cache, folder_name)
+        if os.path.exists(cache_dir):
+            try:
+                available_files = os.listdir(cache_dir)
+            except Exception:
+                available_files = "<error listing files>"
+            existing_dirs.append((cache_dir, available_files))
+    
+    if existing_dirs:
+        logger.warning("Found cache directories with contents (showing first few):")
+        for d, files in existing_dirs:
+            logger.warning("  %s -> %s", d, files if isinstance(files, list) else files)
+        # Return 404 with the list of available files to help frontend/dev debugging
+        raise HTTPException(
+            status_code=404,
+            detail=f"Cached image not found for {city}/{region}. Found cache directories: {[(d, files) for d, files in existing_dirs]}"
+        )
+    else:
+        # No cache directory at all for the variants we tried
+        raise HTTPException(
+            status_code=404,
+            detail=f"No cache directory found for {city} (tried variants: {city_variants})"
+        )
 
