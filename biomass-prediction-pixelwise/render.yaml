@@ -1,0 +1,17 @@
+services:
+  # Backend API Service
+  - type: web
+    name: bioscope-backend
+    env: python
+    region: oregon
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: GEE_SERVICE_ACCOUNT_KEY
+        sync: false  # You'll add this manually in Render dashboard
+
