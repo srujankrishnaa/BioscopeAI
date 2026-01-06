@@ -1,24 +1,23 @@
 # Core ML and Data Processing
-tensorflow>=2.10.0
-numpy>=1.21.0
-pandas>=1.3.0
-scikit-learn>=1.0.0
-xarray>=0.19.0
-rioxarray>=0.11.0
-h5py>=3.6.0
-dask>=2021.10.0
+tensorflow>=2.10.0,<2.18.0
+numpy>=1.21.0,<2.0.0
+pandas>=1.3.0,<3.0.0
+scikit-learn>=1.0.0,<2.0.0
+xarray>=0.19.0,<2025.0.0
+rioxarray>=0.11.0,<1.0.0
+h5py>=3.6.0,<4.0.0
+dask>=2021.10.0,<2025.0.0
 
 # Geospatial and Satellite Data
-earthaccess>=0.5.0
-shapely>=1.8.0
-geopandas>=0.10.0
-folium>=0.12.0
-Pillow>=8.3.0
-rasterio>=1.2.0  # Added for SRTM data processing
-earthengine-api>=0.1.350  # Google Earth Engine
-google-auth>=2.0.0  # For GEE OAuth authentication
-redis>=4.0.0  # For caching
-aiofiles>=0.8.0  # For async file operations
+shapely>=1.8.0,<2.0.0
+geopandas>=0.10.0,<1.0.0
+folium>=0.12.0,<1.0.0
+Pillow>=8.3.0,<11.0.0
+rasterio>=1.2.0,<2.0.0  # Added for SRTM data processing
+earthengine-api>=0.1.350,<1.0.0  # Google Earth Engine
+google-auth>=2.0.0,<3.0.0  # For GEE OAuth authentication
+redis>=4.0.0,<6.0.0  # For caching
+aiofiles>=0.8.0,<1.0.0  # For async file operations
 
 # API and Web Framework
 fastapi>=0.70.0
@@ -33,11 +32,11 @@ seaborn>=0.11.0
 reportlab>=3.6.0
 
 # Utilities
-tqdm>=4.62.0
-requests>=2.26.0
-python-dotenv>=0.19.0
-python-multipart>=0.0.5
-boto3>=1.28.0  # AWS S3 storage
+tqdm>=4.62.0,<5.0.0
+requests>=2.26.0,<3.0.0
+python-dotenv>=0.19.0,<2.0.0
+python-multipart>=0.0.5,<1.0.0
+boto3>=1.28.0,<2.0.0  # AWS S3 storage
 
 # Optional: Hyperparameter Tuning
 keras-tuner>=1.1.0
