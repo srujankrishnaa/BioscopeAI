@@ -38,20 +38,36 @@ class GEEDataFetcher:
             ee_refresh_token = os.getenv('EE_REFRESH_TOKEN')
             
             if ee_client_id and ee_client_secret and ee_refresh_token:
-                logger.info("Initializing GEE with OAuth credentials...")
-                credentials = ee.oauth.Credentials(
-                    client_id=ee_client_id,
-                    client_secret=ee_client_secret,
-                    refresh_token=ee_refresh_token,
-                    scopes=[
-                        "https://www.googleapis.com/auth/earthengine",
-                        "https://www.googleapis.com/auth/cloud-platform"
-                    ]
-                )
-                ee.Initialize(credentials, project='ee-lanbprojectclassification')
-                logger.info("✅ Initialized GEE with OAuth credentials")
-                self.initialized = True
-                return
+                try:
+                    logger.info("🔐 Found OAuth credentials, initializing GEE...")
+                    logger.info(f"   Client ID: {ee_client_id[:20]}...")
+                    logger.info(f"   Refresh token: {ee_refresh_token[:20]}...")
+                    
+                    credentials = ee.oauth.Credentials(
+                        client_id=ee_client_id,
+                        client_secret=ee_client_secret,
+                        refresh_token=ee_refresh_token,
+                        scopes=[
+                            "https://www.googleapis.com/auth/earthengine",
+                            "https://www.googleapis.com/auth/cloud-platform"
+                        ]
+                    )
+                    ee.Initialize(credentials, project='ee-lanbprojectclassification')
+                    logger.info("✅ SUCCESS: GEE initialized with OAuth credentials")
+                    self.initialized = True
+                    return
+                except Exception as oauth_err:
+                    logger.error(f"❌ OAuth initialization failed: {oauth_err}")
+                    logger.error(f"   Error type: {type(oauth_err).__name__}")
+                    # Don't return here - try service account as fallback
+            else:
+                missing = []
+                if not ee_client_id: missing.append("EE_CLIENT_ID")
+                if not ee_client_secret: missing.append("EE_CLIENT_SECRET")
+                if not ee_refresh_token: missing.append("EE_REFRESH_TOKEN")
+                if missing:
+                    logger.warning(f"⚠️ Missing OAuth env vars: {', '.join(missing)}")
+                logger.info("Trying service account instead...")
             
             # OPTION 2: Try service account
             if service_account_key:
