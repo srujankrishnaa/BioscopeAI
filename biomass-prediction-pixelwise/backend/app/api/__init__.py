@@ -2,7 +2,8 @@
 API module for biomass prediction endpoints
 """
 
-from . import prediction
+# Don't auto-import to avoid loading heavy dependencies
+# from . import prediction
 
-__all__ = ['prediction']
+__all__ = []
 
