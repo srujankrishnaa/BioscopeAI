@@ -16,8 +16,8 @@ class S3Storage:
     """Handles all S3 operations for heatmap storage"""
     
     def __init__(self):
-        self.bucket_name = os.getenv('AWS_S3_BUCKET', 'biomass-heatmap')
-        self.region = os.getenv('AWS_REGION', 'ap-south-1')
+        self.bucket_name = os.getenv('AWS_S3_BUCKET', 'bioscope-heatmap')
+        self.region = os.getenv('AWS_REGION', 'us-east-1')
         
         # Initialize S3 client
         try:
