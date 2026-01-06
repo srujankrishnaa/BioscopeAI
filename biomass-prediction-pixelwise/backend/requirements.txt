@@ -27,6 +27,7 @@ pydantic-settings>=2.0.0
 
 # Visualization and Reporting
 matplotlib>=3.5.0
+matplotlib-scalebar>=0.8.0  # For heatmap scale bars
 seaborn>=0.11.0
 reportlab>=3.6.0
 

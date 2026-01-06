@@ -17,18 +17,43 @@ class GEEDataFetcher:
     """Fetch satellite data using Google Earth Engine API"""
     
     def __init__(self, service_account_key: Optional[str] = None):
+        """
+        Initialize Google Earth Engine with OAuth or Service Account
+        
+        Priority:
+        1. OAuth credentials (EE_CLIENT_ID, EE_CLIENT_SECRET, EE_REFRESH_TOKEN)
+        2. Service account key (GEE_SERVICE_ACCOUNT_KEY)
+        3. User authentication fallback
+        """
+        self.initialized = False
+        
         # Get service account key from environment if not provided
         if service_account_key is None:
             service_account_key = os.getenv('GEE_SERVICE_ACCOUNT_KEY')
-        """
-        Initialize Google Earth Engine
         
-        Args:
-            service_account_key: Path to GEE service account JSON key file
-        """
-        self.initialized = False
         try:
-            # Try to initialize with service account
+            # OPTION 1: Try OAuth credentials first (recommended for production)
+            ee_client_id = os.getenv('EE_CLIENT_ID')
+            ee_client_secret = os.getenv('EE_CLIENT_SECRET')
+            ee_refresh_token = os.getenv('EE_REFRESH_TOKEN')
+            
+            if ee_client_id and ee_client_secret and ee_refresh_token:
+                logger.info("Initializing GEE with OAuth credentials...")
+                credentials = ee.oauth.Credentials(
+                    client_id=ee_client_id,
+                    client_secret=ee_client_secret,
+                    refresh_token=ee_refresh_token,
+                    scopes=[
+                        "https://www.googleapis.com/auth/earthengine",
+                        "https://www.googleapis.com/auth/cloud-platform"
+                    ]
+                )
+                ee.Initialize(credentials, project='ee-lanbprojectclassification')
+                logger.info("✅ Initialized GEE with OAuth credentials")
+                self.initialized = True
+                return
+            
+            # OPTION 2: Try service account
             if service_account_key:
                 if os.path.exists(service_account_key):
                     # File path provided
