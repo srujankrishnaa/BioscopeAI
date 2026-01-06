@@ -77,8 +77,14 @@ test*.py
 *.hdf5
 *.pkl
 *.pickle
-models/
-*/models/
+# Machine learning model files (but not source code)
+*.h5
+*.pkl
+*.joblib
+*.pth
+*.onnx
+saved_models/
+**/saved_models/
 checkpoints/
 */checkpoints/
 
