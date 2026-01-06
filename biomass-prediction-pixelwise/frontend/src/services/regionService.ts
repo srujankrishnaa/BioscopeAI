@@ -69,7 +69,8 @@ class RegionService {
    */
   async analyzeRegion(request: RegionAnalysisRequest): Promise<any> {
     try {
-      const response = await axios.post(
+      // Step 1: Start job
+      const startResponse = await axios.post(
         `${this.baseURL}/api/analyze-region`,
         {
           region_bbox: request.region_bbox,
@@ -77,14 +78,18 @@ class RegionService {
           city: request.city,
         },
         {
-          timeout: 120000, // 2 minutes timeout for full analysis
+          timeout: 10000, // Quick response
           headers: {
             'Content-Type': 'application/json',
           },
         }
       );
 
-      return response.data;
+      const { job_id } = startResponse.data;
+      console.log('🚀 Job started:', job_id);
+
+      // Step 2: Poll for completion
+      return await this.pollJobStatus(job_id);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response?.status === 404) {
@@ -92,11 +97,68 @@ class RegionService {
         } else if (error.response?.status === 500) {
           throw new Error('Server error during region analysis. Please try again.');
         } else if (error.code === 'ECONNABORTED') {
-          throw new Error('Analysis timeout. Please try again with a smaller region.');
+          throw new Error('Request timeout. Please try again.');
         }
       }
       throw new Error('Failed to analyze region. Please try again.');
     }
+  }
+
+  private async pollJobStatus(jobId: string, maxAttempts: number = 60): Promise<any> {
+    for (let attempt = 0; attempt < maxAttempts; attempt++) {
+      try {
+        const response = await axios.get(
+          `${this.baseURL}/api/job-status/${jobId}`,
+          { timeout: 5000 }
+        );
+
+        const job = response.data;
+
+        if (job.status === 'completed') {
+          console.log('✅ Job completed:', job.heatmap_url);
+          return {
+            status: 'ok',
+            source: 'live',
+            city: job.city,
+            region_name: job.region_name,
+            heat_map: {
+              image_url: job.heatmap_url,
+              description: `Biomass analysis for ${job.region_name}, ${job.city}`
+            },
+            satellite_data: {
+              ndvi: job.stats?.ndvi || 0,
+              evi: job.stats?.evi || 0,
+              lai: job.stats?.lai || 0,
+              data_source: job.stats?.data_source || 'Google Earth Engine'
+            },
+            current_agb: {
+              total_agb: job.stats?.total_agb || 0,
+              canopy_cover: job.stats?.canopy_cover || 0,
+              tree_biomass: job.stats?.tree_biomass || 0
+            },
+            forecasting: job.stats?.forecasting || {},
+            timestamp: job.completed_at
+          };
+        }
+
+        if (job.status === 'failed') {
+          throw new Error(job.error_message || 'Job failed');
+        }
+
+        // Still processing, wait and retry
+        console.log(`⏳ Job ${jobId} still processing... (${attempt + 1}/${maxAttempts})`);
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds
+
+      } catch (error) {
+        if (attempt === maxAttempts - 1) {
+          throw new Error('Analysis took too long to complete. Please try again.');
+        }
+        // Continue polling on error
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
+    }
+
+    throw new Error('Analysis timeout - took too long to complete');
   }
 
   /**

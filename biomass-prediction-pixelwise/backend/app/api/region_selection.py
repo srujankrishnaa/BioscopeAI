@@ -6,10 +6,13 @@ Handles city subdivision into regions and satellite preview generation
 import os
 import logging
 from typing import Dict, List, Tuple, Optional
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, BackgroundTasks
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import numpy as np
+import gc
+from app.utils.s3_storage import get_s3_storage
+from app.utils.job_manager import get_job_manager
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -880,32 +883,62 @@ class RegionAnalysisRequest(BaseModel):
     city: str
 
 @router.post("/analyze-region")
-async def analyze_region(payload: dict, request: Request):
+async def analyze_region(payload: dict, request: Request, background_tasks: BackgroundTasks):
     """
-    Robust analyze-region endpoint with cache fallback
-    Always returns 200 (live/cache) or 503 (unavailable) - never 404
+    Start async heatmap generation job
+    Returns job ID immediately for polling
     """
-    # Try live pipeline (imports inside to avoid module-level failures)
+    city = payload.get("city", "Unknown")
+    region_name = payload.get("region_name", "Center")
+    region_bbox = payload.get("region_bbox", [77.0, 28.4, 77.3, 28.7])
+    
+    # Create job
+    job_manager = get_job_manager()
+    job_id = job_manager.create_job(city, region_name)
+    
+    # Start background processing
+    background_tasks.add_task(
+        process_and_upload_heatmap,
+        job_id=job_id,
+        city=city,
+        region_name=region_name,
+        region_bbox=tuple(region_bbox),
+        request_base_url=str(request.base_url)
+    )
+    
+    logger.info(f"🚀 Started background job {job_id} for {city} {region_name}")
+    
+    return {
+        "job_id": job_id,
+        "status": "processing",
+        "message": "Heatmap generation started. Poll /api/job-status/{job_id} for updates."
+    }
+
+
+def process_and_upload_heatmap(
+    job_id: str,
+    city: str,
+    region_name: str,
+    region_bbox: tuple,
+    request_base_url: str
+):
+    """Background task to generate heatmap and upload to S3"""
+    job_manager = get_job_manager()
+    s3_storage = get_s3_storage()
+    
     try:
-        # Heavy imports moved inside to prevent router loading failures
+        logger.info(f"🔄 Processing job {job_id}: {city} {region_name}")
+        
+        # Import heavy modules only when needed
         from app.models.gee_data_fetcher import GEEDataFetcher
+        from app.api.satellite_image_generator import generate_satellite_heatmap
         from datetime import datetime
-        
-        logger.info(f"Attempting live analysis for: {payload}")
-        
-        # Extract city and region info
-        city = payload.get("city", "Unknown")
-        region_name = payload.get("region_name", "Center")
-        region_bbox = payload.get("region_bbox", [77.0, 28.4, 77.3, 28.7])  # Default Delhi bbox
-        
-        # Convert to tuple for existing functions
-        bbox_tuple = tuple(region_bbox)
         
         # Initialize data fetcher (handles GEE credentials internally)
         gee_fetcher = GEEDataFetcher()
         
         # Fetch satellite data (automatically falls back to NASA GIBS if GEE unavailable)
-        satellite_data = gee_fetcher.fetch_satellite_data(bbox_tuple)
+        satellite_data = gee_fetcher.fetch_satellite_data(region_bbox)
         if not satellite_data or not satellite_data.get('success', False):
             raise Exception("Failed to fetch satellite data from all sources")
         
@@ -923,178 +956,68 @@ async def analyze_region(payload: dict, request: Request):
             satellite_data['lai']
         )
         
-        # Try to generate heatmap (optional - if this fails, we still return data)
-        heatmap_url = None
-        try:
-            from app.api.satellite_image_generator import generate_satellite_heatmap
-            heatmap_path = generate_satellite_heatmap(
-                f"{city} {region_name}",
-                f"Regional Analysis - {city}",
-                satellite_data['ndvi_array'],
-                biomass_results,
-                bbox_tuple,
-                use_real_satellite=True
-            )
-            # Ensure the path starts with / for proper URL construction
-            if not heatmap_path.startswith('/'):
-                heatmap_path = '/' + heatmap_path
-            heatmap_url = make_absolute_url(request, heatmap_path)
-            logger.info(f"Generated heatmap URL: {heatmap_url}")
-        except Exception as heatmap_error:
-            logger.warning(f"Heatmap generation failed: {heatmap_error}")
-            # Continue without heatmap
-        
-        # Calculate region center coordinates
-        min_lon, min_lat, max_lon, max_lat = bbox_tuple
-        center_lon = (min_lon + max_lon) / 2
-        center_lat = (min_lat + max_lat) / 2
-        
-        # Determine data source for user transparency
-        data_source = satellite_data.get('data_source', 'Unknown')
-        source_type = "live" if "Google Earth Engine" in data_source else "estimated"
-        
-        # Clean satellite_data for JSON serialization (remove numpy arrays)
-        clean_satellite_data = {
-            "ndvi": float(satellite_data.get('ndvi', 0.5)),
-            "evi": float(satellite_data.get('evi', 0.3)),
-            "lai": float(satellite_data.get('lai', 2.0)),
-            "lst": float(satellite_data.get('lst', 25.0)),
-            "data_source": data_source,
-            "date_range": satellite_data.get('date_range', 'N/A'),
-            "success": satellite_data.get('success', True)
-        }
-        
-        # Clean biomass_results for JSON serialization
-        clean_biomass_results = {
-            "total_agb": float(biomass_results.get('total_agb', 0)),
-            "tree_biomass": float(biomass_results.get('tree_biomass', 0)),
-            "shrub_biomass": float(biomass_results.get('shrub_biomass', 0)),
-            "herbaceous_biomass": float(biomass_results.get('herbaceous_biomass', 0)),
-            "canopy_cover": float(biomass_results.get('canopy_cover', 0)),
-            "cooling_potential": float(biomass_results.get('cooling_potential', 0)),
-            "carbon_sequestration": float(biomass_results.get('carbon_sequestration', 0))
-        }
-        
-        # Clean forecast_data for JSON serialization
-        clean_forecast_data = {
-            "current_year": float(forecast_data.get('current_year', 0)),
-            "year_1": float(forecast_data.get('year_1', 0)),
-            "year_2": float(forecast_data.get('year_2', 0)),
-            "year_3": float(forecast_data.get('year_3', 0)),
-            "year_5": float(forecast_data.get('year_5', 0)),
-            "growth_rate": float(forecast_data.get('growth_rate', 0)),
-            "methodology": str(forecast_data.get('methodology', 'N/A')),
-            "factors_considered": list(forecast_data.get('factors_considered', []))
-        }
-        
-        # Calculate urban metrics for frontend compatibility
-        agb = clean_biomass_results['total_agb']
-        canopy_cover = clean_biomass_results['canopy_cover']
-        
-        urban_metrics = {
-            "epi_score": int(min(100, (agb / 100.0) * 60 + (canopy_cover / 100) * 40)),
-            "tree_cities_score": int(min(100, (canopy_cover / 25.0) * 100)),
-            "green_space_ratio": round(canopy_cover / 100.0, 3),
-            "energy_savings": round(canopy_cover * 0.05, 2)  # Estimated energy savings
-        }
-        
-        # Generate planning recommendations
-        planning_recommendations = []
-        
-        if canopy_cover < 25:
-            planning_recommendations.append(
-                f"Current canopy cover is {canopy_cover:.1f}%. Consider establishing "
-                "urban forests and green corridors to increase carbon sequestration capacity."
-            )
-        
-        if agb < 40:
-            planning_recommendations.append(
-                "Current biomass density is below optimal levels. Focus on: "
-                "native species plantations, green roof programs, and park expansion."
-            )
-        
-        if urban_metrics['epi_score'] < 60:
-            planning_recommendations.append(
-                f"EPI score ({urban_metrics['epi_score']}/100) indicates room for improvement. "
-                "Implement smart irrigation systems to maintain vegetation health "
-                "during dry seasons and maximize biomass growth potential."
-            )
-        
-        planning_recommendations.append(
-            "Create neighborhood-level green infrastructure plans to distribute "
-            "biomass equitably across all districts, especially in high-density areas."
+        # Generate heatmap (saves to local disk)
+        heatmap_path = generate_satellite_heatmap(
+            f"{city} {region_name}",
+            f"Regional Analysis - {city}",
+            satellite_data['ndvi_array'],
+            biomass_results,
+            region_bbox,
+            use_real_satellite=True
         )
         
-        if agb > 70:
-            planning_recommendations.append(
-                f"Excellent biomass density ({agb:.1f} Mg/ha)! Maintain current "
-                "green spaces and consider implementing a monitoring program."
-            )
+        logger.info(f"✅ Generated heatmap locally: {heatmap_path}")
         
-        # Return live/estimated analysis result
-        logger.info(f"✅ Building response for {city} {region_name}...")
-        response_data = {
-            "status": "ok",
-            "source": source_type,
-            "city": city,
-            "region_name": region_name,
-            "location": {
-                "coordinates": f"{center_lat:.4f}, {center_lon:.4f}",
-                "bbox": [float(x) for x in bbox_tuple]
-            },
-            "timestamp": datetime.now().isoformat(),
-            "satellite_data": clean_satellite_data,
-            "current_agb": clean_biomass_results,
-            "forecasting": clean_forecast_data,
-            "urban_metrics": urban_metrics,
-            "planning_recommendations": planning_recommendations[:5],  # Limit to 5 recommendations
-            "heat_map": {
-                "image_url": heatmap_url,
-                "description": f"Biomass analysis for {region_name}, {city} ({data_source})"
-            },
-            "model_performance": {
-                "accuracy": "High" if "Google Earth Engine" in data_source else "Estimated",
-                "ground_truth": "Satellite-derived indices",
-                "processing_time": "Real-time",
-                "geographic_coverage": "Global"
+        # Upload to S3
+        s3_key = f"heatmaps/{job_id}.png"
+        s3_url = s3_storage.upload_heatmap(heatmap_path, s3_key)
+        
+        if not s3_url:
+            raise Exception("Failed to upload to S3")
+        
+        # Prepare stats for job completion
+        stats = {
+            "total_agb": float(biomass_results.get('total_agb', 0)),
+            "canopy_cover": float(biomass_results.get('canopy_cover', 0)),
+            "tree_biomass": float(biomass_results.get('tree_biomass', 0)),
+            "ndvi": float(satellite_data.get('ndvi', 0)),
+            "evi": float(satellite_data.get('evi', 0)),
+            "lai": float(satellite_data.get('lai', 0)),
+            "data_source": satellite_data.get('data_source', 'Unknown'),
+            "date_range": satellite_data.get('date_range', 'N/A'),
+            "forecasting": {
+                "year_1": float(forecast_data.get('year_1', 0)),
+                "year_2": float(forecast_data.get('year_2', 0)),
+                "year_3": float(forecast_data.get('year_3', 0)),
+                "year_5": float(forecast_data.get('year_5', 0)),
+                "growth_rate": float(forecast_data.get('growth_rate', 0))
             }
         }
-        logger.info(f"✅ Returning successful response for {city} {region_name}")
-        return response_data
+        
+        # Mark job as completed
+        job_manager.mark_completed(job_id, s3_url, stats)
+        
+        logger.info(f"✅ Job {job_id} completed successfully: {s3_url}")
+        
+        # Clean up memory
+        del satellite_data, biomass_results, forecast_data
+        gc.collect()
         
     except Exception as e:
-        logger.error(f"❌ Live analysis FAILED for {payload.get('city', 'unknown')}: {e}", exc_info=True)
-        logger.warning("Live analysis unavailable: %s", e)
+        logger.error(f"❌ Job {job_id} failed: {e}", exc_info=True)
+        job_manager.mark_failed(job_id, str(e))
 
-    # Fallback to cache
-    city = payload.get("city") or payload.get("location") or "UNKNOWN"
-    cache_dir = "./outputs/region_cache"
-    region_names = ["center", "north", "south", "east", "west"]
-    cached_entries = []
+
+@router.get("/job-status/{job_id}")
+async def get_job_status(job_id: str):
+    """Get status of heatmap generation job"""
+    job_manager = get_job_manager()
+    job = job_manager.get_job(job_id)
     
-    for region in region_names:
-        filename = os.path.join(cache_dir, city, f"{region}.png")
-        if os.path.exists(filename):
-            cached_entries.append({
-                "region": region,
-                "image_url": make_absolute_url(request, f"/api/cached-image/{city}/{region}")
-            })
-
-    if cached_entries:
-        logger.info("Serving cached images for %s: %s", city, [c["region"] for c in cached_entries])
-        return {
-            "status": "ok",
-            "source": "cache",
-            "city": city,
-            "regions": cached_entries,
-            "message": "Live analysis unavailable - showing cached preview"
-        }
-
-    # Nothing available
-    raise HTTPException(
-        status_code=503, 
-        detail="Live analysis unavailable and no cache found for city"
-    )
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    return job
 
 
 @router.get("/cached-image/{city}/{region}")
