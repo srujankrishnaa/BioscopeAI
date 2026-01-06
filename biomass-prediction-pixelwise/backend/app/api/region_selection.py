@@ -1032,7 +1032,8 @@ async def analyze_region(payload: dict, request: Request):
             )
         
         # Return live/estimated analysis result
-        return {
+        logger.info(f"✅ Building response for {city} {region_name}...")
+        response_data = {
             "status": "ok",
             "source": source_type,
             "city": city,
@@ -1058,8 +1059,11 @@ async def analyze_region(payload: dict, request: Request):
                 "geographic_coverage": "Global"
             }
         }
+        logger.info(f"✅ Returning successful response for {city} {region_name}")
+        return response_data
         
     except Exception as e:
+        logger.error(f"❌ Live analysis FAILED for {payload.get('city', 'unknown')}: {e}", exc_info=True)
         logger.warning("Live analysis unavailable: %s", e)
 
     # Fallback to cache
