@@ -274,23 +274,16 @@ class RobustGEEClient:
         }
     
     def _initialize_gee(self, service_account_key: Optional[str]):
-        """Initialize Google Earth Engine with proper error handling"""
+        """Check if Google Earth Engine is already initialized (by GEEDataFetcher)"""
         try:
-            if service_account_key and os.path.exists(service_account_key):
-                credentials = ee.ServiceAccountCredentials(
-                    email=None,
-                    key_file=service_account_key
-                )
-                ee.Initialize(credentials, project='ee-lanbprojectclassification')
-                logger.info("✅ GEE initialized with service account")
-            else:
-                ee.Initialize(project='ee-lanbprojectclassification')
-                logger.info("✅ GEE initialized with user authentication")
-            
+            # GEE should already be initialized globally by GEEDataFetcher with OAuth
+            # Just verify it's working by making a simple test call
+            ee.Number(1).getInfo()
+            logger.info("✅ GEE is already initialized and working")
             self.initialized = True
             
         except Exception as e:
-            logger.warning(f"⚠️ GEE initialization failed: {e}")
+            logger.warning(f"⚠️ GEE not available: {e}")
             logger.info("🔄 Will use NASA GIBS fallback for satellite data")
             self.initialized = False
     
@@ -665,7 +658,7 @@ def get_robust_gee_client() -> RobustGEEClient:
     
     if robust_gee_client is None:
         robust_gee_client = RobustGEEClient(
-            service_account_key=os.getenv('GEE_SERVICE_ACCOUNT_KEY'),
+            service_account_key=None,  # GEE already initialized by GEEDataFetcher with OAuth
             redis_url=os.getenv('REDIS_URL'),
             max_retries=int(os.getenv('GEE_MAX_RETRIES', '3')),
             rate_limit_rps=int(os.getenv('GEE_RATE_LIMIT_RPS', '10'))

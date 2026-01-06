@@ -1043,25 +1043,17 @@ def generate_satellite_heatmap(
     if use_real_satellite:
         logger.info(f"🛰️ Fetching HIGH-RES Sentinel-2 imagery for {city_name}...")
         try:
-            # Initialize GEE with project ID
-            try:
-                ee.Initialize(project='ee-lanbprojectclassification')
-                logger.info("✅ GEE initialized successfully")
-            except Exception as e:
-                logger.warning(f"GEE init failed: {e}")
-                use_real_satellite = False
+            # GEE should already be initialized by GEEDataFetcher with OAuth credentials
+            # Just try to use it directly - no need to re-initialize
+            result = fetch_high_res_satellite_and_ndvi(bbox, city_name, quality=quality)
             
-            if use_real_satellite:
-                # Fetch RGB satellite image and NDVI data array
-                result = fetch_high_res_satellite_and_ndvi(bbox, city_name, quality=quality)
-                
-                if result is not None:
-                    satellite_rgb = result['rgb']
-                    ndvi_data = result['ndvi']
-                    logger.info(f"✅ Successfully fetched satellite imagery: {satellite_rgb.shape}")
-                else:
-                    logger.warning("Could not get satellite image")
-                    use_real_satellite = False
+            if result is not None:
+                satellite_rgb = result['rgb']
+                ndvi_data = result['ndvi']
+                logger.info(f"✅ Successfully fetched satellite imagery: {satellite_rgb.shape}")
+            else:
+                logger.warning("Could not get satellite image")
+                use_real_satellite = False
         except Exception as e:
             logger.warning(f"Could not fetch satellite images: {e}")
             use_real_satellite = False
