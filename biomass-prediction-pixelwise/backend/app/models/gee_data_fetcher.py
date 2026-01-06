@@ -10,118 +10,94 @@ from datetime import datetime, timedelta
 import logging
 from typing import Dict, Tuple, Optional
 import os
+from google.oauth2.credentials import Credentials
 
 logger = logging.getLogger(__name__)
 
 class GEEDataFetcher:
     """Fetch satellite data using Google Earth Engine API"""
     
-    def __init__(self, service_account_key: Optional[str] = None):
+    def __init__(self):
         """
-        Initialize Google Earth Engine with OAuth or Service Account
+        Initialize Google Earth Engine with OAuth credentials.
         
-        Priority:
-        1. OAuth credentials (EE_CLIENT_ID, EE_CLIENT_SECRET, EE_REFRESH_TOKEN)
-        2. Service account key (GEE_SERVICE_ACCOUNT_KEY)
-        3. User authentication fallback
+        Required environment variables:
+        - EE_CLIENT_ID: OAuth client ID
+        - EE_CLIENT_SECRET: OAuth client secret
+        - EE_REFRESH_TOKEN: OAuth refresh token
+        
+        Optional:
+        - STRICT_GEE=true: Fail fast instead of allowing fallback
         """
         self.initialized = False
         
-        # Get service account key from environment if not provided
-        if service_account_key is None:
-            service_account_key = os.getenv('GEE_SERVICE_ACCOUNT_KEY')
+        # Check for strict mode
+        strict_mode = os.getenv('STRICT_GEE', 'false').lower() == 'true'
         
         try:
-            # OPTION 1: Try OAuth credentials first (recommended for production)
+            # Get OAuth credentials from environment
             ee_client_id = os.getenv('EE_CLIENT_ID')
             ee_client_secret = os.getenv('EE_CLIENT_SECRET')
             ee_refresh_token = os.getenv('EE_REFRESH_TOKEN')
             
-            if ee_client_id and ee_client_secret and ee_refresh_token:
-                try:
-                    logger.info("🔐 Found OAuth credentials, initializing GEE...")
-                    logger.info(f"   Client ID: {ee_client_id[:20]}...")
-                    logger.info(f"   Refresh token: {ee_refresh_token[:20]}...")
-                    
-                    credentials = ee.oauth.Credentials(
-                        client_id=ee_client_id,
-                        client_secret=ee_client_secret,
-                        refresh_token=ee_refresh_token,
-                        scopes=[
-                            "https://www.googleapis.com/auth/earthengine",
-                            "https://www.googleapis.com/auth/cloud-platform"
-                        ]
-                    )
-                    ee.Initialize(credentials, project='ee-lanbprojectclassification')
-                    logger.info("✅ SUCCESS: GEE initialized with OAuth credentials")
-                    self.initialized = True
-                    return
-                except Exception as oauth_err:
-                    logger.error(f"❌ OAuth initialization failed: {oauth_err}")
-                    logger.error(f"   Error type: {type(oauth_err).__name__}")
-                    # Don't return here - try service account as fallback
-            else:
+            # Validate all required credentials are present
+            if not all([ee_client_id, ee_client_secret, ee_refresh_token]):
                 missing = []
                 if not ee_client_id: missing.append("EE_CLIENT_ID")
                 if not ee_client_secret: missing.append("EE_CLIENT_SECRET")
                 if not ee_refresh_token: missing.append("EE_REFRESH_TOKEN")
-                if missing:
-                    logger.warning(f"⚠️ Missing OAuth env vars: {', '.join(missing)}")
-                logger.info("Trying service account instead...")
-            
-            # OPTION 2: Try service account
-            if service_account_key:
-                if os.path.exists(service_account_key):
-                    # File path provided
-                    credentials = ee.ServiceAccountCredentials(
-                        email=None,
-                        key_file=service_account_key
-                    )
-                    ee.Initialize(credentials, project='ee-lanbprojectclassification')
-                    logger.info("Initialized GEE with service account file")
+                
+                error_msg = f"Missing Earth Engine OAuth environment variables: {', '.join(missing)}"
+                logger.error(f"❌ {error_msg}")
+                
+                if strict_mode:
+                    raise RuntimeError(error_msg)
                 else:
-                    # JSON content provided as environment variable
-                    try:
-                        import json
-                        import tempfile
-                        
-                        # Parse JSON content
-                        key_data = json.loads(service_account_key)
-                        
-                        # Create temporary file for credentials
-                        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
-                            json.dump(key_data, f)
-                            temp_key_file = f.name
-                        
-                        credentials = ee.ServiceAccountCredentials(
-                            email=key_data.get('client_email'),
-                            key_file=temp_key_file
-                        )
-                        ee.Initialize(credentials, project='ee-lanbprojectclassification')
-                        logger.info("Initialized GEE with service account JSON")
-                        
-                        # Clean up temp file
-                        os.unlink(temp_key_file)
-                        
-                    except (json.JSONDecodeError, KeyError) as e:
-                        logger.warning(f"Invalid GEE service account JSON: {e}")
-                        raise Exception("Invalid service account credentials")
-            else:
-                # Try to initialize with user authentication
-                try:
-                    ee.Initialize(project='ee-lanbprojectclassification')
-                    logger.info("✅ Initialized GEE with user authentication")
-                except Exception as init_err:
-                    logger.warning(f"GEE not initialized: {init_err} - will use alternative data source")
+                    logger.warning("⚠️ GEE will not be available - using fallback data sources")
                     self.initialized = False
                     return
             
+            logger.info("🔐 Initializing Google Earth Engine with OAuth credentials...")
+            logger.info(f"   Client ID: {ee_client_id[:30]}...")
+            logger.info(f"   Refresh token: {ee_refresh_token[:30]}...")
+            
+            # Create OAuth credentials using google.oauth2.credentials
+            creds = Credentials(
+                token=None,
+                refresh_token=ee_refresh_token,
+                token_uri="https://oauth2.googleapis.com/token",
+                client_id=ee_client_id,
+                client_secret=ee_client_secret,
+                scopes=[
+                    "https://www.googleapis.com/auth/earthengine",
+                    "https://www.googleapis.com/auth/cloud-platform",
+                ],
+            )
+            
+            # CRITICAL: Explicitly bind credentials to Earth Engine data module
+            ee.data.setCredentials(creds)
+            
+            # Initialize Earth Engine
+            ee.Initialize(
+                credentials=creds,
+                project='ee-lanbprojectclassification'
+            )
+            
+            logger.info("✅ SUCCESS: Google Earth Engine initialized with OAuth")
             self.initialized = True
             
         except Exception as e:
-            logger.warning(f"Could not initialize Google Earth Engine: {e}")
-            logger.info("Will use alternative data fetching methods")
-            self.initialized = False
+            logger.error(f"❌ GEE initialization failed: {e}")
+            logger.error(f"   Error type: {type(e).__name__}")
+            import traceback
+            logger.error(f"   Traceback: {traceback.format_exc()}")
+            
+            if strict_mode:
+                logger.error("🔴 STRICT_GEE=true: Failing fast")
+                raise
+            else:
+                logger.warning("⚠️ GEE unavailable - will use alternative data fetching methods")
+                self.initialized = False
     
     def get_city_bbox(self, city_name: str) -> Optional[Tuple[float, float, float, float]]:
         """

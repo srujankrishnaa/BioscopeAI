@@ -16,6 +16,7 @@ folium>=0.12.0
 Pillow>=8.3.0
 rasterio>=1.2.0  # Added for SRTM data processing
 earthengine-api>=0.1.350  # Google Earth Engine
+google-auth>=2.0.0  # For GEE OAuth authentication
 redis>=4.0.0  # For caching
 aiofiles>=0.8.0  # For async file operations
 
