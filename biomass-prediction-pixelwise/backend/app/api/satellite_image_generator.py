@@ -50,10 +50,10 @@ def get_quality_settings(quality: str = 'balanced') -> dict:
             'interpolation': 'lanczos'
         },
         'balanced': {
-            'dimensions': 1792,
+            'dimensions': 1024,  # Reduced for 512MB RAM limit
             'collection_limit': 12,
             'rgb_stats_scale': 300,
-            'save_dpi': 200,
+            'save_dpi': 100,  # Reduced for memory optimization
             'interpolation': 'nearest'
         },
         'fast': {
@@ -374,27 +374,27 @@ def fetch_high_res_satellite_and_ndvi(bbox: tuple, region_name: str, max_pixels:
     # Define optimized export strategies based on region size
     if bbox_area <= 0.1:  # Small regions
         export_strategies = [
-            {"name": "high_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(2048, max_pixels)},
-            {"name": "optimal_scale", "use_scale": True, "use_dimensions": False, "target_meters": 8},
-            {"name": "medium_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(1792, max_pixels)},
-            {"name": "balanced_scale", "use_scale": True, "use_dimensions": False, "target_meters": 10},
-            {"name": "emergency_clip", "use_scale": True, "use_dimensions": False, "emergency_clip": True, "target_meters": 6}
-        ]
-    elif bbox_area <= 0.3:  # Medium regions
-        export_strategies = [
-            {"name": "high_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(2048, max_pixels)},
+            {"name": "high_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(1024, max_pixels)},
             {"name": "optimal_scale", "use_scale": True, "use_dimensions": False, "target_meters": 10},
-            {"name": "medium_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(1792, max_pixels)},
+            {"name": "medium_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(768, max_pixels)},
             {"name": "balanced_scale", "use_scale": True, "use_dimensions": False, "target_meters": 12},
             {"name": "emergency_clip", "use_scale": True, "use_dimensions": False, "emergency_clip": True, "target_meters": 8}
         ]
-    else:  # Large regions (states)
+    elif bbox_area <= 0.3:  # Medium regions
         export_strategies = [
-            {"name": "high_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(2048, max_pixels)},
+            {"name": "high_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(1024, max_pixels)},
             {"name": "optimal_scale", "use_scale": True, "use_dimensions": False, "target_meters": 12},
-            {"name": "medium_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(1792, max_pixels)},
+            {"name": "medium_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(768, max_pixels)},
             {"name": "balanced_scale", "use_scale": True, "use_dimensions": False, "target_meters": 15},
             {"name": "emergency_clip", "use_scale": True, "use_dimensions": False, "emergency_clip": True, "target_meters": 10}
+        ]
+    else:  # Large regions (states)
+        export_strategies = [
+            {"name": "high_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(1024, max_pixels)},
+            {"name": "optimal_scale", "use_scale": True, "use_dimensions": False, "target_meters": 15},
+            {"name": "medium_quality_dimensions", "use_scale": False, "use_dimensions": True, "target_pixels": min(768, max_pixels)},
+            {"name": "balanced_scale", "use_scale": True, "use_dimensions": False, "target_meters": 18},
+            {"name": "emergency_clip", "use_scale": True, "use_dimensions": False, "emergency_clip": True, "target_meters": 12}
         ]
     
     for strategy_idx, export_strategy in enumerate(export_strategies):
@@ -1029,8 +1029,8 @@ def generate_satellite_heatmap(
     filename = f"biomass_heatmap_{city_name.lower().replace(' ', '_')}_{timestamp}.png"
     filepath = output_dir / filename
     
-    # Create HIGH-RESOLUTION figure with TWO PANELS (side-by-side)
-    fig = plt.figure(figsize=(32, 14), dpi=200)  # Wide format for side-by-side
+    # Create optimized figure for 512MB RAM limit (reduced from 32x14@200dpi)
+    fig = plt.figure(figsize=(16, 8), dpi=100)  # Optimized for memory
     
     # Create 1 row, 2 columns of subplots
     ax1 = plt.subplot(121)  # Left panel - Raw satellite
