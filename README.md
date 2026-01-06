@@ -320,17 +320,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Srujan Krishna**
 - GitHub: [@srujankrishnaa](https://github.com/srujankrishnaa)
-- Email: [your-email@domain.com]
-- LinkedIn: [Your LinkedIn Profile]
+- Email: srujankrishnac1@gmail.com
+- LinkedIn: https://www.linkedin.com/in/srujan-krishna-944a03257
 
-## 🔗 Links
-
-- **Live Demo**: [https://bioscope-ai.vercel.app](https://bioscope-ai.vercel.app)
-- **API Documentation**: [https://api.bioscope-ai.com/docs](https://api.bioscope-ai.com/docs)
-- **Research Paper**: [Link to published paper]
-- **Dataset**: [Link to dataset repository]
-
----
 
 <div align="center">
 
