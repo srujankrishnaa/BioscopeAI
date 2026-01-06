@@ -74,10 +74,7 @@ class GEEDataFetcher:
                 ],
             )
             
-            # CRITICAL: Explicitly bind credentials to Earth Engine data module
-            ee.data.setCredentials(creds)
-            
-            # Initialize Earth Engine
+            # Initialize Earth Engine with OAuth credentials
             ee.Initialize(
                 credentials=creds,
                 project='ee-lanbprojectclassification'
