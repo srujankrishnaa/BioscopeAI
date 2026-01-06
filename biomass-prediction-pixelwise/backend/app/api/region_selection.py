@@ -968,6 +968,10 @@ def process_and_upload_heatmap(
         
         logger.info(f"✅ Generated heatmap locally: {heatmap_path}")
         
+        # Fix path for S3 upload (remove leading / if present, convert to proper file path)
+        if heatmap_path.startswith('/'):
+            heatmap_path = '.' + heatmap_path
+        
         # Upload to S3
         s3_key = f"heatmaps/{job_id}.png"
         s3_url = s3_storage.upload_heatmap(heatmap_path, s3_key)
