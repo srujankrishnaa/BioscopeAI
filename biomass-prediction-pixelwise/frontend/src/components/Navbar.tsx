@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,16 +36,18 @@ const Navbar: React.FC = () => {
         {/* Navigation Links - Desktop */}
         <div className="hidden md:flex items-center space-x-8">
           <a href="/" className="text-off-white hover:text-neon-100 transition-colors text-sm font-medium">Home</a>
-          <a href="/login" className="text-off-white hover:text-neon-100 transition-colors text-sm font-medium">
-            Log In
-          </a>
-          <a href="/dashboard" className="bg-neon-100 text-green px-6 py-2 rounded-full font-semibold text-sm hover:bg-neon-80 transition-all">
-            Get Started
-          </a>
+          {isHomePage && (
+            <a
+              href="/model"
+              className="bg-neon-100 text-green px-6 py-2 rounded-full font-semibold text-sm hover:bg-neon-80 transition-all"
+            >
+              Get Started
+            </a>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-off-white">
+        <button className="md:hidden text-off-white" aria-label="Open menu" title="Open menu">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>

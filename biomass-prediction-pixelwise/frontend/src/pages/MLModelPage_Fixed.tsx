@@ -436,9 +436,9 @@ const MLModelPage: React.FC = () => {
                                     size="lg"
                                     particleCount={20}
                                     className="border-2 border-neon-100 text-neon-100 hover:bg-neon-100 hover:text-green px-12 py-5 text-lg font-bold shadow-xl"
-                                    onClick={() => window.location.href = '/dashboard'}
+                                    onClick={() => window.location.href = '/model'}
                                 >
-                                    📊 VIEW DASHBOARD
+                                    🛰️ BACK TO MODEL
                                 </MagnetizeButton>
                             </div>
                         </div>

@@ -426,6 +426,9 @@ const MLModelPage: React.FC = () => {
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>
+                  <div className="mt-4 text-off-white/70 text-sm text-center">
+                    Note: This research demo may take <span className="text-neon-100 font-semibold">30–90 seconds</span> depending on satellite availability and server load. Please be patient and don’t refresh the page.
+                  </div>
                   <div className="mt-6 text-off-white/70 text-base text-center font-medium">
                     {progress < 30 && "📍 Geocoding city location..."}
                     {progress >= 30 && progress < 60 && "🛰️ Fetching satellite imagery from Google Earth Engine..."}

@@ -35,14 +35,6 @@ const LandingPage: React.FC = () => {
           <div className="flex items-center space-x-6">
             <button
               type="button"
-              onClick={() => window.location.href = '/login'}
-              className="text-white hover:text-neon-100 transition-colors text-sm font-medium"
-              style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.7)' }}
-            >
-              LOG IN
-            </button>
-            <button
-              type="button"
               onClick={() => window.location.href = '/model'}
               className="bg-neon-100 text-green px-6 py-2 rounded-full font-semibold text-sm hover:bg-neon-80 transition-all shadow-lg hover:scale-105 transform"
             >
