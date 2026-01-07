@@ -589,12 +589,18 @@ const MLModelPage: React.FC = () => {
                   </div>
                   <div className="bg-off-white/5 rounded-2xl overflow-hidden border-2 border-off-white/10 shadow-inner">
                     <img
-                      src={`${process.env.REACT_APP_API_URL || 'http://localhost:8000'}${analysisResult.heat_map.image_url}`}
+                      src={
+                        analysisResult.heat_map?.image_url?.startsWith('http')
+                          ? analysisResult.heat_map.image_url
+                          : `${process.env.REACT_APP_API_URL || 'http://localhost:8000'}${analysisResult.heat_map.image_url}`
+                      }
                       alt={`Above Ground Biomass analysis of ${selectedRegion ? selectedRegion.name : analysisResult.city}`}
                       className="w-full h-auto"
                       onError={(e) => {
                         const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-                        const fullUrl = `${baseUrl}${analysisResult.heat_map.image_url}`;
+                        const fullUrl = analysisResult.heat_map?.image_url?.startsWith('http')
+                          ? analysisResult.heat_map.image_url
+                          : `${baseUrl}${analysisResult.heat_map.image_url}`;
                         console.error('❌ Failed to load heatmap image:');
                         console.error('  - Image URL from API:', analysisResult.heat_map.image_url);
                         console.error('  - Base URL:', baseUrl);
@@ -605,7 +611,9 @@ const MLModelPage: React.FC = () => {
                       }}
                       onLoad={() => {
                         const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-                        const fullUrl = `${baseUrl}${analysisResult.heat_map.image_url}`;
+                        const fullUrl = analysisResult.heat_map?.image_url?.startsWith('http')
+                          ? analysisResult.heat_map.image_url
+                          : `${baseUrl}${analysisResult.heat_map.image_url}`;
                         console.log('✅ Heatmap image loaded successfully:');
                         console.log('  - Image URL from API:', analysisResult.heat_map.image_url);
                         console.log('  - Full constructed URL:', fullUrl);
