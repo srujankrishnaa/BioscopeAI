@@ -10,6 +10,9 @@ from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 from pydantic import BaseModel
 
+# Keep-alive self-ping to prevent Render free-tier sleep
+from app.keep_alive import start_keep_alive, stop_keep_alive, get_keep_alive_status
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -28,7 +31,10 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 async def lifespan(app: FastAPI):
     """Application lifespan events."""
     logger.info("Starting up Biomass Prediction API...")
+    # Start self-ping to prevent Render free-tier cold starts
+    start_keep_alive()
     yield
+    stop_keep_alive()
     logger.info("Shutting down Biomass Prediction API...")
 
 # Create FastAPI app
@@ -161,8 +167,13 @@ async def root():
 
 @app.get("/health")
 async def health_check():
-    """Health check endpoint."""
-    return {"status": "healthy"}
+    """Health check endpoint — also used by UptimeRobot and self-ping keep-alive."""
+    return {"status": "healthy", "timestamp": __import__('datetime').datetime.now().isoformat()}
+
+@app.get("/keep-alive-status")
+async def keep_alive_status():
+    """Get the current status of the keep-alive self-ping mechanism."""
+    return get_keep_alive_status()
 
 @app.get("/api/system-status")
 async def system_status():

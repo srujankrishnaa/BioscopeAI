@@ -11,6 +11,7 @@ pydantic-settings>=2.0.0
 # Data Processing
 numpy>=1.24.0
 requests>=2.31.0
+httpx>=0.24.0,<1.0.0  # Async HTTP client for keep-alive self-ping
 
 # Visualization
 matplotlib>=3.7.0
