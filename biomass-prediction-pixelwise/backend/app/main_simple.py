@@ -84,7 +84,7 @@ async def root():
     """Root endpoint."""
     return {"message": "Biomass Prediction API (Simplified)", "version": "1.0.0"}
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 async def health_check():
     """Health check endpoint — also used by UptimeRobot and self-ping keep-alive."""
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}

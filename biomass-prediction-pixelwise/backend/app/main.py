@@ -165,7 +165,7 @@ async def root():
         "timestamp": "2025-10-15T17:30:00Z"
     }
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 async def health_check():
     """Health check endpoint — also used by UptimeRobot and self-ping keep-alive."""
     return {"status": "healthy", "timestamp": __import__('datetime').datetime.now().isoformat()}
