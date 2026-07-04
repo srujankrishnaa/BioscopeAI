@@ -11,7 +11,6 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import numpy as np
 import gc
-from app.utils.s3_storage import get_s3_storage
 from app.utils.job_manager import get_job_manager
 
 logger = logging.getLogger(__name__)
@@ -922,9 +921,8 @@ def process_and_upload_heatmap(
     region_bbox: tuple,
     request_base_url: str
 ):
-    """Background task to generate heatmap and upload to S3"""
+    """Background task to generate heatmap and serve via local file endpoint"""
     job_manager = get_job_manager()
-    s3_storage = get_s3_storage()
     
     try:
         logger.info(f"🔄 Processing job {job_id}: {city} {region_name}")
@@ -968,22 +966,24 @@ def process_and_upload_heatmap(
         
         logger.info(f"✅ Generated heatmap locally: {heatmap_path}")
         
-        # Fix path for S3 upload (remove leading / if present, convert to proper file path)
+        # Serve heatmap from local filesystem via FastAPI's /outputs/ route
+        # The heatmap_path is already in the format "/outputs/heatmaps/..."
+        # Construct the full URL so the frontend can fetch it
+        base_url = request_base_url.rstrip('/')
         if heatmap_path.startswith('/'):
-            heatmap_path = '.' + heatmap_path
-        
-        # Upload to S3
-        s3_key = f"heatmaps/{job_id}.png"
-        s3_url = s3_storage.upload_heatmap(heatmap_path, s3_key)
-        
-        if not s3_url:
-            raise Exception("Failed to upload to S3")
+            heatmap_url = f"{base_url}{heatmap_path}"
+        else:
+            heatmap_url = f"{base_url}/{heatmap_path}"
         
         # Prepare stats for job completion
         stats = {
             "total_agb": float(biomass_results.get('total_agb', 0)),
             "canopy_cover": float(biomass_results.get('canopy_cover', 0)),
             "tree_biomass": float(biomass_results.get('tree_biomass', 0)),
+            "shrub_biomass": float(biomass_results.get('shrub_biomass', 0)),
+            "herbaceous_biomass": float(biomass_results.get('herbaceous_biomass', 0)),
+            "carbon_sequestration": float(biomass_results.get('carbon_sequestration', 0)),
+            "cooling_potential": float(biomass_results.get('cooling_potential', 0)),
             "ndvi": float(satellite_data.get('ndvi', 0)),
             "evi": float(satellite_data.get('evi', 0)),
             "lai": float(satellite_data.get('lai', 0)),
@@ -998,10 +998,10 @@ def process_and_upload_heatmap(
             }
         }
         
-        # Mark job as completed
-        job_manager.mark_completed(job_id, s3_url, stats)
+        # Mark job as completed with the local file URL
+        job_manager.mark_completed(job_id, heatmap_url, stats)
         
-        logger.info(f"✅ Job {job_id} completed successfully: {s3_url}")
+        logger.info(f"✅ Job {job_id} completed successfully: {heatmap_url}")
         
         # Clean up memory
         del satellite_data, biomass_results, forecast_data
